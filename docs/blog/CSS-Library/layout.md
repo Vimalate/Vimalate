@@ -308,3 +308,19 @@ html 同 3
 }
 </style>
 ```
+## 一个自适应矩形，水平垂直居中，且宽高比为 2:1
+
+```css
+.box {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+
+    width:10%;
+    height:0;
+    padding-top:20vw;
+    background:red;
+}
