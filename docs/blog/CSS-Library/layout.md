@@ -155,7 +155,7 @@ HTML  center 放置中间
         .center {
             background: skyblue;
             height: 100%;
-           flex: 1;
+            flex: 1;
         }
 ```
 

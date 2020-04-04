@@ -39,7 +39,15 @@ module.exports = {
                     { text: '琐碎', link: '/blog/CSS-Library/CSS-study.md' },
                 ]
             },
-            { text: '静墨书城', link: 'http://vimalakirti.fun/' },
+            {
+                text: '在线作品',  //默认显示        
+                ariaLabel: '每日学习',   //用于识别的label
+                items: [
+                    { text: '静墨书城', link: 'http://vimalakirti.fun/' },  
+                    //点击标签会跳转至link的markdown文件生成的页面
+                    { text: '携程旅行', link: 'https://vimalate.github.io/travel/dist' },
+                ]
+            },
             
             //格式三：跳转至外部网页，需http/https前缀
             { text: 'Github', link: 'https://github.com/Vimalate' },
