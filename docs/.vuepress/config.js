@@ -55,7 +55,14 @@ module.exports = {
         
         //侧边导航栏：会根据当前的文件路径是否匹配侧边栏数据，自动显示/隐藏
         sidebar: {
-            '/blog/':[         
+            '/blog/':[
+                {
+                    title: 'HTML',
+                    collapsable: false, 
+                    children: [
+                        ['HTML-Library/HTML-Study', '常见HTML问题']
+                    ]
+                },         
                 {
                     title: 'CSS',   // 一级菜单名称
                     collapsable: false, // false为默认展开菜单, 默认值true是折叠,
@@ -68,20 +75,14 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'HTML',
-                    collapsable: false, 
-                    children: [
-                        ['HTML-Library/HTML-Study', '常见HTML问题']
-                    ]
-                },
-                {
                     title: 'Javascript',
                     collapsable: false, 
                     children: [
                         ['Javascript-Library/聊聊原型和原型链', '聊聊原型和原型链'],
                         ['Javascript-Library/js存储和垃圾回收', 'js存储和垃圾回收'],
                         ['Javascript-Library/new', 'new一个对象发生了什么'],
-                        ['Javascript-Library/我都知道的JS', '我都知道的JS']
+                        ['Javascript-Library/我都知道的JS', '我都知道的JS'],
+                        ['Javascript-Library/Javascript 面试题', 'Javascript 面试题'],
                     ]
                 },
                 {
