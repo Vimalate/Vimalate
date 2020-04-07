@@ -96,6 +96,7 @@ module.exports = {
                     title:'Other',
                     collapsable:true,
                     children:[
+                        ['Other-Library/进阶图谱','前端进基础知识图谱'],
                         ['Other-Library/那些年，我们忘了的正则 ×','那些年，我们忘了的正则 ×'],
                         ['Other-Library/利器推荐','利器推荐'],
                         ['Other-Library/前端模块化：CommonJS,AMD,CMD,ES6','前端模块化：CommonJS,AMD,CMD,ES6'],
