@@ -90,6 +90,7 @@ module.exports = {
                     collapsable: false, 
                     children: [
                         ['VUE-Library/vue响应原理', 'vue响应原理'],
+                        ['VUE-Library/vue 整理面试题', 'vue 整理面试题'],
                     ]
                 },
                 {
