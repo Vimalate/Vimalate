@@ -212,6 +212,8 @@ $route 是“路由信息对象”，包括 path，params，hash，query，fullP
 ## v-for中的key不建议使用index
 
 我们使用 v-for 时，其内部 diff 算法使用就地复用原则，当列表数据发生更改，他是根据 key 值来判断某个值是否修改，如修改，则重新渲染，否则就复用这一项。key的作用也主要是为了高效的更新虚拟DOM，而 index 则不能做到。
+
+也就是说如果你的列表顺序会改变，别用 index 作为 key，和没写基本上没区别，因为不管你数组的顺序怎么颠倒，index 都是 0, 1, 2 这样排列，导致 Vue 会复用错误的旧子节点，做很多额外的工作。列表顺序不变也尽量别用，可能会误导新人。
 [具体参考： v-for中的key](https://juejin.im/post/5aae19aa6fb9a028d4445d1a)
 
 ##  了解 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？
