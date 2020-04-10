@@ -91,6 +91,7 @@ module.exports = {
                     children: [
                         ['VUE-Library/vue响应原理', 'vue响应原理'],
                         ['VUE-Library/vue 整理面试题', 'vue 整理面试题'],
+                        ['VUE-Library/vue项目问题总结', 'vue项目问题总结'],
                     ]
                 },
                 {
