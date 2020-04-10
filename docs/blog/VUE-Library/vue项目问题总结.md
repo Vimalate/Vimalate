@@ -19,3 +19,11 @@
     }
   }
 ```
+
+## van-tree-select 设置剩余高度
+
+```css
+<van-tree-select height="calc(100vh-114px)" :items="categoryList" :main-active-index.sync="active">
+```
+
+使用 ```height="calc(100vh-114px)"```
