@@ -2,6 +2,8 @@
 
 一些时候UI组件提供的默认的样式不能满足项目的需要，就需要我们对它的样式进行修改，但是发现加了scoped后修改的样式不起作用。
 
+>注：div中使用v-html，里面的图片溢出也是同样解决方法
+
 **解决方法：**
 ```css
 <style scoped>
@@ -26,7 +28,7 @@
 <van-tree-select height="calc(100vh-114px)" :items="categoryList" :main-active-index.sync="active">
 ```
 
-使用 ```height="calc(100vh-114px)"```
+使用 ```height="calc(100vh-114px)"``` 114px 为上下 tab 所占高度
 
 ## Vue中使用this.$forceUpdate()强制刷新渲染
 
