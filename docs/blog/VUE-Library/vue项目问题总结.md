@@ -41,3 +41,24 @@
 ## postcss-pxtorem
 postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小了）
 [参考及实现](https://juejin.im/post/5d6cb8aae51d4561cc25f08f)
+
+## element UI 自定义传参的解决方法
+
+```html
+<el-autocomplete
+    v-model="data"
+    :fetch-suggestions="querySearchAsync"
+    placeholder="请输入内容"
+    @select="handleSelect"
+></el-autocomplete>
+```
+**使用闭包解决：**
+```html
+<el-autocomplete
+    v-model="data"
+    :fetch-suggestions="querySearchAsync"
+    placeholder="请输入内容"
+    //使用闭包,index 表示所选的第几个组件
+    @select="((item)=>{handleSelect(item,index)})"
+></el-autocomplete>
+```
