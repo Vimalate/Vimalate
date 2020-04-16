@@ -14,28 +14,94 @@
 
 ## 继承
 
-1、 **原型链继承**
+### 原型链继承
 父类中的属性和方法在子类实例的原型链上
+```js
+function Parent() {
+    this.name = 'Parent;
+    this.arr[1,2,3]
+}
+//在父类的原型对象上添加一个getName方法
+Parent.prototype.getName = function() {
+    console.log(this.name);
+}
+
+function Child(){
+}
+// 子类的原型对象 指向 父类的实例对象
+Child.prototype = new Parent();
+let child1=new 
+console.log(new Child)
+```
+![原型及原型链关系图](https://i.loli.net/2019/07/24/5d37cfe39a31b43977.png)
 改变原型链指向
-```child.prototype=new parent()```
+
+```Child.prototype=new parent()```
+
+实际上，我们是不能直接 操作__proto__，所以
+
+```Child.prototype = new Parent(); <=> Child.prototype.__proto__ = Parent.prototype```
 
 **特点**： 
 - 不像一般语言中的继承，（子类继承父类，是拷贝一份父类中的属性和方法），是把父类的原型放到子类实例的原型链上，实例想调取这些方法，得基于__proto__原型链查找完成。
 - 子类可改写父类上的方法（会导致父类其他实例受影响）
 - 父类中公有或私有的属性方法都会变成子类中公有的属性和方法。
 
-## call 继承和寄生组合继承
+### call 继承(借用构造函数)
+```js
+ function Parent() {
+   this.name = 'parent1';
+ }
+ 
+ Parent.prototype.say = function () {}
+ 
+ function Child() {
+   Parent.call(this);
+   this.type = 'child';
+ }
+
+ console.log(new Child);
+```
+
 **call 继承特点：**
 child 方法中把parents当做普通函数执行，让parents中的this 指向child的实例，相当于给child 的实例设置了私有的属性和方法。
     1. 只能继承父类私有的属性和方法
     2. 父类私有变为子类私有
 
-**寄生组合继承**
+### 寄生组合继承
 call 继承+类似于原型链继承
 
 ```Object.create()```
+
+```js
+/**
+ * 组合方式
+ */
+
+function Parent() {
+  this.name = 'Parent';
+  this.play = [1, 2, 3];
+}
+
+Parent.prototype.say = function () { }
+
+function Child () {
+  Parent.call(this);
+  this.type = 'Child';
+}
+
+Child.prototype = new Parent();
+
+var s3 = new Child();
+var s4 = new Child();
+s3.play.push(4);
+console.log(new Child);
+console.log(s3.play, s4.play)
+```
 
 特点：父类私有和公有分别都为子类公有和私有
 
 ## ES6 继承
 class child extends parent{}
+**参考**
+[隔壁小孩也能看懂的 7 种 JavaScript 继承实现](https://juejin.im/post/5ceb468af265da1bd1463585)
