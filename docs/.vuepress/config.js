@@ -79,6 +79,7 @@ module.exports = {
                     collapsable: false, 
                     children: [
                         ['Javascript-Library/聊聊原型和原型链', '聊聊原型和原型链'],
+                        ['Javascript-Library/js继承', 'js里的继承'],
                         ['Javascript-Library/js存储和垃圾回收', 'js存储和垃圾回收'],
                         ['Javascript-Library/new', 'new一个对象发生了什么'],
                         ['Javascript-Library/我都知道的JS', '我都知道的JS'],
@@ -98,7 +99,7 @@ module.exports = {
                     title:'Other',
                     collapsable:true,
                     children:[
-                        ['Other-Library/进阶图谱','前端进基础知识图谱'],
+                        ['Other-Library/进阶图谱','前端基础知识图谱'],
                         ['Other-Library/那些年，我们忘了的正则 ×','那些年，我们忘了的正则 ×'],
                         ['Other-Library/利器推荐','利器推荐'],
                         ['Other-Library/前端模块化：CommonJS,AMD,CMD,ES6','前端模块化：CommonJS,AMD,CMD,ES6'],
