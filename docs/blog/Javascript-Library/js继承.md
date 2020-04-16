@@ -102,6 +102,32 @@ console.log(s3.play, s4.play)
 特点：父类私有和公有分别都为子类公有和私有
 
 ## ES6 继承
-class child extends parent{}
+```class child extends parent{}```
+```js
+// ES6 
+
+class parents {
+    constructor(){
+        this.grandmather = 'rose';
+        this.grandfather = 'jack';
+    }
+}
+
+class children extends parents{
+    constructor(mather,father){
+    //super 关键字，它在这里表示父类的构造函数，用来新建父类的 this 对象。
+        super();
+        this.mather = mather;
+        this.father = father;
+    }
+}
+
+let child = new children('mama','baba');
+console.log(child) // =>
+// father: "baba"
+// grandfather: "jack"
+// grandmather: "rose"
+// mather: "mama"
+```
 **参考**
 [隔壁小孩也能看懂的 7 种 JavaScript 继承实现](https://juejin.im/post/5ceb468af265da1bd1463585)
