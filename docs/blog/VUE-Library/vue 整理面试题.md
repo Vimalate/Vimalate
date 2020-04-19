@@ -83,9 +83,9 @@ export const EventBus = new Vue()
 
 ## computed 和 watch 区别
 
-`computed` 是计算属性，依赖其他属性计算值，并且 `computed` 的值有**缓存**，只有当计算值变化才会返回内容。
+`computed` 是计算属性，依赖其他属性计算值，并且 `computed` 的值有**缓存**，只有当计算值变化才会返回内容。内部做了一个一个 dirty ,实现缓存。当依赖的属性发生变化，就会让 dirty 变为true
 
-`watch` 监听到值的变化就会**执行回调，**在回调中可以进行一些逻辑操作。
+`watch` 监听到值的变化就会**执行回调，**在回调中可以进行一些逻辑操作。可设置 deep:true 深层次监听，利用递归实现。
 
 所以一般来说需要依赖别的属性来动态获得值的时候可以使用 `computed`，对于监听到值的变化需要做一些复杂业务逻辑的情况可以使用 `watch`。
 
@@ -159,6 +159,8 @@ micro-task(微任务)：
 依次循环。。。
 
 nextTick 的主要实现依赖于 微任务，但 Vue 为了做好一些兼容，优先使用 promise ，其次是 html5 的 MutationObserver，然后是setTimeout。前两者属于microtask，后一个属于 macrotask。
+
+优先尝试 Promise ，尝试 MutationObserver，尝试 setImmediate，最终不行在使用 setTimeout
 
 参考：[从 javascript 事件循环看 Vue.nextTick 的原理和执行机制](https://juejin.im/post/5e899111f265da47d4056689)
 
