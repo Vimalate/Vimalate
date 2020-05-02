@@ -66,4 +66,4 @@ postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小�
 
 ## calc 计算高度
 
-```  height: calc( 100vh - 36px );`` calc 里面记得空格
+```  height: calc( 100vh - 36px );`` calc 里面记得空格，否则不生效
