@@ -25,14 +25,17 @@
 ## van-tree-select 设置剩余高度
 
 ```css
-<van-tree-select height="calc(100vh-114px)" :items="categoryList" :main-active-index.sync="active">
+<van-tree-select height="calc(100vh - 114px)" :items="categoryList" :main-active-index.sync="active">
 ```
 
-使用 ```height="calc(100vh-114px)"``` 114px 为上下 tab 所占高度
+使用 ```height="calc(100vh - 114px)"``` 114px 为上下 tab 所占高度
+## calc 计算高度
+
+```height: calc( 100vh - 36px );``` calc 里面记得空格，否则不生效
 
 ## Vue中使用this.$forceUpdate()强制刷新渲染
 
-当使用了v-for嵌套循环，外层循环了一个数组，且外层数组中的每一项底下又有一个子项的数组，并且当外层列表是不变的，而内部的子项列表确实在动态改变时
+当使用了v-for嵌套循环，外层循环了一个数组，且外层数组中的每一项底下又有一个子项的数组，并且当外层列表是不变的，而内部的子项列表确是在动态改变时
 
 **出现改变子项数组元素后，页面并没有被及时渲染改变的问题**
 
@@ -40,6 +43,7 @@
 
 ## postcss-pxtorem
 postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小了）
+
 [参考及实现](https://juejin.im/post/5d6cb8aae51d4561cc25f08f)
 
 ## element UI 自定义传参的解决方法
@@ -64,6 +68,5 @@ postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小�
 ```
 也可写成 ```@select="handleSelect($event, index)```
 
-## calc 计算高度
-
-```  height: calc( 100vh - 36px );`` calc 里面记得空格，否则不生效
+## cnpm 临时使用
+```npm --registry=https://registry.npm.taobao.org install```

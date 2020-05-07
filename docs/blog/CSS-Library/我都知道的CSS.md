@@ -1,7 +1,7 @@
 ## 1、css盒模型
-**box-sizing 属性：border-box、content-box**<br>
+**box-sizing 属性：border-box、content-box**
 
-context-box：W3C的标准盒子模型(默认)、<br> 
+context-box：W3C的标准盒子模型(默认)、
 
 **盒子实际内容（content）的width/heigh**t=我们设置的width/height;**盒子总宽度/高度**=width/height+padding+border+margin。
 
@@ -9,14 +9,10 @@ context-box：W3C的标准盒子模型(默认)、<br>
 border-box：IE传统盒子模型。  
 
 **盒子的（content）宽度+内边距padding+边框border宽度**=我们设置的width(height也是如此)，**盒子总宽度/高度**=width/height + margin = 内容区宽度/高度 + padding + border + margin。
-
-<br>  
-
 ## 2、常见一些的兼容性问题
+### 2.1 Chrome 中文界面下设置小于 12px 的文本显示
 
-### 2.1 Chrome 中文界面下设置小于 12px 的文本显示<br>
-
-**解**：<br>
+**解**：
 ```javascript
 p{
     font-size:12px;
@@ -37,7 +33,7 @@ a:visited {}
 a:hover {} 
 a:active {}
 ```  
-<br>  
+ 
 
 ## 3、伪类和伪元素
 
@@ -63,13 +59,11 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 我们可以在其中<font    color='red'>添加内容或样式</font>。如常见的利用**伪元素清除浮动。**
 
 **总结，伪类与伪元素的区别在于：有没有创建一个文档树之外的元素。**  
-<br>  
+ 
 
 ## 4、当margin与padding的值设置为百分比时相对于谁？  
 
 当margin和padding的值设置为百分比时，是指相对于**最近的块级父元素width（非总宽度）的相应百分比的值**，即使是margin-top、margin-bottom、padding-top、padding-bottom，设置为百分比时也是以最近块级父元素的width（非总宽度）为基准，而非height。  
-
-<br>  
 
 ## 5、 li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？  
 行框的排列会受到中间空白（**回车空格**）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔。
@@ -79,8 +73,6 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 2. 利用浮动，浮动li中float：left；
 3. 在ul中用font-size：0（谷歌不支持）；
 4. 设置 ul{letter-spacing: -4px;};li{letter-spacing: normal;}
-
-<br>  
 
 ## 6、行内元素和块级元素的具体区别？行内元素的 padding 和 margin 是否可设置？  
 **块级元素( block )：**
@@ -93,12 +85,8 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 患难兄弟，和相邻的内联元素在同一行;  
 宽度(width)、高度(height)、内边距的top/bottom(padding-top/padding-bottom)和外边距的top/bottom(margin-top/margin-bottom)都不可改变**即只有padding和margin的left和right是可以设置的。**
 
-<br>  
-
-## 7、rgba() 和 opacity 的透明效果有何区别？
-都能实现透明效果，**opacity（一人得道鸡犬升天的意味）作用于元素，以及元素内的所有的元素的透明度**，<font color='red'>rgba()**只作用于元素的颜色或其背景色</font>。**  
-
-<br>  
+## 7、rgba() 和 opacity 区别
+都能实现透明效果，**opacity（一人得道鸡犬升天的意味）作用于元素，以及元素内的所有的元素的透明度**，```rgba()```**只作用于元素的颜色或其背景色。**
 
 ## 8、CSS引入的方式使用Link和@import有什么区别？
 
@@ -108,14 +96,14 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 3. link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
 4. link支持使用Javascript控制DOM去改变样式；而@import不支持。
 
-<br>  
+  
 
 ## 9、"nth-child"和"nth-of-type"的区别  
 简单的字面理解：**“nth-of-type”** <font color='red' background-color='pink'>type</font>即指定类型， 而**“nth-child”**，只要是其子代即可
 
 “nth-child”选择的是父元素的子元素，这个子元素并没有指定确切类型，同时满足两个条件时方能有效果：其一是子元素，其二是子元素刚好处在那个位置；“nth-of-type”选择的是某父元素的子元素，而且这个子元素是指定类型。
 
-<br>  
+  
 
 ## 10、CSS选择器的匹配规则？为什么？  
 
@@ -123,7 +111,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 因为**考虑性能问题**，所以需要考虑的是如何在选择器不匹配时提升效率。从右向左匹配正是为了达成这一目的的，通过这一策略能够使得CSS选择器在不匹配的时候效率更高。
 
-<br>  
+  
 
 ## 11、line-height: 2; 和 line-height: 200%; 有什么区别?
 
@@ -140,7 +128,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 那么父元素：line-height = 14px * 200% = 28px，**子元素：line-height = 父元素的line-height = 28px**
 
-<br>  
+  
 
 ## 12、Canvas 和 SVG 有什么区别？
 **Canvas**  
@@ -163,7 +151,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 说了那么多，俺觉得还是丢链接实在[Canvas 和 SVG 有什么区别？
 ](https://www.zhihu.com/question/19690014)
 
-<br>
+
 
 ## 13、啥是聚焦环，正确的解决方案？  
 当使用按钮或链接标签获得焦点时，会得到一个可见的外边框，这就是聚焦环。它的种类依赖于根据浏览器提供商，但通常会显示一个蓝色的外边框包围在元素的周围，以表明它当前获得了焦点。
@@ -172,14 +160,14 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 然而`:focus-visible`可以很好的解决这个问题，他是非常年轻的一个伪类，目前仅Chrome浏览器标准支持，关于这个伪类具体可看这里[CSS :focus-visible伪类让我感动哭了](https://www.zhangxinxu.com/wordpress/2019/03/css-focus-visible/)
 
-<br>
+
 
 ## 14、关于重绘与重排，以及一些优化问题？  
 感觉俺要写不动了，这里看到有篇文章讲的不错  [浏览器重绘(repaint)重排(reflow)与优化[浏览器机制]](https://juejin.im/post/5c15f797f265da61141c7f86)
 
 <div align=center>![](https://i.loli.net/2019/07/23/5d36e261a5a9726572.png) <div>
 
-<br>
+
 
 ## 15、说说@media属性的四种类型  
 1. `print`，指用于打印机的不透明介质。
@@ -187,7 +175,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 3. `tv`，电视类型媒体
 4. `all`，所有媒体设备
 
-<br>
+
 
 ## 16、transition和animation的区别  
 
@@ -196,7 +184,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 同时可以这样理解，**transition是从：hover延伸出来的**，不管是动态设置的还是非动态设置的过渡效果，只要过渡效果指定的属性值发生了变化就会触发过渡效果。**animation是从flash延伸出来的，使用关键帧的概念，**  
 
-<br>
+
 
 ## 17、CSS 通用兄弟选择器和相邻兄弟选择器区别？  
 通用兄弟选择器 `~` 会选择指定元素**所有**的兄弟元素   
@@ -217,7 +205,24 @@ div + p {
 ```  
 *~~整那么多都没用~~*，简单字面理解就完事，**通用兄弟选择**就是**一条船上，生死患难，大家都得是兄弟**，**相邻兄弟**就是**邻居比亲兄弟还亲。**
 
-<br>  
+  
+
+## 清除浮动原理
+```css
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+```
+关键在于 ```clear``` 他是CSS中的定位属性，规定元素的哪一侧不允许其他浮动元素是CSS中的定位属性，规定元素的哪一侧不允许其他浮动元素，所以 ```clear:both``` 作用即为在左右不允许浮动元素。
+## BFC
+  
+BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其内的子元素如何定位，以及和其他的元素关系及相互作用。
+**简单来说就是一个决定如何渲染元素的容器**
+
 
 ***  
 随着油菜籽人生阅历的不断增长，所知道CSS也 ~~应该~~ 会越来越多，所以本文**我都知道的CSS**或将得到后续更新。
