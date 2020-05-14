@@ -174,3 +174,5 @@ document.body.removeChild(document.getElementById('image'));
 [垃圾回收](https://juejin.im/post/5cb33660e51d456e811d2687)
 
 [JavaScript中的垃圾回收和内存泄漏](https://juejin.im/post/5b4d421e5188251b200176a6)
+
+<Vssue/>

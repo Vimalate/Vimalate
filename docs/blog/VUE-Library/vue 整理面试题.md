@@ -288,3 +288,5 @@ Webpack 层面：
 渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，并进行实例化。最终手动调用 $mount() 进行挂载，更新组件时会 进行 patchVnode 流程，核心是 diff 算法。
 
 ## 
+
+<Vssue/>

@@ -76,3 +76,5 @@ rtical-align属性值的解释是不一样的。比方说vertical-align的默认
 （4）所有的替换元素都是内联水平元素，也就是替换元素和替换元素、替换元素和文字都是可以在一行显示的。但是，替换元素默认
 的display值却是不一样的，有的是inline，有的是inline-block。
 ```
+
+<Vssue/>

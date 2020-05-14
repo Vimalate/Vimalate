@@ -143,3 +143,5 @@ customName(); // 'ES6 Module'
 
 > 参考：[前端模块化详解](https://juejin.im/post/5c17ad756fb9a049ff4e0a62)
 > [前端模块化](https://juejin.im/post/5aaa37c8f265da23945f365c)
+
+<Vssue/>

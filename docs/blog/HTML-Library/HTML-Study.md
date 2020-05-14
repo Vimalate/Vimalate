@@ -34,3 +34,5 @@ src 时指向外部的资源位置，指向的内容将会嵌入到文档中当�
 使用很简单，一个普通的block元素上加个contenteditable="true"就ok了
 
 `<div contenteditable="true"></div>`
+
+<Vssue/>

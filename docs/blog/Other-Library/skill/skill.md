@@ -70,3 +70,5 @@ function parseURL(url) {
 v-model.trim ：自动过滤用户输入的首尾空白字符
 
 和 v-model.number ：自动将用户的输入值转为数值类型
+
+<Vssue/>

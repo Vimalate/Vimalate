@@ -84,3 +84,5 @@ export class Observer {
 [大白话Vue源码](https://juejin.im/post/5a4b3cbb6fb9a045211f131d)
 
 [ Vue 响应式原理](https://juejin.im/post/5cf66d586fb9a07ed2245b28)
+
+<Vssue/>

@@ -131,3 +131,5 @@ console.log(child) // =>
 ```
 **参考**
 [隔壁小孩也能看懂的 7 种 JavaScript 继承实现](https://juejin.im/post/5ceb468af265da1bd1463585)
+
+<Vssue/>

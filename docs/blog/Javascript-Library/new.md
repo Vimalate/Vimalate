@@ -128,3 +128,5 @@ function create(Con, ...args) {
 [聊聊 new 操作符](https://juejin.im/post/5c7b963ae51d453eb173896e)
 
 [理解 new 运算符](https://juejin.im/post/5c1bbc16e51d4552e01a0114)
+
+<Vssue/>
