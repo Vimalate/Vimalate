@@ -28,11 +28,22 @@ module.exports = {
                 buttonText: "刷新"
             }
         },
-        '@vuepress/back-to-top':true,
-        '@vuepress/active-header-links':{
+        '@vuepress/back-to-top': true,
+        '@vuepress/active-header-links': {
             sidebarLinkSelector: '.sidebar-link',
             headerAnchorSelector: '.header-anchor'
-          }
+        },
+        '@vssue/vuepress-plugin-vssue': {
+            // 设置 `platform` 而不是 `api`
+            platform: 'github-v4',
+
+            // 其他的 Vssue 配置
+            owner: 'Vimalate',
+            repo: 'Vimalate',
+            clientId: '7fabb016743a2a816a75',
+            clientSecret:'b07104f78c7cb82b05c2a816645a6165846c0a93',
+            autoCreateIssue:true
+        },
     },
     themeConfig: {
         logo: '/resb.jpg', //网页顶端导航栏左上角的图标
