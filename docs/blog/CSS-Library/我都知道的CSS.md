@@ -99,7 +99,7 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
   
 
 ## 9、"nth-child"和"nth-of-type"的区别  
-简单的字面理解：**“nth-of-type”** <font color='red' background-color='pink'>type</font>即指定类型， 而**“nth-child”**，只要是其子代即可
+简单的字面理解：**“nth-of-type”** 即指定类型， 而**“nth-child”**，只要是其子代即可
 
 “nth-child”选择的是父元素的子元素，这个子元素并没有指定确切类型，同时满足两个条件时方能有效果：其一是子元素，其二是子元素刚好处在那个位置；“nth-of-type”选择的是某父元素的子元素，而且这个子元素是指定类型。
 
