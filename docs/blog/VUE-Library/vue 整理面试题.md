@@ -252,8 +252,8 @@ Virtual DOM 其实就是通过对文档中的 DOM 树结构进行分析，利用
 
 ## hash路由和history路由
 
-- onhashchange
-- history.pushState
+- hash模式：依靠onhashchange事件(监听location.hash的改变)
+- history模式：history.pushState 和 replaceState ，pushState()可以改变url地址且不会发送请求，replaceState()可以读取历史记录栈,还可以对浏览器记录进行修改。
 
 ##  Vue 项目的一些优化？
 
