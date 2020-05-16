@@ -274,4 +274,20 @@ const throttle = (fn, delay = 500) => {
 ```
 节流使用场景：scroll事件
 
+## 闭包
+**有权访问另一个函数内部的变量的函数**，也可以说函数 B 被作为函数 A 的返回值，并在外部被引用，那么函数 B 就被称为闭包。
+```js
+function funcFactory () {
+    var a = 1;
+    return function () {
+        console.log(a);
+    }
+}
+
+// 闭包
+var sayA = funcFactory();
+sayA();
+```
+
+
 <Vssue/>
