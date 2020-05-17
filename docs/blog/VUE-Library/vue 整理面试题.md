@@ -145,7 +145,7 @@ macro-task(宏任务)包括：
 - postMessage
 - MessageChannel
  
->不建议记住宏任务，太多，记住以下微任务即可，其他不知道的把其归类为宏任务
+>不建议记住宏任务，太多，记住以下微任务即可，其他不知道的把其归类为宏任务（当然，此仅为面试时技巧）
 
 micro-task(微任务)：
 - process.nextTick(Node.js 环境)
