@@ -287,6 +287,36 @@ Webpack 层面：
 ## 组件渲染和更新过程
 渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，并进行实例化。最终手动调用 $mount() 进行挂载，更新组件时会 进行 patchVnode 流程，核心是 diff 算法。
 
-## 
+## provide / inject 使用
+```!
+provide 和 inject 主要在开发高阶插件/组件库时使用。并不推荐用于普通应用程序代码中。
+```
+这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深
+
+```js
+//父级组件 a.vue
+export default {
+  name: "VmRadioGroup",
+  props: {
+    value: null
+  },
+  provide() {
+    return {
+      RadioGroup: this
+    };
+  }
+};
+
+// 子组件注入
+export default {
+  name: "VmRadio",
+  inject: {
+    RadioGroup: {
+      default: ""
+    }
+  },
+};
+
+```
 
 <Vssue/>
