@@ -312,7 +312,7 @@ export default {
   name: "VmRadio",
   inject: {
     RadioGroup: {
-      default: ""
+      default:  ""
     }
   },
 };

@@ -65,6 +65,18 @@
 
 - 如果强缓存可用，那么直接用
 - 否则进入协商缓存，即发送 HTTP 请求，服务器通过请求头中的```If-Modified-Since``` 或者```If-None-Match``` 这些条件请求字段检查资源是否更新,如果缓存有效会返回 304,如果有更新则返回200
+
+## session 与 cookie
+1，session 在服务器端，cookie 在客户端（浏览器）
+2，session 默认被存在在服务器的一个文件里（不是内存）
+3，session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）
+4，session 可以放在 文件、数据库、或内存中都可以。
+5，用户验证这种场合一般会用 session 因此，维持一个会话的核心就是客户端的唯一标识，即 session id
+
+[session 与 cookie](https://www.zhihu.com/question/19786827/answer/21643186)
+链接：
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ## UDP 和 TCP
 
 UDP:	协议面向无连接，不需要在传输数据前先连接对方，缺点：因此他具有不可靠性，不保证数据有序且不丢失的传递到对端，优点：相比TCP更轻便高效
