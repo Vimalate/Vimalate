@@ -1,5 +1,26 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-04 20:00:38
+ * @LastEditTime: 2020-05-24 00:59:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
+--> 
 # Javascript 面试题
 
+## JS 类型
+**基本类型**
+- Undefined
+- Null
+- String
+- Symbol
+- Number
+- Object
+- Bigint
+- Boolean
+
+**复杂类型**
+- Object
 ## 1、JavaScript 有几种类型的值？存储位置？
 
  js 可分为两种数据类型：```原始数据类型和引用数据类型```。
