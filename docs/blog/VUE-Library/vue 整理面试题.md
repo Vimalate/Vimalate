@@ -35,8 +35,10 @@ beforeMount在有了render function的时候才会执行，当执行完render fu
 
 子组件渲染完，再渲染父组件
 
+
 ![](https://i.loli.net/2020/04/20/RJFVdzEpo9Btc5n.png)
 
+同理，组件的销毁操作是先父后子，销毁完成的顺序是先子后父。
 ##  组件通信
 
 - 父子组件通信
@@ -53,6 +55,9 @@ beforeMount在有了render function的时候才会执行，当执行完render fu
 **v-model**
 
 因为 `v-model` 默认会解析成名为 `value` 的 `prop` 和名为 `input` 的事件。这种语法糖的方式是典型的双向绑定，常用于 UI 控件上，但是究其根本，还是通过事件的方法让父组件修改数据。
+```!
+在一个组件上使用v-model，默认会为组件绑定名为value的prop和名为input的事件
+```
 
 ### **兄弟**
 
@@ -283,7 +288,17 @@ Webpack 层面：
 ## 为什么使用异步组件
 
 项目过大时，核心页面访问速度变慢，使用异步组件将代码分割成小块，需要使用这个组件时在引入，可提高加载的速度。主要依赖```import()```这个语法。
+## 路由懒加载
+路由懒加载就是把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件。
 
+实现：使用命名 chunk ，和 webpack 的魔法注释
+```js
+chunkconst Home = () => import(/* webpackChunkName: "group-home" */ './Home.vue')
+```
+## Vue-router 导航守卫有哪些
+- 全局钩子：beforeEach、beforeResolve、afterEach
+- 路由独享守卫：beforeEnter
+- 组件内守卫：beforeRouter、beforeRouteUpdate、beforeRouteLeave
 ## 组件渲染和更新过程
 渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，并进行实例化。最终手动调用 $mount() 进行挂载，更新组件时会 进行 patchVnode 流程，核心是 diff 算法。
 
@@ -320,6 +335,7 @@ export default {
 ```
 ## 简单介绍 一下 Vuex 
 Vuex 是一个专门为 Vue 应用程序开发的状态管理工具，每一个 Vuex 应用的核心是 store。Vuex 主要应用了**单例模式**，这样不管我们尝试去创建多少次，它都只会返回第一次创建的哪一个唯一的实例。
+
 Vuex 主要包含一下几个模块：
 - State：定义应用状态的数据结构
 - Getter：允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性。
