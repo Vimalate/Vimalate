@@ -1,4 +1,4 @@
-# vue 123
+# VUE 常见面试整理
 
 ## 生命周期钩子函数
 
@@ -318,5 +318,17 @@ export default {
 };
 
 ```
+## 简单介绍 一下 Vuex 
+Vuex 是一个专门为 Vue 应用程序开发的状态管理工具，每一个 Vuex 应用的核心是 store。Vuex 主要应用了**单例模式**，这样不管我们尝试去创建多少次，它都只会返回第一次创建的哪一个唯一的实例。
+Vuex 主要包含一下几个模块：
+- State：定义应用状态的数据结构
+- Getter：允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性。
+- Mutation：唯一更改 store 中状态的方法，且必须为同步
+- Action：用于 (commit) mutation，可包含任意异步操作
+- Module：可将单一 Store 拆分为多个 store 且保存在单一状态树中
+
+## 为什么 Vuex 的 mutation 中不能做异步操作
+Vuex 中所有的状态更新的唯一途径都是通过 mutation，异步通过 Action 来提交 mutation实现，这样可以使我们方便地追踪每一个状态的变化。
+如果 mutation 支持异步操作，那么就没有办法知道状态何时更新，，不能很好地追踪状态的变化，也给我们的调试带来困难。
 
 <Vssue/>
