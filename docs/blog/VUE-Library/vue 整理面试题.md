@@ -299,6 +299,8 @@ chunkconst Home = () => import(/* webpackChunkName: "group-home" */ './Home.vue'
 - 全局钩子：beforeEach、beforeResolve、afterEach
 - 路由独享守卫：beforeEnter
 - 组件内守卫：beforeRouter、beforeRouteUpdate、beforeRouteLeave
+
+详细：[导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)
 ## 组件渲染和更新过程
 渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，并进行实例化。最终手动调用 $mount() 进行挂载，更新组件时会 进行 patchVnode 流程，核心是 diff 算法。
 
