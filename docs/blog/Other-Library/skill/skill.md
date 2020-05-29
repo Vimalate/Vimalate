@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-03 01:45:05
+ * @LastEditTime: 2020-05-30 02:12:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vuepress-blog\docs\blog\Other-Library\skill\skill.md
+--> 
 ## 树状结构变一维数组
 
 ```js
@@ -5,6 +13,21 @@ flatten(arr) {
   return [].concat(...arr.map(item=>[].concat(item,...flatten(item.subitems))))
 }
 ```
+## 如何平滑滚动到页面顶部
+```js
+ const scrollToTop = () => {
+         const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  }
+}
+
+// 事例
+scrollToTop()
+```
+window.requestAnimationFrame()  告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+requestAnimationFrame：优势：由系统决定回调函数的执行时机。60Hz的刷新频率，那么每次刷新的间隔中会执行一次回调函数，不会引起丢帧，不会卡顿。
 
 ## ellipsis 指定宽度
 
