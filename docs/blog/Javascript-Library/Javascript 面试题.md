@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-05-24 00:59:22
+ * @LastEditTime: 2020-06-01 22:28:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -21,7 +21,7 @@
 
 **复杂类型**
 - Object
-## 1、JavaScript 有几种类型的值？存储位置？
+## JavaScript 有几种类型的值？存储位置？
 
  js 可分为两种数据类型：```原始数据类型和引用数据类型```。
 
@@ -29,7 +29,7 @@
 
 **引用数据类型（对象、数组和函数）**，引用数据类型的值保存在堆中，引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。
 
-## 2、怎么理解闭包，作用是什么？
+## 怎么理解闭包，作用是什么？
 
 闭包是指有权访问另一函数作用域中变量的函数，其最常见的为函数 A 内创建函数 B ，函数 B 可以访问函数 A 的局部变量。
 
@@ -37,23 +37,124 @@
 - 我们可以通过在外部调用闭包函数，在函数外部访问到函数内部的变量。用这种方式创建私有变量。
 - 存储这个变量，使得这个变量不会被回收。注：(这也是常说的闭包造成内存泄漏)
 
-## 了解浏览器的缓存机制吗？
+## 如何理解BigInt?
+```!
+BigInt是一种新的数据类型，用于当整数值大于Number数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。
+```
+在JS中，所有的数字都以双精度64位浮点格式表示，那这会带来什么问题呢？
+这导致JS中的Number无法精确表示非常大的整数，它会将非常大的整数四舍五入，确切地说，JS中的Number类型只能安全地表示-9007199254740991(-(2^53-1))和9007199254740991（(2^53-1)），任何超出此范围的整数值都可能失去精度。
+```js
+console.log(999999999999999);  //=>10000000000000000
+```
+同时也会有一定的安全性问题:
+```js
+9007199254740992 === 9007199254740993;    // → true 居然是true!
+```
+**如何创建并使用BigInt**
 
-web 资源的缓存策略一般由服务器来指定，可以分为两种，分别是**强缓存策略**和**协商缓存策略**。
+要创建BigInt，只需要在数字末尾追加n即可:
+```js
+console.log( 9007199254740995n );    // → 9007199254740995n	
+console.log( 9007199254740995 );     // → 9007199254740996
+```
+另一种创建BigInt的方法是用BigInt()构造函数:
+```js
+BigInt("9007199254740995");    // → 9007199254740995n
+```
+简单使用:
+```js
+10n + 20n;    // → 30n	
+10n - 20n;    // → -10n	
++10n;         // → TypeError: Cannot convert a BigInt value to a number	
+-10n;         // → -10n	
+10n * 20n;    // → 200n	
+20n / 10n;    // → 2n	
+23n % 10n;    // → 3n	
+10n ** 3n;    // → 1000n	
 
-**强缓存策略**：使用强缓存策略时，如果缓存资源有效，则直接使用缓存资源，不必向服务器发送请求。强缓存策略可以通过两种方式来设置，分别为 http 头部信息中的 **Expires 和 Cache-Control**。
+const x = 10n;	
+++x;          // → 11n	
+--x;          // → 9n
+console.log(typeof x);   //"bigint"
+```
+## typeof 于 instanceof 区别
 
-Expires 是 http1.0 中的方式，因为它的一些缺点，在 http 1.1 中提出了一个新的头部属性就是 Cache-Control 属性。它提供了对资源的缓存的更精确的控制。它有很多不同的值，常用的比如我们可以通过设置 max-age 来指定资源能够被缓存的时间
-的大小，这是一个相对的时间，它会根据这个时间的大小和资源第一次请求时的时间来计算出资源过期的时间，因此相对于 Expires
-来说，这种方式更加有效一些。常用的还有比如 private ，用来规定资源只能被客户端缓存，不能够代理服务器所缓存。还有如 n
-o-store ，用来指定资源不能够被缓存，no-cache 代表该资源能够被缓存，但是立即失效，每次都需要向服务器发起请求。
+>typeof 对于基本类型，除了 null都可以显示正确的类型
+```js
+typeof null // 'object'
+```
+而这也是一个历史遗留问题
 
-通常来说设置一种就行了，两种方式一起使用时，Cache-Control 的优先级要高于 Expires 。
+typeof 对于对象，除了函数都会显示 object
+```js
+typeof [] // 'object'
+typeof {} // 'object'
+typeof console.log // 'function'
+```
+>instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链中是不是能找到类型的 prototype
 
-**协商缓存**：当使用协商缓存策略时，会先向服务器发送一个请求，如果资源没有发生修改，则返回一个 304 状态，让浏览器使用本地的缓存副本。
-如果资源发生了修改，则返回修改后的资源。协商缓存也可以通过两种方式来设置，分别是 http 头信息中的 Etag 和 Last-Modified 属性。
+这里我们可以试着动手实现一下 instanceof
+```js
+function myInstanceof(left, right) {
+    //基本数据类型直接返回false
+    if(typeof left !== 'object' || left === null) return false;
+    //getProtypeOf是Object对象自带的一个方法，能够拿到参数的原型对象
+    let proto = Object.getPrototypeOf(left);
+    while(true) {
+        //查找到尽头，还没找到
+        if(proto == null) return false;
+        //找到相同的原型对象
+        if(proto == right.prototype) return true;
+        proto = Object.getPrototypeOf(proto);
+    }
+}
 
-**区别**：强缓存策略和协商缓存策略在缓存命中时都会直接使用本地的缓存副本，区别只在于协商缓存会向服务器发送一次请求。它们缓存不命中时，都会向服务器发送请求来获取资源。在实际的缓存机制中，强缓存策略和协商缓存策略是一起合作使用的。浏览器首先会根据请求的信息判断，强缓存是否命中，如果命中则直接使用资源。如果不命中则根据头信息向服务器发起请求，使用协商缓存，如果协商缓存命中的话，则服务器不返回资源，浏览器直接使用本地资源的副本，如果协商缓存不命中，则浏览器返回最新的资源给浏览器。
+```
+```!
+ instanceof 也能判断基本数据类型
+```
+```js
+class PrimitiveNumber {
+  static [Symbol.hasInstance](x) {
+    return typeof x === 'number'
+  }
+}
+console.log(111 instanceof PrimitiveNumber) // true
+```
+其实就是自定义instanceof行为的一种方式，这里将原有的instanceof方法重定义，换成了typeof，因此能够判断基本数据类型。
 
+## [] == ![]结果是什么？为什么？
 
+== 中两边转换为数字后开始比较
+
+[] 转换为数字0
+
+![] 先转换为 boolean，由于[]作为一个引用类型转换为布尔值为true
+
+因此![]为false，进而在转换成数字，变为0。
+
+0 == 0 ， 结果为true
+
+## 对象转原始类型是根据什么流程运行的？
+对象转原始类型，会调用内置的[ToPrimitive]函数，对于该函数而言，其逻辑如下：
+1. 如果Symbol.toPrimitive()方法，优先调用再返回
+2. 调用 valueof(),如果转换为原始类型，则返回
+3. 调用 toString(), 如果转换为原始类型，则返回
+4. 如果都没有返回原始类型，会报错
+```js
+var obj = {
+  value: 3,
+  valueOf() {
+    return 4;
+  },
+  toString() {
+    return '5'
+  },
+  [Symbol.toPrimitive]() {
+    return 6
+  }
+}
+console.log(obj + 1); // 输出7
+```
+参考：(原生js灵魂之问)[https://juejin.im/post/5dac5d82e51d45249850cd20#heading-12]
 <Vssue/>

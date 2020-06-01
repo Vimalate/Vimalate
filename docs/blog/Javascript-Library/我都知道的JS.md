@@ -202,43 +202,11 @@ const a = {
 }
 ```
 
-## 13、如何让事件先冒泡后捕获
+## 如何让事件先冒泡后捕获
 
 根据 w3c 标准，事件是先捕获，后冒泡的，若要实现事件先冒泡后捕获，给一个元素绑定两个 addEventlistener，其中一个第三个参数设置为 false(也即默认冒泡) ，另一个设置 true ，调整代码顺序， 设置 false 的事件放于设置 true 的前面。
 
-## 14、typeof 于 instanceof 区别
 
->typeof 对于基本类型，除了 null都可以显示正确的类型
-```js
-typeof null // 'object'
-```
-而这也是一个历史遗留问题
-
-typeof 对于对象，除了函数都会显示 object
-```js
-typeof [] // 'object'
-typeof {} // 'object'
-typeof console.log // 'function'
-```
->instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链中是不是能找到类型的 prototype
-
-这里我们可以试着动手实现一下 instanceof
-```js
-unction instanceof(left, right) {
-    // 获得类型的原型
-    let prototype = right.prototype
-    // 获得对象的原型
-    left = left.__proto__
-    // 判断对象的类型是否等于类型的原型
-    while (true) {
-    	if (left === null)
-    		return false
-    	if (prototype === left)
-    		return true
-    	left = left.__proto__
-    }
-}
-```
 
 ## 防抖和节流
 
