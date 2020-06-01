@@ -13,7 +13,7 @@ border-box：IE传统盒子模型。
 ### 2.1 Chrome 中文界面下设置小于 12px 的文本显示
 
 **解**：
-```javascript
+```css
 p{
     font-size:12px;
     -webkit-transform:scale(0.5);//0.5是缩放比例，即设置显示6px
@@ -27,7 +27,7 @@ p{
 
 **解：改变CSS属性的排列顺序为：L-V-H-A**  
 
-```javascript
+```css
 a:link {} 
 a:visited {} 
 a:hover {} 
@@ -52,11 +52,11 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 **伪类**的两种功能：  
 
-1. 格式化DOM树以外的信息。比如： \<a> 标签的:link、:visited 等。这些信息不存在于DOM树中。  
+1. 格式化DOM树以外的信息。比如： ```<a>``` 标签的:link、:visited 等。这些信息不存在于DOM树中。  
 2. 不能被常规CSS选择器获取到的信息。比如：要获取第一个子元素，我们无法用常规的CSS选择器获取，但可以通过 :first-child 来获取到。
 
 **伪元素**：**可以创建一些文档语言无法创建的虚拟元素**
-我们可以在其中<font    color='red'>添加内容或样式</font>。如常见的利用**伪元素清除浮动。**
+我们可以在其中```<font    color='red'>```添加内容或样式```</font>```。如常见的利用**伪元素清除浮动。**
 
 **总结，伪类与伪元素的区别在于：有没有创建一个文档树之外的元素。**  
  
@@ -66,13 +66,15 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 当margin和padding的值设置为百分比时，是指相对于**最近的块级父元素width（非总宽度）的相应百分比的值**，即使是margin-top、margin-bottom、padding-top、padding-bottom，设置为百分比时也是以最近块级父元素的width（非总宽度）为基准，而非height。  
 
 ## 5、 li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？  
-行框的排列会受到中间空白（**回车空格**）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔。
+
+元素被当成行内元素排版的时候，元素之间的空白符（空格、回车换行等）都会被浏览器处理，根据CSS中white-space属性的处理方式（默认是normal，合并多余空白），原来HTML代码中的回车换行被转成一个空白符，在字体不为0的情况下，空白符占据一定宽度，所以inline-block的元素之间就出现了空隙。
+
 
 **解：**  
-1. 制造无空白条件，将\<li>代码全部写在一排；
+1. 制造无空白条件，将```<li>```代码全部写在一排；
 2. 利用浮动，浮动li中float：left；
 3. 在ul中用font-size：0（谷歌不支持）；
-4. 设置 ul{letter-spacing: -4px;};li{letter-spacing: normal;}
+4. 设置 ```ul{letter-spacing: -4px;};li{letter-spacing: normal;```
 
 ## 6、行内元素和块级元素的具体区别？行内元素的 padding 和 margin 是否可设置？  
 **块级元素( block )：**
@@ -158,14 +160,14 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 
 在过去，许多人指定outline: 0;来去除元素上的聚焦环。然而，由于不可见会对键盘用户访问性造成困扰。当不指定时，它会形成一个不吸引人的蓝色环显示在元素周围。  
 
-然而`:focus-visible`可以很好的解决这个问题，他是非常年轻的一个伪类，目前仅Chrome浏览器标准支持，关于这个伪类具体可看这里[CSS :focus-visible伪类让我感动哭了](https://www.zhangxinxu.com/wordpress/2019/03/css-focus-visible/)
+然而```:focus-visible```可以很好的解决这个问题，他是非常年轻的一个伪类，目前仅Chrome浏览器标准支持，关于这个伪类具体可看这里[CSS :focus-visible伪类让我感动哭了](https://www.zhangxinxu.com/wordpress/2019/03/css-focus-visible/)
 
 
 
 ## 14、关于重绘与重排，以及一些优化问题？  
 感觉俺要写不动了，这里看到有篇文章讲的不错  [浏览器重绘(repaint)重排(reflow)与优化[浏览器机制]](https://juejin.im/post/5c15f797f265da61141c7f86)
 
-<div align=center>![](https://i.loli.net/2019/07/23/5d36e261a5a9726572.png) <div>
+<div align=center>![](https://i.loli.net/2019/07/23/5d36e261a5a9726572.png) </div>
 
 
 
@@ -189,20 +191,15 @@ CSS 伪元素用于将特殊的效果添加到某些选择器。
 ## 17、CSS 通用兄弟选择器和相邻兄弟选择器区别？  
 通用兄弟选择器 `~` 会选择指定元素**所有**的兄弟元素   
 
-**举个栗子：下例会选择 `<div>`元素所有的 `<p>`兄弟元素**  
-```javascript
+**举个栗子：下例会选择 ```div```元素所有的 ```p```兄弟元素**  
+```css
 div ~ p {
     background-color:cyan;
 }
 ```  
-相邻兄弟选择器 `+`会选择指定元素**相邻**的兄弟元素   
+相邻兄弟选择器 ```+```会选择指定元素**相邻**的兄弟元素   
 
-**举个栗子：下例会选择 `<div>`元素后的 `<p>`元素**  
-```javascript
-div + p {
-    background-color:cyan;
-}
-```  
+
 *~~整那么多都没用~~*，简单字面理解就完事，**通用兄弟选择**就是**一条船上，生死患难，大家都得是兄弟**，**相邻兄弟**就是**邻居比亲兄弟还亲。**
 
   
