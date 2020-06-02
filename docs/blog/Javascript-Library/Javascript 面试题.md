@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-06-01 22:28:37
+ * @LastEditTime: 2020-06-01 23:54:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -156,5 +156,6 @@ var obj = {
 }
 console.log(obj + 1); // 输出7
 ```
-参考：(原生js灵魂之问)[https://juejin.im/post/5dac5d82e51d45249850cd20#heading-12]
+参考：
+[原生js灵魂之问](https://juejin.im/post/5dac5d82e51d45249850cd20#heading-12)
 <Vssue/>
