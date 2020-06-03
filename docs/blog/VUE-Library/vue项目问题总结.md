@@ -68,8 +68,7 @@ postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小�
 ```
 也可写成 ```@select="handleSelect($event, index)```
 
-## cnpm 临时使用
-```npm --registry=https://registry.npm.taobao.org install```
+
 
 
 <Vssue/>

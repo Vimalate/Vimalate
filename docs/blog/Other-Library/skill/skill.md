@@ -1,11 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-03 01:45:05
- * @LastEditTime: 2020-05-30 02:12:19
+ * @LastEditTime: 2020-06-03 13:10:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\skill\skill.md
 --> 
+## cnpm 临时使用
+```npm --registry=https://registry.npm.taobao.org install```
+
 ## 树状结构变一维数组
 
 ```js
