@@ -1,12 +1,12 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-03 01:45:05
- * @LastEditTime: 2020-06-04 15:04:36
+ * @LastEditTime: 2020-06-04 20:10:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\HTML-Library\HTML-Study.md
 --> 
-# HTML基础
+
 ## doctype的作用
 doctype 是 html5 标准网页声明，且必须声明在文档第一行。用来告知浏览器的解析器以什么文档标准解析这个文档，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析。
 
@@ -25,7 +25,33 @@ doctype 是 html5 标准网页声明，且必须声明在文档第一行。用�
 - defer：浏览器并行（异步加载脚本）加载js文件，会按照页面上script标签的顺序执行
 - async：浏览器并行（异步加载脚本）加载js文件，下载完成立即执行，不会按照页面上script标签的顺序执行
 
-## 
+## html5新特性
+- ```canvas``` 绘画
+- video、audio 媒介
+- 本地离线存储 ```localStorage```
+- 语义化更好的元素：```article、footer、header、nav、section```
+- 表单控件：```calender、date、email```
+- 新的技术：```webworker、websocket、Geolocation```
+
+## 行内元素，块级元素，以及空(void)元素
+- 行内元素：```span、input、select、a、b```
+- 块级元素：```div、ul、li、p、h1...```
+- 空元素：```<br> <hr> <img> <input> <link> <meta>```
+- 行内元素不能设置宽高，不独占一行
+- 块级元素可以设置宽高，独占一行
+
+## viewport
+```css
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    // width    设置viewport宽度，为一个正整数，或字符串‘device-width’
+    // device-width  设备宽度
+    // height   设置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置
+    // initial-scale    默认缩放比例（初始缩放比例），为一个数字，可以带小数
+    // minimum-scale    允许用户最小缩放比例，为一个数字，可以带小数
+    // maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数
+    // user-scalable    是否允许手动缩放
+```
+
 ##  src 和 href 的区别？
 
 href 时指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。
