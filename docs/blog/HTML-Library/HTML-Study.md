@@ -1,5 +1,31 @@
-## HTML基础
+<!--
+ * @Author: your name
+ * @Date: 2020-04-03 01:45:05
+ * @LastEditTime: 2020-06-04 15:04:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vuepress-blog\docs\blog\HTML-Library\HTML-Study.md
+--> 
+# HTML基础
+## doctype的作用
+doctype 是 html5 标准网页声明，且必须声明在文档第一行。用来告知浏览器的解析器以什么文档标准解析这个文档，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析。
 
+文档解析类型：
+- BackCompat：怪异模式，浏览器使用自己的怪异模式解析渲染页面。（如果没有声明DOCTYPE，默认就是这个模式）。他会模拟更旧的浏览器的行为
+- CSS1Compat：标准模式，浏览器使用W3C的标准解析渲染页面
+
+## HTML语义化的理解
+语义化指用恰当语义的 html 标签，让页面有更好的结构与含义。
+
+语义化的好处有：
+- 开发者友好：使用语义类标签增强了可读性，开发者也能够清晰地看出网页的结构，也更为便于团队的开发和维护
+- 机器友好：带有语义的文字表现力丰富，有利于 seo ，更适合搜索引擎的爬虫爬取有效信息，语义类还可以支持读屏软件，根据文章可以自动生成目录
+
+## script标签中defer和async的区别
+- defer：浏览器并行（异步加载脚本）加载js文件，会按照页面上script标签的顺序执行
+- async：浏览器并行（异步加载脚本）加载js文件，下载完成立即执行，不会按照页面上script标签的顺序执行
+
+## 
 ##  src 和 href 的区别？
 
 href 时指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。
