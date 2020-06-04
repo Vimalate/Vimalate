@@ -167,6 +167,15 @@ module.exports = {
                     ]
                 },
                 {
+                    title: '工程化',
+                    collapsable: false,
+                    children: [
+                        ['Other-Library/Git Document Library/github搜索', 'github搜索'],
+                        ['Other-Library/Git Document Library/gitbook', 'gitbook 遇到的问题'],
+                       
+                    ]
+                },
+                {
                     title: '前端技巧',
                     collapsable: false,
                     children: [
