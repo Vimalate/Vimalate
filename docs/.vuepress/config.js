@@ -172,6 +172,7 @@ module.exports = {
                     children: [
                         ['Other-Library/Git Document Library/github搜索', 'github搜索'],
                         ['Other-Library/Git Document Library/git常用命令和开发流程', 'git常用命令和开发流程'],
+                        ['Other-Library/Git Document Library/webpack面试题', 'webpack面试题'],
                         ['Other-Library/Git Document Library/gitbook', 'gitbook 遇到的问题'],
                        
                     ]
