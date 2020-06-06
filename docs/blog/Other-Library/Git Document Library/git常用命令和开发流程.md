@@ -2,7 +2,7 @@
  * @Author: your name
  * @Date: 2020-06-05 22:01:51
 <<<<<<< HEAD
- * @LastEditTime: 2020-06-06 18:14:00
+ * @LastEditTime: 2020-06-06 18:29:03
 =======
  * @LastEditTime: 2020-06-06 01:20:54
 >>>>>>> 1182f0075db9694a35cc10a1c6601f9044679237
@@ -91,6 +91,7 @@ git merge --no-ff branchName ：刻意制造分叉，保留合并分支的提交
 ```git reset --hard commit_id``` 根据commit的ID（一般写6位以上就可以了），回退到指定版本
 
 更多常用命令请[参考阮一峰的博客](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+
 ## git 多人协作
 
 ### 1、我们拿到一个git地址，首先进行代码clone
@@ -147,4 +148,4 @@ git merge develop
 
 
 
-参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)
+参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)
