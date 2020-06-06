@@ -1,7 +1,11 @@
 <!--
  * @Author: your name
  * @Date: 2020-06-05 22:01:51
- * @LastEditTime: 2020-06-06 18:11:32
+<<<<<<< HEAD
+ * @LastEditTime: 2020-06-06 18:14:00
+=======
+ * @LastEditTime: 2020-06-06 01:20:54
+>>>>>>> 1182f0075db9694a35cc10a1c6601f9044679237
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\Git Document Library\git.md
@@ -44,6 +48,7 @@ git 在我们开发中几乎每天都要接触到，但是大多数时候却仅�
 - chore: 改变构建流程、或者增加辅助工具、依赖库等
 
 ## git 常用命令
+
 **1.  初始开发git操作**
    -  ```git clone 地址```: 克隆最新主分支项目代码 
    -  ```git branch 分支名```:创建本地分支
@@ -138,5 +143,8 @@ git merge develop
 执行```git merge develop```后，可能会遇到代码冲突，这时候我们可以解决冲突，将不需要内容删除即可（和一同开发的小伙伴商量好）
 
 最后再执行```git push``` 即可。
+
+
+
 
 参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)
