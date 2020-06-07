@@ -1,12 +1,13 @@
 <!--
- * @Author: your name
+ * @Author: Vimalakirti
  * @Date: 2020-06-06 21:30:05
- * @LastEditTime: 2020-06-07 00:53:02
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditTime: 2020-06-07 15:23:40
+ * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\Git Document Library\webpack面试题.md
 --> 
+
 ## webpack与grunt、gulp的不同
+
 grunt、gulp 是基于任务运行的工具，他会像流水线一样，通过不同插件对资源进行加工，自动执行指定的任务。
 
 Webpack是基于模块化打包的工具：

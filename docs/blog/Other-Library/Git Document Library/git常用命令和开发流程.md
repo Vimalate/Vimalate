@@ -1,16 +1,5 @@
-<!--
- * @Author: your name
- * @Date: 2020-06-05 22:01:51
-<<<<<<< HEAD
- * @LastEditTime: 2020-06-06 18:29:03
-=======
- * @LastEditTime: 2020-06-06 01:20:54
->>>>>>> 1182f0075db9694a35cc10a1c6601f9044679237
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vuepress-blog\docs\blog\Other-Library\Git Document Library\git.md
---> 
 ## 前置知识
+
 git 在我们开发中几乎每天都要接触到，但是大多数时候却仅仅是熟悉常用的几个 git 命令，此次算是总结和记录一些 git 命令的使用，也进一步的了解 git及怎样在工作开发中正确使用git版本管理 。
 
 ![](https://i.loli.net/2020/06/06/UpLvKRZwyW1eG9o.jpg)
