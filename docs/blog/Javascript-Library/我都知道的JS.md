@@ -1,6 +1,6 @@
 # 我都知道的JS  
 
-## 1、for...in和for...of的区别？  
+## for...in和for...of的区别？  
 
 **for in更适合遍历对象，不要使用for in遍历数组。**
 
@@ -8,7 +8,7 @@
 
 **for of遍历的只是数组内的元素，而不包括数组的原型属性method和索引name**
 
-### 2、介绍模块化发展历程
+## 介绍模块化发展历程
 
 **1. IIFE**
 
@@ -30,7 +30,7 @@ nodeJS自带模块化
 
 支持import引入另一个js
 
-## 3、cookie 和 token 都存放在 header 中，为什么不会劫持 token？
+## cookie 和 token 都存放在 header 中，为什么不会劫持 token？
 
 cookie：登陆后后端生成一个sessionid放在cookie中返回给客户端，并且服务端一直记录着这个sessionid，客户端以后每次请求都会带上这个sessionid，服务端通过这个sessionid来验证身份之类的操作。所以别人拿到了cookie拿到了sessionid后，就可以完全替代你。
 
@@ -57,7 +57,7 @@ token
 
 **总结：**CSRF攻击的原因是浏览器会自动带上cookie，而浏览器不会自动带上token
 
-## 4、下列代码打印什么？
+## 下列代码打印什么？
 
 ```javascript
 var b = 10;
@@ -74,7 +74,7 @@ var b = 10;
 首先函数声明比变量要高，其次b = 20 没有var 获取其他，说明是window最外层定义的变量。
 js作用域中，先找最近的 那就是b fn ，直接打印了，如果 b = 20 有var 那就是打印20
 
-## 5、下面代码中 a 在什么情况下会打印 1？
+## 下面代码中 a 在什么情况下会打印 1？
 
 ```javascript
 var a = ?;
@@ -112,7 +112,7 @@ if(a == 1 && a == 2 && a == 3){
 
 上栗valueOf改为toString即可 
 
-## 6、数组的splice和slice的用法和区别
+## 数组的splice和slice的用法和区别
 
 **1. splice(start,deleteCount,item1,item2.....);**
 
@@ -133,7 +133,7 @@ if(a == 1 && a == 2 && a == 3){
 - join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔
 - reverse() 颠倒数组中元素的顺序
 
-## 7、实现 (5).add(3).minus(2) 功能。
+## 实现 (5).add(3).minus(2) 功能。
 
 ```javascript
 Number.prototype.add=function(n){
@@ -145,28 +145,9 @@ Number.prototype.minus=function(n){
 console.log((5).add(3).minus(2))
 ```
 
-## 8、Vue 的响应式原理中 Object.defineProperty 有什么缺陷？为什么在 Vue3.0 采用了 Proxy，抛弃了 Object.defineProperty？
-
-Object.defineProperty无法监控到数组下标 的变化，导致通过数组下标添加元素，不能实时响应；
-
-Object.defineProperty只能劫持对象的属性，从而需要对每个对象，每个属性进行遍历，如果，属性值是对象，还需要深度遍历。Proxy可以劫持整个对象，并返回一个新的对象。
-
-Proxy不仅可以代理对象，还可以代理数组。还可以代理动态增加的属性
-
-## 9、Vue 的父组件和子组件生命周期钩子执行顺序是什么 ？
-
-1. 加载渲染过程
-   `父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted`
-2. 子组件更新过程
-   `父beforeUpdate->子beforeUpdate->子updated->父updated`
-3. 父组件更新过程
-   `父beforeUpdate->父updated`
-4. 销毁过程
-   `父beforeDestroy->子beforeDestroy->子destroyed->父destroyed`
-
 **总结：从外到内，再从内到外**
 
-## 10、 JS String 和 new String的区别
+##  JS String 和 new String的区别
 
 
 当通过new 调用 String()时,返回的是一个object
@@ -177,7 +158,7 @@ Proxy不仅可以代理对象，还可以代理数组。还可以代理动态增
 
 ![](https://i.loli.net/2019/07/25/5d393bc29256718027.png)
 
-## 11、实现add函数,让add(a)(b)和add(a,b)两种调用结果相同
+## 实现add函数,让add(a)(b)和add(a,b)两种调用结果相同
 
 ```js
 function add(a,b) {
@@ -190,7 +171,7 @@ function add(a,b) {
 }
 ```
 
-## 12、如何让：a == 1 && a == 2 && a == 3
+## 如何让：a == 1 && a == 2 && a == 3
 
 ```js
 const a = {

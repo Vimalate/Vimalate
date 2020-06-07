@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-03 01:45:05
- * @LastEditTime: 2020-06-04 20:10:50
+ * @LastEditTime: 2020-06-07 16:17:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\HTML-Library\HTML-Study.md
@@ -51,6 +51,25 @@ doctype 是 html5 标准网页声明，且必须声明在文档第一行。用�
     // maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数
     // user-scalable    是否允许手动缩放
 ```
+## script放在body头部就一定会阻塞吗
+js属于单线程，渲染线程(GUI)和js引擎线程互斥。当我们加载script标签时，渲染引擎会暂停，因为script标签里内容可能会操作DOM，所以如果你加载script标签又同时渲染页面肯定就冲突了。
+
+>引用```css```时使用```@import```也会
+
+**正常情况**
+
+```<script src="index.js"></script>```
+这种情况下 JS 会阻塞浏览器，浏览器必须等待 index.js 加载和执行完毕才能去做其它事情。
+
+**async(异步)**
+```<script async src="index.js"></script>```
+async 模式下，JS 不会阻塞浏览器做任何其它的事情。它的加载是异步的，当它加载结束，JS 脚本会立即执行。
+
+**defer(延缓)**
+```<script defer src="index.js"></script>```
+defer模式下，加载是异步的，执行被推迟。他得等到整个文档解析完成，也就是 DOMContentLoaded 事件即将触发时，被标记的defer的js文件才会依次执行
+
+所以在我们的开发过程中，当我们的脚本与DOM元素和其他脚本依赖不强时，使用```async```,当脚本依赖于 DOM 元素和其它脚本的执行结果时，我们会选用 ```defer```。
 
 ##  src 和 href 的区别？
 
