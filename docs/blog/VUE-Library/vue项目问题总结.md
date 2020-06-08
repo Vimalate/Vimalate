@@ -1,3 +1,10 @@
+<!--
+ * @Author: Vimalakirti
+ * @Date: 2020-04-09 23:03:50
+ * @LastEditTime: 2020-06-09 00:45:04
+ * @Description: 
+ * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
+--> 
 ## vue加scoped后就无法修改vant的UI组件的样式
 
 一些时候UI组件提供的默认的样式不能满足项目的需要，就需要我们对它的样式进行修改，但是发现加了scoped后修改的样式不起作用。
@@ -68,7 +75,25 @@ postcss-pxtorem（自动处理 rem，妈妈再也不用担心屏幕太大太小�
 ```
 也可写成 ```@select="handleSelect($event, index)```
 
-
-
-
+## Watch immediate
+当 watch 一个变量的时候，初始化时并不会执行，如下面的例子，你需要在created的时候手动调用一次。
+```js
+// bad
+created() {
+  this.getsearchText();
+},
+watch: {
+  searchText: 'getSearchText',
+}
+```
+你可以添加immediate属性，这样初始化的时候也会触发,代码也就可以简化成这样
+```js
+// good
+watch: {
+  searchText: {
+    handler: 'getSearchText',
+    immediate: true,
+  }
+}
+```
 <Vssue/>
