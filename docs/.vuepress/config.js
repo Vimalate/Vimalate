@@ -146,7 +146,7 @@ module.exports = {
                         ['VUE-Library/vue响应原理', 'vue响应原理'],
                         ['VUE-Library/vue 整理面试题', 'vue 整理面试题'],
                         ['VUE-Library/vue项目问题总结', 'vue项目问题总结'],
-                        ['VUE-Library/vue项目路由权限配置', 'vue项目路由权限配置'],
+                        ['VUE-Library/vue项目路由权限配置', 'vue项目权限配置'],
                     ]
                 },
                 {
