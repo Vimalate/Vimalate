@@ -218,13 +218,6 @@ computed: {
 }
 ```
 
-## $route 和 $router 的区别？
-
-$route 是“路由信息对象”，包括 path，params，hash，query，fullPath，matched，name 等路由信息参数。
-
-而 $router 是“路由实例”对象包括了路由的跳转方法，钩子函数等。
-
-
 ## v-for中的key不建议使用index
 
 我们使用 v-for 时，其内部 diff 算法使用就地复用原则，当列表数据发生更改，他是根据 key 值来判断某个值是否修改，如修改，则重新渲染，否则就复用这一项。key的作用也主要是为了高效的更新虚拟DOM，而 index 则不能做到。
@@ -313,10 +306,48 @@ chunkconst Home = () => import(/* webpackChunkName: "group-home" */ './Home.vue'
 - 路由独享守卫：beforeEnter
 - 组件内守卫：beforeRouter、beforeRouteUpdate、beforeRouteLeave
 ## vue-router 传参
+
+query方式传参和接收参数
+
+```js
+传参: 
+this.$router.push({
+        path:'/xxx',
+        query:{
+          id:id
+        }
+      })
+  
+接收参数:
+this.$route.query.id
+```
+params方式传参和接收参数
+
+```js
+传参: 
+this.$router.push({
+        name:'xxx',
+        params:{
+          id:id
+        }
+      })
+  
+接收参数:
+this.$route.params.id
+```
+>params传参，push里面只能是 name:'xxxx',不能是path:'/xxx',因为params只能用name来引入路由，如果这里写成了path，接收参数页面会是undefined！！！
 query 和 params 传参方式的区别
-- query：地址栏显示参数，params 则不会，
-- 
-详细：[导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)
+- query 地址栏显示参数，params 则不会，
+- params只能用name来引入路由，query用name，path都可以
+- params参数要在路由中声明了才不会消失。
+
+详细：[导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)、[query 和 params](https://segmentfault.com/a/1190000012735168#comment-area)
+
+## $route 和 $router 的区别？
+
+$route 是“路由信息对象”，包括 path，params，hash，query，fullPath，matched，name 等路由信息参数。
+
+而 $router 是“路由实例”对象包括了路由的跳转方法，钩子函数等。
 ## 组件渲染和更新过程
 渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，并进行实例化。最终手动调用 $mount() 进行挂载，更新组件时会 进行 patchVnode 流程，核心是 diff 算法。
 
