@@ -223,6 +223,13 @@ BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其�
 ## flex: 0 1 auto 表示什么意思
 弹性盒子默认值，分别表示 放大比例：```flex-grow```，缩小比例：  ```flex-shrink```和分配多余空间之前占的主轴比例： ```flex-basis``` 的简写，
 
+## CSS3 新特性
+-	边框属性:```border-radius、box-shadow和border-image```
+-	选择器：```:read-only 、:nth-child(n)、:before、:after等```
+-	渐变：```线性渐变（Linear Gradients）、径向渐变（Radial Gradients）```
+-	盒模型:```resize、box-sizing、outline```
+-	弹性盒：```flex```
+-	动画：```transtion、animation```
 ***  
 随着油菜籽人生阅历的不断增长，所知道CSS也 ~~应该~~ 会越来越多，所以本文**我都知道的CSS**或将得到后续更新。
 
