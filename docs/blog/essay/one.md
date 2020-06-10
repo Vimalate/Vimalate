@@ -1,3 +1,10 @@
+<!--
+ * @Author: Vimalakirti
+ * @Date: 2020-04-03 01:45:05
+ * @LastEditTime: 2020-06-10 23:12:01
+ * @Description: 
+ * @FilePath: \vuepress-blog\docs\blog\essay\one.md
+--> 
 想起之前在掘金发的沸点
 
 ![](https://i.loli.net/2019/07/31/5d4133108c78295234.png)
@@ -12,7 +19,7 @@
 
 发生过的，就是生活唯一可能性，所以你可能后悔，但无从来一说。
 
-
+我觉得应该养只乌龟，比较靠谱，要么我送它走，要么它送我走
 
 vscode sync token： 21a3dd2df5abdca3243df60ec19627f4b12c52d8
 
