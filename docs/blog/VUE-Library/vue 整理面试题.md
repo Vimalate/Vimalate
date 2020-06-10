@@ -302,9 +302,9 @@ Webpack 层面：
 chunkconst Home = () => import(/* webpackChunkName: "group-home" */ './Home.vue')
 ```
 ## Vue-router 导航守卫有哪些
-- 全局钩子：beforeEach、beforeResolve、afterEach
-- 路由独享守卫：beforeEnter
-- 组件内守卫：beforeRouter、beforeRouteUpdate、beforeRouteLeave
+- 全局钩子：```beforeEach、beforeResolve、afterEach```
+- 路由独享守卫：```beforeEnter```
+- 组件内守卫： ```beforeRouteEnter 、beforeRouteUpdate、beforeRouteLeave```
 ## vue-router 传参
 
 query方式传参和接收参数
