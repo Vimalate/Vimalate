@@ -22,6 +22,18 @@
 ```！
 并发连接解决，目前浏览器对于一个域名允许分配多个长连接，如Chrome 中是 6 个
 ```
+## http1.0 1.1 2.0的区别
+- 长链接：HTTP1.0需要使用keep-alive来建立长连接，HTTP1.1默认支持长连接
+- 缓存处理：HTTP1.1多了Entity tag，If-Unmodified-Since, If-Match, If-None-Match等缓存信息（HTTTP1.0 If-Modified-Since,Expires）
+- 节约宽带：（设置虚拟站点，也就是说，web server上的多个虚拟站点可以共享同一个ip端口）：HTTP1.0没有host域
+
+HTTP2的优化
+- HTTP2支持二进制传送（实现方便且健壮），HTTP1.x是字符串传送
+- HTTP2支持多路复用：一个连接可以并发处理多个请求
+- HTTP2采用HPACK压缩算法压缩头部，减小了传输体积
+- HTTP2支持服务端推送
+
+
 
 ## HTTP 的请求方法
 在 http/1.1 规定了以下请求方法
@@ -101,6 +113,10 @@ o-store ，用来指定资源不能够被缓存，no-cache 代表该资源能够
 返回if-Modified-Since(Last-modified) 和 if-no-Match(ETag)来判断当前文件是否有更新，
 如果没有更新返回304，更新则返回200和当前更新文件
 ```
+> 有了Last-Modified，为什么还要用ETag？
+>1、因为如果在一秒钟之内对一个文件进行两次更改，Last-Modified就会不正确（Last—Modified不能识别秒单位的修改）
+>2、某些服务器不能精确的得到文件的最后修改时间
+>3、一些文件也行会周期新的更改，但是他的内容并不改变（仅仅改变修改的事件），这个时候我们并不希望客户端认为文件被修改，而重新Get
 
 ## session 与 cookie
 1，session 在服务器端，cookie 在客户端（浏览器）
