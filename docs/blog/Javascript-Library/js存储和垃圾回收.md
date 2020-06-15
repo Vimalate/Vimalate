@@ -169,10 +169,12 @@ document.body.removeChild(document.getElementById('image'));
 
 与此类似情景还有: `DOM` 节点绑定了事件, 但是在移除的时候没有解除事件绑定,那么仅仅移除 `DOM`节点也是没用的
 
-
+参考：
 
 [垃圾回收](https://juejin.im/post/5cb33660e51d456e811d2687)
 
 [JavaScript中的垃圾回收和内存泄漏](https://juejin.im/post/5b4d421e5188251b200176a6)
+
+[聊聊V8引擎的垃圾回收](https://juejin.im/post/5ad3f1156fb9a028b86e78be#heading-10)
 
 <Vssue/>
