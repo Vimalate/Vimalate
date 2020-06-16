@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-06-09 00:45:04
+ * @LastEditTime: 2020-06-16 20:54:35
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -96,4 +96,10 @@ watch: {
   }
 }
 ```
+
+## ElementUI中限制el-input输入框只能输入数字
+```css
+<el-input v-model.number="num"  onkeyup="this.value = this.value.replace(/[^\d.]/g,'');"></el-input>
+```
+
 <Vssue/>
