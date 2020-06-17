@@ -241,4 +241,6 @@ css选择器的解析原则：选择器定位DOM元素从左往右，能够尽�
 2.	visibility：hidden  元素隐藏，不改变布局，元素绑定的方法不能执行
 3.	dispaly：none		元素隐藏，会改变布局，dom树中不存在
 
+## 对 z-index 值的理解
+![](https://i.loli.net/2020/06/16/37qeNU8ocPpRjTt.png)
 <Vssue/>
