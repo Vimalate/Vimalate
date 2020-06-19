@@ -101,5 +101,18 @@ watch: {
 ```css
 <el-input v-model.number="num"  onkeyup="this.value = this.value.replace(/[^\d.]/g,'');"></el-input>
 ```
+## 解决ElementUI导航栏重复点菜单报错问题
 
+在VUE中路由遇到
+
+```Error: Avoided redundant navigation to current location:```报错显示是路由重复，
+虽然对项目无影响，但是看到有红的还是不舒服。
+
+在router的配置文件中（router -> index.js）加上
+```js
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+```
 <Vssue/>
