@@ -187,6 +187,7 @@ module.exports = {
                         ['Other-Library/skill/skill', '前端常用技巧'],
                         ['Other-Library/skill/项目利器', '前端常用库'],
                         ['Other-Library/skill/vscode常见操作', 'vscode常见操作'],
+                        ['Other-Library/skill/git优雅提交', 'git优雅提交'],
                     ]
                 },
 

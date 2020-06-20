@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-06-12 01:42:13
+ * @LastEditTime: 2020-06-20 00:42:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -28,6 +28,9 @@
  **原始数据类型( String、Number、Null、Undefined、Boolean、Symbol )**，原始数据类型存放在栈中。
 
 **引用数据类型（对象、数组和函数）**，引用数据类型的值保存在堆中，引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。
+
+## null 和 undefined
+null表示“无”的对象（空对象指针），数据转换时转为数值0，undefined 表示“无”的原始值，转为数值 NaN
 
 ## 怎么理解闭包，作用是什么？
 
