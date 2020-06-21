@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-06-20 22:09:30
- * @LastEditTime: 2020-06-20 22:09:33
+ * @LastEditTime: 2020-06-20 22:17:55
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\skill\git优雅提交.md
 --> 
@@ -17,3 +17,5 @@
 - ci：更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等
 - chore：变更构建流程或辅助工具
 - revert：代码回退
+
+<Vssue/>

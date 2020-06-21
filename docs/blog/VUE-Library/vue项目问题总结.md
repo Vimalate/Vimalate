@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-06-16 20:54:35
+ * @LastEditTime: 2020-06-21 22:33:12
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -115,4 +115,13 @@ VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 ```
+## 组件封装思路
+判断基本类型
+  哪些写死
+  哪些传进来
+扩展
+  自定义事件，判断传出参数
+  插槽扩展
+优化
+  提高适应性(v-if,v-show)
 <Vssue/>
