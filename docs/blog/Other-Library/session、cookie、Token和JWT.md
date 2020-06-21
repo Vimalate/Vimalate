@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-06-21 00:26:25
- * @LastEditTime: 2020-06-22 03:33:45
+ * @LastEditTime: 2020-06-22 04:14:03
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\session、cookie、Token和JWT.md
 --> 
@@ -83,13 +83,33 @@ session也是类似的道理。服务器要知道当前发请求给自己的是�
 ### Refresh Token
 前面讲的 token，都是 acesss token，也就是访问资源接口时所需要的 token，还有另外一种 token——refresh token，refresh token 是专门用来刷新 access token 的 token。
 
+![](https://i.loli.net/2020/06/22/aqQCVPLsgkO1DNE.jpg)
+
 **为什么有了 access token 还要 refresh token 呢？**
 
-因为一般情况下，Refresh Token的有效期会比较长。而Access Token的有效期比较短，当Acesss Token由于过期而失效时，使用Refresh Token就可以获取到新的Token，设想一下如果没有 refresh token 每次刷新 access token 时，都要用户输入登录用户名与密码，会很麻烦。有了 refresh 可以减少这个麻烦，客户端直接用 refresh token 去更新 access token，无需用户进行额外的操作。当然了，如果Refresh Token也失效了，用户就只能重新登录了。
+因为一般情况下，refresh token的有效期会比较长。而access token的有效期比较短，当refresh token 由于过期而失效时，使用 refresh token 就可以获取到新的 token，设想一下如果没有 refresh token 每次刷新 access token 时，都要用户输入登录用户名与密码，会很麻烦。有了 refresh 可以减少这个麻烦，客户端直接用 refresh token 去更新 access token，无需用户进行额外的操作。当然了，如果 refresh token也失效了，用户就只能重新登录了。
 
 refresh token 及过期时间是存储在服务器的数据库中，只有在申请新的 Acesss Token 时才会验证，不会对业务接口响应时间造成影响，也不需要向 Session 一样一直保持在内存中以应对大量的请求。
 
-![](https://i.loli.net/2020/06/22/aqQCVPLsgkO1DNE.jpg)
+## 区别
+### Cookie和Session的区别
+- 存储位置不同：cookie 数据存放在客户的浏览器上，session 数据放在服务器上
+- 安全性不同：cookie 不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用 session
+- 存取值的类型不同：cookie 只支持存字符串数据，想要设置其他类型的数据，需要将其转换成字符串，session 可以存任意数据类型。
+- 有效期不同：cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，session 一般失效时间较短，客户端关闭或者 session 超时都会失效。（这里其实有一个误解，详情[点击](https://www.cnblogs.com/JamesWang1993/p/8593494.html)）
+- 存储大小不同：单个 cookie 保存的数据不能超过 4K，session 可存储数据远高于 cookie
+
+>建议： 将登陆信息等重要信息存放为session, 其他信息如果需要保留，可以放在cookie中
+
+### Token和Session的区别
+- session 是一种记录服务器和客户端会话状态的机制，使服务端有状态化，可以记录会话信息。而 token 是令牌，访问资源接口（API）时所需要的资源凭证。token 使服务端无状态化，不会存储会话信息。
+- session 和 Token 并不矛盾，作为身份认证 token 安全性比 session 好，因为每一个请求都有签名还能防止监听以及重放攻击，而 session 就必须依赖链路层来保障通讯安全了。如果你需要实现有状态的会话，仍然可以增加 session 来在服务器端保存一些状态。
+- 所谓 session 认证只是简单的把 User 信息存储到 session 里，因为 sessionID 的不可预测性，暂且认为是安全的。而 Token ，如果指的是 OAuth Token 或类似的机制的话，提供的是 认证 和 授权 ，认证是针对用户，授权是针对 App 。其目的是让某 App 有权利访问某用户的信息。这里的 Token 是唯一的。不可以转移到其它 App上，也不可以转到其它用户上。session 只提供一种简单的认证，即只要有此 sessionID ，即认为有此 User 的全部权利。是需要严格保密的，这个数据应该只保存在站方，不应该共享给其它网站或者第三方 App。所以简单来说：如果你的用户数据可能需要和第三方共享，或者允许第三方调用 API 接口，用 Token 。如果永远只是自己的网站，自己的 App，用什么就无所谓了。
+
+## 总结
+- cookie 类似一个令牌，装有 sessionId，存储在客户端，浏览器通常会自动添加。
+- session 存储于服务器，可以理解为一个状态列表，拥有一个唯一识别符号 sessionId，通常存放于 cookie 中。服务器收到 cookie 后解析出 sessionId，再去 session 列表中查找，才能找到相应session。依赖cookie。
+- token 也类似一个令牌，无状态，用户信息都被加密到 token 中，服务器收到 token 后解密就可知道是哪个用户。需要开发者手动添加。
 
 
 
