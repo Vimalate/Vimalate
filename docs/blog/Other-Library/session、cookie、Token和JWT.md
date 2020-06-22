@@ -1,13 +1,13 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-06-21 00:26:25
- * @LastEditTime: 2020-06-22 04:14:03
+ * @LastEditTime: 2020-06-22 13:48:30
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\session、cookie、Token和JWT.md
 --> 
 众所周知，**HTTP 是一种无状态协议**，即每次客户端发送请求时，对于服务端来说接收到的都是一个全新的请求，因此服务器并不知道客户端的历史请求记录。
 
-简单的，用户登陆一个购物商城，往自己购物车中加入了商品，那么就面临一个问题，要区分都有哪些人登陆过商城，哪些人往自己的购物车中放商品。因此网站需要管理这些会话。
+简单的，用户登陆一个购物商城，往自己购物车中加入了商品，那么就面临一个问题，要区分都有哪些人登陆过商城，哪些人往自己的购物车中放商品。而网站需要管理这些会话。
 
 而cookie，session, token就是用来管理会话的手段。
 
@@ -59,13 +59,13 @@ session也是类似的道理。服务器要知道当前发请求给自己的是�
 - 全部保存在客户端，那么一旦被劫持，全部信息都会泄露
 - 客户端数据量变大，网络传输的数据量也会变大
 
-## 使用 session 存在的问题
+### 使用 session 存在的问题
 - session 存储在服务器里面，当用户同时在线量比较多时，这些 session 会占据较多的内存，需要在服务端定期的去清理过期的 session
 - 移动端对 cookie 的支持不是很好，而 session 需要基于 cookie 实现，所以移动端常用的是 token
 - 扩展性不好：例如互联网公司为了可以支撑更大的流量，后端往往需要多台服务器共同来支撑前端用户请求，那如果用户在 A 服务器登录了，第二次请求跑到服务 B 就会出现登录失效问题。（解决方法：```Nginx ip_hash 策略、Session 复制、共享 Session```）
 
 ## Token
-- Token是在客户端频繁向服务端请求数据，服务端频繁的去数据库查询用户名和密码并进行对比，判断用户名和密码正确与否，并作出相应提示，在这样的背景下，Token便应运而生。
+- token 是在客户端频繁向服务端请求数据，服务端频繁的去数据库查询用户名和密码并进行对比，判断用户名和密码正确与否，并作出相应提示，在这样的背景下，token 便应运而生。
 - **简单 token 的组成**:uid(用户唯一的身份标识)、time(当前时间的时间戳)、sign（签名，token 的前几位以哈希算法压缩成的一定长度的十六进制字符串）
 
 ### token认证流程
@@ -81,13 +81,13 @@ session也是类似的道理。服务器要知道当前发请求给自己的是�
 >基于 token 的用户认证是一种服务端无状态的认证方式，服务端不用存放 token 数据。用解析 token 的计算时间换取 session 的存储空间，从而减轻服务器的压力，减少频繁的查询数据库
 
 ### Refresh Token
-前面讲的 token，都是 acesss token，也就是访问资源接口时所需要的 token，还有另外一种 token——refresh token，refresh token 是专门用来刷新 access token 的 token。
+前面讲的 token，都是 acesss token，也就是访问资源接口时所需要的 token，还有另外一种 token——refresh token，**refresh token 是专门用来刷新 access token 的 token。**
 
 ![](https://i.loli.net/2020/06/22/aqQCVPLsgkO1DNE.jpg)
 
 **为什么有了 access token 还要 refresh token 呢？**
 
-因为一般情况下，refresh token的有效期会比较长。而access token的有效期比较短，当refresh token 由于过期而失效时，使用 refresh token 就可以获取到新的 token，设想一下如果没有 refresh token 每次刷新 access token 时，都要用户输入登录用户名与密码，会很麻烦。有了 refresh 可以减少这个麻烦，客户端直接用 refresh token 去更新 access token，无需用户进行额外的操作。当然了，如果 refresh token也失效了，用户就只能重新登录了。
+因为一般情况下，refresh token的有效期会比较长。而access token的有效期比较短，当refresh token 由于过期而失效时，使用 refresh token 就可以获取到新的 token，设想一下如果没有 refresh token 每次刷新 access token 时，都要用户输入登录用户名与密码，会很麻烦。有了 refresh token 可以减少这个麻烦，客户端直接用 refresh token 去更新 access token，无需用户进行额外的操作。当然了，如果 refresh token也失效了，用户就只能重新登录了。
 
 refresh token 及过期时间是存储在服务器的数据库中，只有在申请新的 Acesss Token 时才会验证，不会对业务接口响应时间造成影响，也不需要向 Session 一样一直保持在内存中以应对大量的请求。
 
