@@ -1,15 +1,15 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-06-15 19:13:17
- * @LastEditTime: 2020-06-15 21:17:45
+ * @LastEditTime: 2020-06-22 21:41:23
  * @Description: 
- * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\ES6的eakSet，Map和WeakMap.md
+ * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\ES6的Set ，WeakSet，Map和WeakMap.md
 --> 
 日常开发中，我们经常用 set 来做去重，map 来做数据的存储，但对set 和 map 是怎样的的数据结构了解不多。
 ## 集合(set)
 ```Set``` 是一种叫做集合的数据结构
 ```!
-Set 本身是一个构造函数，用来生成 Set 数据结构。Set 函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。Set 对象允许你存储任何类型的值，无论是原始值或者是对象引用。**它类似于数组**，但是成员的值都是唯一的，没有重复的值。
+Set 本身是一个构造函数，用来生成 Set 数据结构（类似于数组）。Set 函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。Set 对象允许你存储任何类型的值，无论是原始值或者是对象引用。**它类似于数组**，但是成员的值都是唯一的，没有重复的值。
 ```
 例如常见数组去重
 ```js
@@ -79,6 +79,7 @@ WeakSet 对象允许你将弱引用对象储存在一个集合中
 map中的 key 和 value 可以是任何类型的, 即对象也可以作为 key。 Map 的出现，就是让各种类型的值都可以当作键。Map 提供的是 “值-值”的对应。
 
 ### Map 和 Object 的区别
+map 类似于对象，但他们也有不同
 - Object 对象有原型， 也就是说他有默认的 key 值在对象上面， 除非我-们使用 Object.create(null)创建一个没有原型的对象；
 - 在 Object 对象中， 只能把 String 和 Symbol 作为 key 值， 但是在 Map 中，key 值可以是任何基本类型(String, Number, Boolean, undefined, NaN….)，或者对象(Map, Set, Object, Function , Symbol , null….);
 - 通过 Map 中的 size 属性， 可以很方便地获取到 Map 长度， 要获取 Object 的长度， 你只能手动计算
