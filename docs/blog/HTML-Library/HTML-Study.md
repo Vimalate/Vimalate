@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-03 01:45:05
- * @LastEditTime: 2020-06-16 00:27:15
+ * @LastEditTime: 2020-06-23 16:28:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\HTML-Library\HTML-Study.md
@@ -107,4 +107,7 @@ src（resource） 时指向外部的资源位置，指向的内容将会嵌入�
 
 `<div contenteditable="true"></div>`
 
+## e.target与e.currentTarget的区别
+- ```e.target``` 指向触发事件监听的对象
+- ```e.currentTarget``` 指向绑定事件监听的对象
 <Vssue/>
