@@ -1,11 +1,11 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-26 18:57:57
- * @LastEditTime: 2020-06-19 23:55:01
+ * @LastEditTime: 2020-06-22 23:47:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\self.md
--->面试官你好，我叫刘坚，18年毕业于南昌航空大学。从毕业以来从事前端开发，已经有近两年的工作经验 ，工作中接触比较多的是pc端和移动端的项目，目前所用的技术栈以vue为主。
+-->面试官你好，很高兴能够得到这次的面试机会，我叫刘坚，18年毕业于南昌航空大学。从毕业以来从事前端开发，到现在已经有近两年的工作经验 ，我在上家公司接触比较多的是pc端和移动端的项目，目前所用的技术栈以vue为主，所以大所数项目也是基于vue全家桶以及搭配合适的UI框架来完成的
 
 
 公司目前所主要使用的技术栈是哪些？ 
