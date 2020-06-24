@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-06-22 15:53:56
+ * @LastEditTime: 2020-06-24 23:11:43
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -173,5 +173,16 @@ export default {
 }
 </script>
 ```
+## Vue-cli3 打包后报错 Failed to load resource: net::ERR_FILE_NOT_FOUND
+
+根目录下新建文件 vue.config.js
+
+```js
+// vue.config.js
+module.exports = {
+  publicPath: './'
+}
+```
+
 
 <Vssue/>
