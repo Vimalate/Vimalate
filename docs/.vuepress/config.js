@@ -176,6 +176,7 @@ module.exports = {
                     children: [
                         ['Other-Library/Git Document Library/github搜索', 'github搜索'],
                         ['Other-Library/Git Document Library/git常用命令和开发流程', 'git常用命令和开发流程'],
+                        ['Other-Library/skill/git优雅提交', 'git优雅提交'],
                         ['Other-Library/Git Document Library/webpack面试题', 'webpack面试题'],
                         ['Other-Library/Git Document Library/gitbook', 'gitbook 遇到的问题'],
                        
@@ -188,7 +189,6 @@ module.exports = {
                         ['Other-Library/skill/skill', '前端常用技巧'],
                         ['Other-Library/skill/项目利器', '前端常用库'],
                         ['Other-Library/skill/vscode常见操作', 'vscode常见操作'],
-                        ['Other-Library/skill/git优雅提交', 'git优雅提交'],
                     ]
                 },
 
