@@ -137,6 +137,7 @@ module.exports = {
                         ['Javascript-Library/new', 'new一个对象发生了什么'],
                         ['Javascript-Library/了解Event Loop么', '了解Event Loop么'],
                         ['Javascript-Library/ES6的Set ，WeakSet，Map和WeakMap', 'ES6的Set ，WeakSet，Map和WeakMap'],
+                        ['Javascript-Library/常见数组方法', '常见数组方法'],
                         ['Javascript-Library/我都知道的JS', '我都知道的JS'],
                         ['Javascript-Library/Javascript 面试题', 'Javascript 面试题'],
                     ]
