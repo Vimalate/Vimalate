@@ -160,6 +160,13 @@ export const EventBus = new Vue()
 ```!
 而在 Vue 根实例创建则不存在此限制，因为根实例只有一个。无须担心此状况。
 ```
+## vue 插槽的使用
+- 匿名插槽
+- 具名插槽
+- 作用域插槽
+
+具体用法可[参考](https://juejin.im/post/5a69ece0f265da3e5a5777ed)、[slot详解](https://juejin.im/post/5cb0564e5188251acb530087)
+
 ## nextTick的用途与原理
 
 应用场景 ：需要在试图更新后，基于新的视图进行操作。
