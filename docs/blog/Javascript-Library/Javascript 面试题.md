@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-06-29 19:25:38
+ * @LastEditTime: 2020-06-29 21:06:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -49,6 +49,18 @@
 - **作用域链**：作用域链的作用是保证对执行环境有权访问的所有变量和函数的有序访问，通过作用域链，我们可以访问到外层环境的变量和 函数。
 
 在《JavaScript深入之变量对象》是这样说的，当查找变量的时候，会从当前上下文的变量对象中查找，如果没有查找到，则会从父级的执行上下文的变量对象查找，一直到全局对象。而由多个执行上下文的变量对象构成的链表就叫做作用域链。
+
+## arguments 的对象是什么
+arguments 的对象是函数传递参数值的对象。它类似于一个数组的对象，因为它有 length 属性，但是它没有数组内置的那些方法。像是 forEach、reduce、filter和map。
+
+我们可以使用 Array.prototype.slice 将arguments对象转换成一个数组
+```js
+function (){
+  retutn Array.prototype.slice.call(arguments)
+}
+```!
+箭头函数没有自己的this
+```
 ## 如何理解BigInt?
 ```!
 BigInt是一种新的数据类型，用于当整数值大于Number数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。
