@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-07-01 20:35:05
+ * @LastEditTime: 2020-07-02 00:18:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -206,6 +206,25 @@ var obj = {
 }
 console.log(obj + 1); // 输出7
 ```
+
+##  使用Promise实现每隔1秒输出1,2,3
+用 promise 配合 reduce 不停的在promise后面叠加 .then
+```js
+const arr=[1,2,3]
+arr.reduce((p,x)=>{
+  return p.then(()=>{
+    return new Promise(res=>{
+      setTimeout(()=>res(console.log(x),1000))
+    })
+  })
+},Promise.resolve())
+```
+## requestAnimationFrame有了解过吗？
+
+```requestAnimationFrame```是浏览器用于定时循环操作的一个接口，类似于```setTimeout```，主要用途是按帧对网页进行重绘。对于JS动画，用```requestAnimationFrame``` 会比 ```setInterval``` 效果更好。
+具体可以看[这里](https://juejin.im/post/5e621f5fe51d452700567c32#heading-13)
+
+
 参考：
 [原生js灵魂之问](https://juejin.im/post/5dac5d82e51d45249850cd20#heading-12)
 <Vssue/>
