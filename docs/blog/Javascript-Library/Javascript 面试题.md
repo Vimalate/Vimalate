@@ -1,21 +1,20 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-06-29 21:06:14
+ * @LastEditTime: 2020-07-01 15:53:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
 --> 
 # Javascript 面试题
 
-## JS 数据类型
+## JS数据类型
 **基本类型**
 - Undefined
 - Null
 - String
 - Symbol
 - Number
-- Object
 - Bigint
 - Boolean
 
@@ -28,6 +27,15 @@
  **原始数据类型( String、Number、Null、Undefined、Boolean、Symbol )**，原始数据类型存放在栈中。
 
 **引用数据类型（对象、数组和函数）**，引用数据类型的值保存在堆中，引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。
+
+## Symbol使用场景
+Symbol 是 ES6 引入了一种新的原始数据类型，他表示独一无二的值。
+
+- 作为属性名的使用
+- 定义常量
+- 定义私有属性
+  
+具体用法[参考](https://juejin.im/post/5ebb6e1d6fb9a043365002a6#heading-4)
 
 ## null 和 undefined
 - null表示“无”的对象（空对象指针），数据转换时转为数值0，undefined 表示“无”的原始值，转为数值 NaN
