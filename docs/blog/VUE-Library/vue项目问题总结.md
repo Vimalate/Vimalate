@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-06-24 23:11:43
+ * @LastEditTime: 2020-07-01 21:44:20
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -115,15 +115,30 @@ VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 ```
-## 组件封装思路
-判断基本类型
-  哪些写死
-  哪些传进来
-扩展
-  自定义事件，判断传出参数
-  插槽扩展
-优化
-  提高适应性(v-if,v-show)
+## 组件封装
+
+**组件封装原则：**
+
+一个组件只专注做一件事，且把这件事做好（通用 易用 可组合）
+
+ **vue组件三要素：**
+1. props参数
+2. slot定制插槽
+3. event自定义事件
+
+**组件封装思想：**
+- 判断基本类型
+  - 哪些写死
+  - 哪些传进来
+- 扩展
+  - 自定义事件，判断传出参数
+  - 插槽扩展
+- 优化
+  -  提高适应性(v-if,v-show)
+
+
+
+[参考](https://juejin.im/post/5cc842dc6fb9a0322f7c98ff)
 
 ## hookEvent，监听z组件生命周期函数
 ### 内部监听生命周期函数
