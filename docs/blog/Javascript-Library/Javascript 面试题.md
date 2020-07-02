@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-07-02 00:18:53
+ * @LastEditTime: 2020-07-02 19:15:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -84,9 +84,11 @@ arguments 的对象是函数传递参数值的对象。它类似于一个数组�
 function (){
   retutn Array.prototype.slice.call(arguments)
 }
+```
 ```!
 箭头函数没有自己的this
 ```
+[Array.prototype.slice.call()方法详解](https://www.jianshu.com/p/c5df0156b229)
 ## 如何理解BigInt?
 ```!
 BigInt是一种新的数据类型，用于当整数值大于Number数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。

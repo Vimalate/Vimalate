@@ -67,7 +67,7 @@ child1.name[0] = 'foo'
 console.log(child1.name)          // ['foo']
 console.log(child2.name)          // ['zhangsan']
 child2.getName()                  // 报错,找不到getName(), 构造函数继承的方式继承不到父类原型上的属性和方法
-
+//构造函数继承不能继承到父类原型链上的属性和方法
 ```
 
 **call 继承特点：**
@@ -75,7 +75,7 @@ child 方法中把parents当做普通函数执行，让parents中的this 指向c
     1. 只能继承父类私有的属性和方法，继承不到父类原型上的属性和方法
     2. 父类私有变为子类私有
 
-### 寄生组合继承
+### 组合继承
 call 继承+类似于原型链继承
 
 ```Object.create()```
@@ -108,6 +108,60 @@ console.log(s3.play, s4.play)
 
 特点：父类私有和公有分别都为子类公有和私有
 
+缺点：每次构建子类实例都执行了两次构造函数（Parent.call()和new Parent())），虽然并不影响子类对父类继承，但是子类创建实例时，原型中会存在两份相同的属性和方法，显得不优雅。
+
+## 寄生式组合继承
+将```指向父类实例```改为```指向子类实例```,这样就减少了一次构造函数的执行，从而解决了上面组合继承的问题
+
+```js
+function Parent(name) {
+    this.name = [name]
+}
+Parent.prototype.getName = function() {
+    return this.name
+}
+function Child() {
+    // 构造函数继承
+    Parent.call(this, 'zhangsan') 
+}
+//原型链继承
+// Child.prototype = new Parent()
+Child.prototype = Parent.prototype  //将`指向父类实例`改为`指向父类原型`
+Child.prototype.constructor = Child
+
+//测试
+const child1 = new Child()
+const child2 = new Child()
+child1.name[0] = 'foo'
+console.log(child1.name)          // ['foo']
+console.log(child2.name)          // ['zhangsan']
+child2.getName()                  // ['zhangsan']
+```
+但这种方式存在一个问题，由于子类原型和父类原型指向同一个对象，我们对子类原型的操作会影响到父类原型，例如给Child.prototype增加一个getName()方法，那么会导致Parent.prototype也增加或被覆盖一个getName()方法，为了解决这个问题，我们给Parent.prototype做一个浅拷贝
+
+```js
+function Parent(name) {
+    this.name = [name]
+}
+Parent.prototype.getName = function() {
+    return this.name
+}
+function Child() {
+    // 构造函数继承
+    Parent.call(this, 'zhangsan') 
+}
+//原型链继承
+// Child.prototype = new Parent()
+Child.prototype = Object.create(Parent.prototype)  //将`指向父类实例`改为`指向父类原型`
+Child.prototype.constructor = Child
+
+//测试
+const child = new Child()
+const parent = new Parent()
+child.getName()                  // ['zhangsan']
+parent.getName()                 // 报错, 找不到getName()
+```
+
 ## ES6 继承
 ```class child extends parent{}```
 ```js
@@ -137,6 +191,6 @@ console.log(child) // =>
 // mather: "mama"
 ```
 **参考**
-[隔壁小孩也能看懂的 7 种 JavaScript 继承实现](https://juejin.im/post/5ceb468af265da1bd1463585)
+[隔壁小孩也能看懂的 7 种 JavaScript 继承实现](https://juejin.im/post/5ceb468af265da1bd1463585)、[实现继承](https://juejin.im/post/5e8b261ae51d4546c0382ab4#heading-12)
 
 <Vssue/>
