@@ -15,7 +15,7 @@
 ## 继承
 
 ### 原型链继承
-父类中的属性和方法在子类实例的原型链上
+原型链继承的原理很简单，直接让子类的原型对象指向父类实例，即使父类中的属性和方法在子类实例的原型链上
 ```js
 function Parent() {
     this.name = 'Parent;
@@ -26,11 +26,11 @@ Parent.prototype.getName = function() {
     console.log(this.name);
 }
 
-function Child(){
-}
-// 子类的原型对象 指向 父类的实例对象
+function Child(){}
+
+//  让子类的原型对象指向父类实例, 这样一来在Child实例中找不到的属性和方法就会到原型对象(父类实例)上寻找
 Child.prototype = new Parent();
-let child1=new 
+let child1= new Child() 
 console.log(new Child)
 ```
 ![原型及原型链关系图](https://i.loli.net/2019/07/24/5d37cfe39a31b43977.png)
@@ -47,25 +47,32 @@ console.log(new Child)
 - 子类可改写父类上的方法（会导致父类其他实例受影响）
 - 父类中公有或私有的属性方法都会变成子类中公有的属性和方法。
 
-### call 继承(借用构造函数)
+### 借用构造函数(利用 call)
+构造函数继承，即在子类的构造函数中执行父类的构造函数，并为其绑定子类的 ```this``` ,让父类构造函数把属性和方法挂载到```子类的this```上去，这样就避免了实例原型共享一个原型对象。还能像父类构造方法传参。
 ```js
- function Parent() {
-   this.name = 'parent1';
- }
- 
- Parent.prototype.say = function () {}
- 
- function Child() {
-   Parent.call(this);
-   this.type = 'child';
- }
+ function Parent(name) {
+    this.name = [name]
+}
+Parent.prototype.getName = function() {
+    return this.name
+}
+function Child() {
+    Parent.call(this, 'zhangsan')   // 执行父类构造方法并绑定子类的this, 使得父类中的属性能够赋到子类的this上
+}
 
- console.log(new Child);
+//测试
+const child1 = new Child()
+const child2 = new Child()
+child1.name[0] = 'foo'
+console.log(child1.name)          // ['foo']
+console.log(child2.name)          // ['zhangsan']
+child2.getName()                  // 报错,找不到getName(), 构造函数继承的方式继承不到父类原型上的属性和方法
+
 ```
 
 **call 继承特点：**
 child 方法中把parents当做普通函数执行，让parents中的this 指向child的实例，相当于给child 的实例设置了私有的属性和方法。
-    1. 只能继承父类私有的属性和方法
+    1. 只能继承父类私有的属性和方法，继承不到父类原型上的属性和方法
     2. 父类私有变为子类私有
 
 ### 寄生组合继承
