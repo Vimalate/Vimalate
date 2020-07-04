@@ -169,6 +169,7 @@ module.exports = {
                         ['Other-Library/session、cookie、Token和JWT', 'session、cookie、Token'],
                         ['Other-Library/markdown', '那些必须知道的markdown语法'],
                         ['Other-Library/移动端适配', '移动端适配'],
+                        ['Other-Library/移动端常见兼容问题', '移动端常见兼容问题'],
                     ]
                 },
                 {
