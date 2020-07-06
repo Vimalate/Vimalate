@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-01 21:44:20
+ * @LastEditTime: 2020-07-06 20:21:26
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -138,7 +138,7 @@ VueRouter.prototype.push = function push(location) {
 
 
 
-[参考](https://juejin.im/post/5cc842dc6fb9a0322f7c98ff)
+[参考](https://juejin.im/post/5cc842dc6fb9a0322f7c98ff)、[封装Vue组件的一些技巧](https://juejin.im/post/5cb3eed65188251b0351f2c4)
 
 ## hookEvent，监听z组件生命周期函数
 ### 内部监听生命周期函数
