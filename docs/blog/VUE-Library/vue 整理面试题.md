@@ -391,6 +391,81 @@ export default {
 ```js
 chunkconst Home = () => import(/* webpackChunkName: "group-home" */ './Home.vue')
 ```
+## vue路由按需加载
+1.  写两个 ```router-view```出口
+```js
+<keep-alive :include="include">
+    <!-- 需要缓存的视图组件 -->
+  <router-view v-if="$route.meta.keepAlive">
+  </router-view>
+</keep-alive>
+
+<!-- 不需要缓存的视图组件 -->
+<router-view v-if="!$route.meta.keepAlive">
+</router-view>
+```
+2.  在Router里定义好需要缓存的视图组件
+
+```js
+new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'index',
+            component: () => import('./views/keep-alive/index.vue'),
+            meta: {
+                deepth: 0.5
+            }
+        },
+        {
+            path: '/list',
+            name: 'list',
+            component: () => import('./views/keep-alive/list.vue'),
+            meta: {
+                deepth: 1
+                keepAlive: true //需要被缓存
+            }
+        },
+        {
+            path: '/detail',
+            name: 'detail',
+            component: () => import('./views/keep-alive/detail.vue'),
+            meta: {
+                deepth: 2
+            }
+        }
+    ]
+})
+```
+3.  在app.vue里监听路由的变化
+```js
+export default {
+  name: "app",
+  data: () => ({
+    include: []
+  }),
+  watch: {
+    $route(to, from) {
+      //如果 要 to(进入) 的页面是需要 keepAlive 缓存的，把 name push 进 include数组
+      if (to.meta.keepAlive) {
+        !this.include.includes(to.name) && this.include.push(to.name);
+      }
+      //如果 要 form(离开) 的页面是 keepAlive缓存的，
+      //再根据 deepth 来判断是前进还是后退
+      //如果是后退
+      if (from.meta.keepAlive && to.meta.deepth < from.meta.deepth) {
+        var index = this.include.indexOf(from.name);
+        index !== -1 && this.include.splice(index, 1);
+      }
+    }
+  }
+};
+```
+[详情](https://juejin.im/post/5cdcbae9e51d454759351d84)
+
+## keep-alive原理
+[详细](https://juejin.im/post/5a08f72ef265da43133ca41f)
+
 ## Vue-router 导航守卫有哪些
 - 全局钩子：```beforeEach、beforeResolve、afterEach```
 - 路由独享守卫：```beforeEnter```
