@@ -178,7 +178,7 @@ computed watcher 通过 this.dep.subs.length 判断有没有订阅者,有的话,
 - 具名插槽
 - 作用域插槽
 
-具体用法可[参考](https://juejin.im/post/5a69ece0f265da3e5a5777ed)、[slot详解](https://juejin.im/post/5cb0564e5188251acb530087)
+具体用法可[参考](https://juejin.im/post/5a69ece0f265da3e5a5777ed)、[slot详解](https://juejin.im/post/5cb0564e5188251acb530087)、[从一个简单的 list 组件搞懂 Vue 插槽](https://juejin.im/post/5da72b3fe51d4524cf450f8e)
 
 ## nextTick的用途与原理
 
