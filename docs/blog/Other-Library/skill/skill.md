@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-03 01:45:05
- * @LastEditTime: 2020-06-03 13:10:18
+ * @LastEditTime: 2020-07-07 23:58:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Other-Library\skill\skill.md
@@ -96,5 +96,7 @@ function parseURL(url) {
 v-model.trim ：自动过滤用户输入的首尾空白字符
 
 和 v-model.number ：自动将用户的输入值转为数值类型
+
+[Vue 开发必须知道的 36 个技巧](https://juejin.im/post/5d9d386fe51d45784d3f8637#heading-1)
 
 <Vssue/>

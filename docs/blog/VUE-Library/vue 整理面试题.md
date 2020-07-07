@@ -379,6 +379,19 @@ export default {
     }
 }
 ```
+异步组件的渲染本质上其实就是执行2次或者2次以上的渲染, 先把当前组件渲染为注释节点, 当组件加载成功后, 通过 forceRender 执行重新渲染。或者是渲染为注释节点, 然后再渲染为loading节点, 在渲染为请求完成的组件
+
+## components和 Vue.component
+- components:局部注册组件
+```js
+export default{
+  components:{home}
+}
+```
+- Vue.component:全局注册组件
+```js
+Vue.component('home',home)
+```
 ## 如何在不刷新页面的情况下，刷新组件？
 方法：
 - v-if
