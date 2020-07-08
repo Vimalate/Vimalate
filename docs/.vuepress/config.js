@@ -180,6 +180,7 @@ module.exports = {
                         ['Other-Library/Git Document Library/git常用命令和开发流程', 'git常用命令和开发流程'],
                         ['Other-Library/skill/git优雅提交', 'git优雅提交'],
                         ['Other-Library/前端协作规范', '前端协作规范'],
+                        ['Other-Library/错误监控', '错误监控'],
                         ['Other-Library/Git Document Library/webpack面试题', 'webpack面试题'],
                         ['Other-Library/Git Document Library/gitbook', 'gitbook 遇到的问题'],
                        
