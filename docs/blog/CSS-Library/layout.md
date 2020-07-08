@@ -265,6 +265,16 @@ html 同 3
         border-right-color: cyan;
      }
 ```
+## 画一个梯形
+```css
+ div{
+      width: 50px;
+      height: 0;
+      border: 50px solid red;
+      border-color:  transparent transparent red transparent ;
+    }
+```
+![](https://i.loli.net/2020/07/08/MURFCDW7wylEuVQ.png)
 
 ## 5、画一个书签
 
