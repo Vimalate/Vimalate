@@ -227,6 +227,19 @@ div ~ p {
 BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其内的子元素如何定位，以及和其他的元素关系及相互作用。
 **简单来说就是一个决定如何渲染元素的容器**
 
+**如何创建BFC**
+
+-	float不为none
+-	position不为static或者relative
+-	overflow的值不为visible
+-	display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+
+**BFC的作用**
+
+1.	利用BFC避免margin重叠
+2.	自适应两栏布局（float + overflow:hidden）
+3.	清除浮动
+
 ## flex: 0 1 auto 表示什么意思
 弹性盒子默认值，分别表示 放大比例：```flex-grow```，缩小比例：  ```flex-shrink```和分配多余空间之前占的主轴比例： ```flex-basis``` 的简写，
 
@@ -243,6 +256,9 @@ BFC 是页面的一块渲染区域，拥有一套渲染规则，确定位于其�
 
 css选择器的解析原则：选择器定位DOM元素从左往右，能够尽早过滤一些不必要规则，效率更高。
 
+```!
+max-width或者min-width 存在的时候，他们的优先级高于!important所设定的width的优先级
+```
 ## 使元素消失的方法
 1.	opacity：0  元素隐藏，不改变布局，元素绑定的方法也能执行
 2.	visibility：hidden  元素隐藏，不改变布局，元素绑定的方法不能执行

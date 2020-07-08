@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-04 20:00:38
- * @LastEditTime: 2020-07-02 19:15:24
+ * @LastEditTime: 2020-07-08 16:22:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\Javascript-Library\Javascript 面试题.md
@@ -40,10 +40,18 @@ Symbol 是 ES6 引入了一种新的原始数据类型，他表示独一无二�
 ## null 和 undefined
 - null表示“无”的对象（空对象指针），数据转换时转为数值0，undefined 表示“无”的原始值，转为数值 NaN
 - 一般变量声明了但还没有定义的时候会返回 undefined，null 主要用于赋值给一些可能会返回对象的变量，作为初始化。
-- 当我们对两种类型使用 typeof 进行判断的时候，Null 类型化会返回 “object”，这是一个历史遗留的问题。当我们使用双等 号对两种类型的值进行比较时会返回 true，使用三个等号时会返回 false。
+- 当我们对两种类型使用 typeof 进行判断的时候，Null 类型化会返回 “object”，这是一个历史遗留的问题。当我们使用双等号对两种类型的值进行比较时会返回 true，使用三个等号时会返回 false。
 
+**undefined用法**
 
+- 变量声明未赋值，就等于undefined
+- 调用函数时，应提供参数未提供，参数等于undefined
+- 对象未赋值属性，该属性等于undefined
+- 函数没有返回值时，默认返回值为undefined
+**null用法**
 
+- 用作函数的参数，表示该函数的参数不是对象
+- 作为对象原型链的终点
 
 ## 怎么理解闭包，作用是什么？
 
@@ -130,6 +138,7 @@ const x = 10n;
 console.log(typeof x);   //"bigint"
 ```
 ## typeof 于 instanceof 区别
+**typeof**
 
 >typeof 对于基本类型，除了 null都可以显示正确的类型
 ```js
@@ -143,6 +152,10 @@ typeof [] // 'object'
 typeof {} // 'object'
 typeof console.log // 'function'
 ```
+**instanceof**
+
+instanceof 能够区分Array、Object和Function，适合用于判断自定义的类实例对象,但是对于 Number，Boolean，String基本数据类型不能判断
+
 >instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链中是不是能找到类型的 prototype
 
 这里我们可以试着动手实现一下 instanceof
@@ -175,6 +188,20 @@ console.log(111 instanceof PrimitiveNumber) // true
 ```
 其实就是自定义instanceof行为的一种方式，这里将原有的instanceof方法重定义，换成了typeof，因此能够判断基本数据类型。
 
+**Object.prototype.toString.call()**
+```js
+var toString = Object.prototype.toString;
+ 
+console.log(toString.call(2));                      //[object Number]
+console.log(toString.call(true));                   //[object Boolean]
+console.log(toString.call('str'));                  //[object String]
+console.log(toString.call([]));                     //[object Array]
+console.log(toString.call(function(){}));           //[object Function]
+console.log(toString.call({}));                     //[object Object]
+console.log(toString.call(undefined));              //[object Undefined]
+console.log(toString.call(null));                   //[object Null]
+```
+优点：精准判断数据类型 缺点：写法繁琐不容易记，推荐进行封装后使用
 ## [] == ![]结果是什么？为什么？
 
 == 中两边转换为数字后开始比较
