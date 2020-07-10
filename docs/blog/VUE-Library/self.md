@@ -1,12 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-26 18:57:57
- * @LastEditTime: 2020-07-09 23:28:04
+ * @LastEditTime: 2020-07-10 23:58:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\self.md
 -->
 ## 自我介绍
+
 面试官你好，很高兴能够得到这次的面试机会，我叫刘坚，18年毕业于南昌航空大学。从毕业以来从事前端开发，到现在已经有近两年的工作经验 ，我在上家公司接触比较多的是pc端和移动端的项目，目前所用的技术栈以vue为主，所以大所数项目也是基于vue全家桶以及搭配合适的UI框架来完成的，在工作中时不时会遇到一些问题，拿我前不久项目中遇到的一个例子来说，在用elementUI开发项目时，用到了UI框架自带的el-image组件，遇到一个问题，在图片加载的时候，加载过程中闪现白色背景，我想去定位究竟是哪个css造成的问题，但是由于这个问题是发生在加载的那瞬间，比较难定位。虽然这并不影响，所以只好去源码里看。然后我在element-UI下找到el-image的包，el-image源码的包分为两个部分，一个是有关图片预览的源码，另一个是图片加载时的，之后就发现是 el-image__placeholder 这个class在作妖。这时在自己的组件里就重写了这个样式，解决了这个问题。
 element-UI>packages>image>src>mian.vue
 ## 商家后台管理功能划分
