@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-06 21:17:17
+ * @LastEditTime: 2020-07-17 22:41:41
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -196,6 +196,13 @@ module.exports = {
   publicPath: './'
 }
 ```
+## node-sass安装失败
+```js
+//先
+ npm set sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
+//然后
+npm i
+```
 
 <Vssue/>
