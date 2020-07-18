@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-17 23:10:13
+ * @LastEditTime: 2020-07-18 21:41:33
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -207,4 +207,20 @@ npm i
 ## vue-codemirror代码编辑器
 
 [使用详情](https://blog.csdn.net/lfcss/article/details/106125784)
+
+## 单个 *.vue 快速原型开发—遇到的坑
+在进行单个 *.vue 文件进行开发，结合 element-UI 使用的时候，输入命令```vue sreve```时，发现报错
+```js
+#报错信息
+These dependencies were not found:
+
+* core-js/library/fn/object/assign in ./node_modules/babel-runtime/core-js/object/assign.js
+* core-js/library/fn/symbol in ./node_modules/babel-runtime/core-js/symbol.js
+* core-js/library/fn/symbol/iterator in ./node_modules/babel-runtime/core-js/symbol/iterator.js
+
+To install them, you can run: npm install --save core-js/library/fn/object/assign core-js/library/fn/sym
+bol core-js/library/fn/symbol/iterator
+```
+具体解决方法[在这里](https://juejin.im/post/5e5df6e66fb9a07c9d6fa8c8#heading-12)
+
 <Vssue/>
