@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-20 22:37:58
+ * @LastEditTime: 2020-07-20 22:41:23
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -225,5 +225,7 @@ bol core-js/library/fn/symbol/iterator
 
 
 ## TortoiseSVN教程
-[SVN快速上手](https://segmentfault.com/a/1190000014245101)
+[SVN快速上手](https://segmentfault.com/a/1190000014245101)、[SVN使用教程](TortoiseSVN)
+
+
 <Vssue/>
