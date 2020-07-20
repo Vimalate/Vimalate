@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-18 21:41:33
+ * @LastEditTime: 2020-07-20 22:37:58
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -223,4 +223,7 @@ bol core-js/library/fn/symbol/iterator
 ```
 具体解决方法[在这里](https://juejin.im/post/5e5df6e66fb9a07c9d6fa8c8#heading-12)
 
+
+## TortoiseSVN教程
+[SVN快速上手](https://segmentfault.com/a/1190000014245101)
 <Vssue/>
