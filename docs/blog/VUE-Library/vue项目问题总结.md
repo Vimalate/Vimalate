@@ -1,7 +1,7 @@
 <!--
  * @Author: Vimalakirti
  * @Date: 2020-04-09 23:03:50
- * @LastEditTime: 2020-07-20 22:41:23
+ * @LastEditTime: 2020-07-22 21:14:42
  * @Description: 
  * @FilePath: \vuepress-blog\docs\blog\VUE-Library\vue项目问题总结.md
 --> 
@@ -226,6 +226,26 @@ bol core-js/library/fn/symbol/iterator
 
 ## TortoiseSVN教程
 [SVN快速上手](https://segmentfault.com/a/1190000014245101)、[SVN使用教程](TortoiseSVN)
+
+## css解决fixed布局不会出现滚动条的问题
+如果我们布局的是后是fixed并且想要高度为100%的时候，我们一般会这样设置:
+```css
+div {
+    display:fixed;
+    height:100%;
+    overflow:scroll;
+}
+```
+但是这样的话不会出现滚动条,设置
+```css
+div {
+top: 0;
+    bottom:0;
+    position:fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+```
 
 
 <Vssue/>
