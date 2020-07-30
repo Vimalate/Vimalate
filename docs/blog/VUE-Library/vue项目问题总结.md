@@ -255,4 +255,27 @@ top: 0;
 ```js
 sex: Math.random() > 0.5 ? 1 : 0,
 ```
+## require.context() 自动注册
+require.context():
+>你可以通过 require.context() 函数来创建自己的 context。
+>
+>可以给这个函数传入三个参数：一个要搜索的目录，一个标记表示是否还搜索其子目录， 以及一个匹配文件的正则表达式。
+>
+>webpack 会在构建中解析代码中的 require.context() 。
+
+```js
+// 利用require.context()自动引入article.js和user.js
+const routerContext = require.context('./', true, /\.js$/)
+routerContext.keys().forEach(route => {
+  // 如果是根目录的 index.js 、不处理
+  if (route.startsWith('./index')) {
+    return
+  }
+  const routerModule = routerContext(route)
+  /**
+   * 兼容 import export 和 require module.export 两种规范
+   */
+  routes = routes.concat(routerModule.default || routerModule)
+})
+```
 <Vssue/>
