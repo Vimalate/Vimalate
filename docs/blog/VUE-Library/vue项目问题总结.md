@@ -283,4 +283,13 @@ routerContext.keys().forEach(route => {
 ```
 http://vue-gaode.rxshc.com/
 ```
+## 换肤
+```css
+:root{
+  --bg:#000
+}
+body{
+  background:var(--bg)
+}
+```
 <Vssue/>
