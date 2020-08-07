@@ -294,5 +294,12 @@ body{
   background:var(--bg)
 }
 ```
-## vue-monaco
+## post常见数据格式
+1. application/json
+参数直接放在请求体，以 json 格式发送到后端，为 axios 请求的默认方式。
+2. application/x-www-form-urlencoded 
+请求体中的数据会以普通表单形式（键值对）发送给后端
+3. multipart/form-data
+参数会在请求体中，以标签为单元，用分隔符(可以自定义的boundary)分开。既可以上传键值对，也可以上传文件。通常被用来上传文件的格式。
+[详情](https://juejin.im/post/6844903891872514056)
 <Vssue/>
