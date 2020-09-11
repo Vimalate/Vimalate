@@ -7,6 +7,7 @@ CommonJS规范为CommonJS小组所提出，目的是弥补JavaScript在服务器
 
 **module 变量代表当前模块，这个变量是一个对象.**
 
+
 **module.exports(即module的exports属性) 是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。```exports=module.exports={Obj}```**
 
 **CommonJS 用法**
