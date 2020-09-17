@@ -302,4 +302,36 @@ body{
 3. multipart/form-data
 参数会在请求体中，以标签为单元，用分隔符(可以自定义的boundary)分开。既可以上传键值对，也可以上传文件。通常被用来上传文件的格式。
 [详情](https://juejin.im/post/6844903891872514056)
+
+## vue props传递对象或数组
+将对象或数组本地化
+```js
+<template>
+  <input v-model="newName.firstName" placeholder="我是子组件">//插值
+</template>
+
+<script>
+export default {
+  props: { 
+  //接收父组件传来的数据
+    name: {}
+  },
+  data: function () {
+    	return {
+     		newName: {
+     			firstName:'',
+    			lastName:''
+     		}
+    	}
+   },
+	computed: {
+	  initData: function () {
+	  // 将对象本地化
+	    return this.newName = JSON.parse(JSON.stringify(this.name))
+	  }
+}
+} 
+</script>
+```
+
 <Vssue/>
