@@ -334,4 +334,7 @@ export default {
 </script>
 ```
 
+## eslint 报错
+vue 文件 script首行添加 ```/* eslint no-unused-vars: "off"*/``` 即可
+
 <Vssue/>
