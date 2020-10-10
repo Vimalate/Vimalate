@@ -142,4 +142,16 @@ v-model.trim ：自动过滤用户输入的首尾空白字符
 
 [Vue 开发必须知道的 36 个技巧](https://juejin.im/post/5d9d386fe51d45784d3f8637#heading-1)
 
+## js && 符号妙用
+在进行条件判断时，我们通常这样写
+```js
+if(index > -1){
+  list.splice(index, 1)
+}
+```
+然而换种写法可能更简洁
+```js
+index > -1 && list.splice(index, 1)
+```
+
 <Vssue/>
