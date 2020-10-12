@@ -171,6 +171,7 @@ module.exports = {
                         ['Other-Library/移动端适配', '移动端适配'],
                         ['Other-Library/移动端常见兼容问题', '移动端常见兼容问题'],
                         ['Other-Library/工具函数', '工具函数'],
+                        ['Other-Library/去掉那些if else', '去掉那些if else'],
                         ['Other-Library/axios.all和axios.spread', 'axios.all和axios.spread'],
                     ]
                 },
