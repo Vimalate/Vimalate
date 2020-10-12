@@ -32,6 +32,7 @@ const getStatus = (status) =>{
 ```
 
 ## 场景升级：多个条件对应名称
+
 ```js
 const onButtonClick = (status, identity) => {
   if (identity == "guest") {
