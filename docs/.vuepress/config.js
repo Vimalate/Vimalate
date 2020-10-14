@@ -198,7 +198,7 @@ module.exports = {
                         ['Other-Library/skill/项目利器', '前端常用库'],
                         ['Other-Library/skill/vscode常见操作', 'vscode常见操作'],
                         ['VUE-Library/self', 'self'],
-                        ['VUE-Library/vscode那些老板键', 'vscode那些老板键'],
+                        ['Other-Library/skill/vscode那些老板键', 'vscode那些老板键'],
                     ]
                 },
 
