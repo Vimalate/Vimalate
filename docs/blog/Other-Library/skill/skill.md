@@ -154,4 +154,15 @@ if(index > -1){
 index > -1 && list.splice(index, 1)
 ```
 
+## 获取控制台打印的数据
+1. 首先将需要获取的数据存储为全局对象
+
+![](https://gitee.com/lj107571/imgformd/raw/master/20201016144240.png)
+
+2. 然后控制台输入```copy(存储的全局对象)```
+
+![](https://gitee.com/lj107571/imgformd/raw/master/20201016144743.png)
+
+3. c+v 即可得到控制台输出的对象
+
 <Vssue/>
