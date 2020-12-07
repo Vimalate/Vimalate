@@ -18,4 +18,9 @@
 - chore：变更构建流程或辅助工具
 - revert：代码回退
 
+## 代码同时提交 github 和 gitee
+```
+git remote set-url --add origin https://gitee.com/lj107571/vimalate.git
+```
+
 <Vssue/>
