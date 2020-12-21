@@ -139,6 +139,7 @@ module.exports = {
                         ['Javascript-Library/ES6的Set ，WeakSet，Map和WeakMap', 'ES6的Set ，WeakSet，Map和WeakMap'],
                         ['Javascript-Library/常见数组方法', '常见数组方法'],
                         ['Javascript-Library/常见对象方法', '常见对象方法'],
+                        ['Javascript-Library/reduce 的妙用', 'reduce 的妙用'],
                         ['Javascript-Library/我都知道的JS', '我都知道的JS'],
                         ['Javascript-Library/Javascript 面试题', 'Javascript 面试题'],
                         ['Javascript-Library/空值合并运算符', '空值合并运算符'],
