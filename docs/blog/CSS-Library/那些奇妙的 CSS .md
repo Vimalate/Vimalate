@@ -55,4 +55,13 @@ CSS
 
 [原文具体实现原理解说](https://juejin.im/post/5d4c01dbf265da03e61afcfd)
 
+
+## 设置最小字体大小
+```css
+//利用 calc()
+.title {
+    font-size: calc(14px + 2vw);
+}
+```
+calc()CSS函数将具有一个最小值14px，并在些基础上添加2vw的值，有了这些，字体大小值就不会变得太小。
 <Vssue/>
