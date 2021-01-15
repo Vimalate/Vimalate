@@ -86,3 +86,18 @@
       }
     }
 ```
+
+## 模糊搜索
+```js
+ //模糊搜索
+fuzzyQuery(list, keyWord) {
+  var reg = new RegExp(keyWord);
+  var arr = [];
+  for (var i = 0; i < list.length; i++) {
+    if (reg.test(list[i].name)) {
+      arr.push(list[i]);
+    }
+  }
+  return arr;
+},
+```
