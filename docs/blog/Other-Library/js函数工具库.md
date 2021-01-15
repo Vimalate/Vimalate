@@ -63,3 +63,26 @@
       return o;
     }
 ```
+
+## 遍历树型结构数组并获得某节点的所有父节点
+```js
+    // 遍历数组 查找节点的父节点
+    foreachAndSearchDeptParentNode (list,Id) {
+      const self = this
+      if (list) {
+        for (let value of list) {
+          if (Id === value.Id) { // 找到该节点
+            if (value.parentId) { // 继续寻找该节点父节点的父节点，以此类推
+              self.foreachAndSearchDeptParentNode (this.treeList,value.parentId) 
+            }
+            self.deptIdList.push(value.Id) 
+          }
+          if (Id !== value.Id){
+            if (value.children) {
+              self.foreachAndSearchDeptParentNode (value.children,Id)
+            }
+          }
+        }
+      }
+    }
+```
