@@ -11,7 +11,7 @@
           return obj;
         }, {});
         // 最后做一次筛选，找出最外层的父级节点数据
-        // console.log(map[item.pId],'父级节点?')
+        // console.log(map[item.pId],'父级节点?') id 是否等于 pId
         arr = arr.filter((item) => !map[item.pId]);
         return arr;
       }
@@ -67,24 +67,24 @@
 ## 遍历树型结构数组并获得某节点的所有父节点
 ```js
     // 遍历数组 查找节点的父节点
-    foreachAndSearchDeptParentNode (list,Id) {
-      const self = this
-      if (list) {
-        for (let value of list) {
-          if (Id === value.Id) { // 找到该节点
-            if (value.parentId) { // 继续寻找该节点父节点的父节点，以此类推
-              self.foreachAndSearchDeptParentNode (this.treeList,value.parentId) 
-            }
-            self.deptIdList.push(value.Id) 
-          }
-          if (Id !== value.Id){
-            if (value.children) {
-              self.foreachAndSearchDeptParentNode (value.children,Id)
-            }
-          }
+foreachAndSearchDeptParentNode (list,Id) {
+  const self = this
+  if (list) {
+    for (let value of list) {
+      if (Id === value.Id) { // 找到该节点
+        if (value.parentId) { // 继续寻找该节点父节点的父节点，以此类推
+          self.foreachAndSearchDeptParentNode (this.treeList,value.parentId) 
+        }
+        self.deptIdList.push(value.Id) 
+      }
+      if (Id !== value.Id){
+        if (value.children) {
+          self.foreachAndSearchDeptParentNode (value.children,Id)
         }
       }
     }
+  }
+}
 ```
 
 ## 模糊搜索

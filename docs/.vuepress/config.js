@@ -155,6 +155,7 @@ module.exports = {
                         ['VUE-Library/vue项目问题总结', 'vue项目问题总结'],
                         ['VUE-Library/vue项目路由权限配置', 'vue项目权限配置'],
                         ['VUE-Library/router-view 的 key 属性', 'router-view 的 key 属性'],
+                        ['VUE-Library/evnetbus-事件总线', 'evnetbus-事件总线'],
                     ]
                 },
                 {
