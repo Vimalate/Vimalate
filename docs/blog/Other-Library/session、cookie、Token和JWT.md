@@ -32,6 +32,10 @@ cookie 是一个非常具体的东西，指的就是浏览器里面能永久存�
 - 一个浏览器针对一个网站最多存 20 个Cookie，浏览器一般只允许存放 300 个Cookie
 - 移动端对 cookie 的支持不是很好，而 session 需要基于 cookie 实现，所以移动端常用的是 token
 
+```!
+SameSite 可能会导致即使你用 CORS 解决了跨越问题，依然会因为请求没自带 cookie 引起一系列问题。因为 Chrome 在某一次更新后把没设置 SameSite 默认为 Lax，你不在服务器手动把 SameSite 设置为 None 就不会自动带 cookie 了
+```
+
 ## Session
 session翻译过来就是会话的意思，这就像是我们日常聊天中，我们如何知道对方是谁呢，我们一般会给对方加个备注（是老王还是二狗子）。
 
