@@ -8,20 +8,20 @@
     "serve": "vuepress dev docs",
     "build": "vuepress build docs",
     "push": "start deploy.sh",
-    "deploy":"deploy.bat"
+    "deploy": "deploy.bat"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/plugin-active-header-links": "^1.4.1",
-    "@vuepress/plugin-back-to-top": "^1.4.1",
-    "@vuepress/plugin-pwa": "^1.4.1",
-    "vuepress": "^1.4.1"
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.2",
+    "vuepress": "^1.8.2"
   },
   "dependencies": {
-    "@vssue/api-github-v3": "^1.4.4",
-    "@vssue/api-github-v4": "^1.4.0",
-    "@vssue/vuepress-plugin-vssue": "^1.4.4"
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.7"
   }
 }
