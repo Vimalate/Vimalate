@@ -49,6 +49,18 @@ const arr = [
 Group(arr, "area"); // { GZ: Array(2), SZ: Array(2), FS: Array(1) }
 ```
 
+## 统计数组中元素出现次数
+```js
+let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+let nameCount=names.reduce((pre,cur)=>{
+    if(cur in pre){
+        pre[cur]++
+    } else {
+        pre[cur]=1
+    }
+    return pre
+},{})
+```
 
 
 [详情](https://blog.csdn.net/JowayYoung/article/details/104293122)
