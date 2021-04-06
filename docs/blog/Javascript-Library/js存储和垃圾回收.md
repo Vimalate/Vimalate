@@ -169,6 +169,9 @@ document.body.removeChild(document.getElementById('image'));
 
 与此类似情景还有: `DOM` 节点绑定了事件, 但是在移除的时候没有解除事件绑定,那么仅仅移除 `DOM`节点也是没用的
 
+## 控制台的 console.log
+因为浏览器一直保存着打印信息，所以我们才能每次打开控制台时看到 console 的信息
+
 参考：
 
 [垃圾回收](https://juejin.im/post/5cb33660e51d456e811d2687)
