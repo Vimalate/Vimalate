@@ -253,7 +253,9 @@ arr.reduce((p,x)=>{
 ```requestAnimationFrame```是浏览器用于定时循环操作的一个接口，类似于```setTimeout```，主要用途是按帧对网页进行重绘。对于JS动画，用```requestAnimationFrame``` 会比 ```setInterval``` 效果更好。
 具体可以看[这里](https://juejin.im/post/5e621f5fe51d452700567c32#heading-13)
 
-
+## 循环语句 for 的 continue，break
+- continue:结束本轮循环，继续执行下一轮，循环体中```continue后面的代码不会执行，它会直接的去执行步长累加，然后进入到下一轮```
+- break:结束整个循环，循环体中一旦遇到break 后面的代码不执行而且步长累加也不执行了，循环都结束了
 参考：
 [原生js灵魂之问](https://juejin.im/post/5dac5d82e51d45249850cd20#heading-12)
 <Vssue/>
