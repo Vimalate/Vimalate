@@ -144,6 +144,7 @@ module.exports = {
                         ['Javascript-Library/我都知道的JS', '我都知道的JS'],
                         ['Javascript-Library/Javascript 面试题', 'Javascript 面试题'],
                         ['Javascript-Library/空值合并运算符', '空值合并运算符'],
+                        ['Javascript-Library/常见字符串方法', '常见字符串方法'],
                     ]
                 },
                 {
