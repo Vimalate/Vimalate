@@ -337,4 +337,25 @@ export default {
 ## eslint 报错
 vue 文件 script首行添加 ```/* eslint no-unused-vars: "off"*/``` 即可
 
+## 生产环境去除 console.log
+
+vue.config.js 中配置
+
+```js
+configureWebpack: (config) => {
+  if (process.env.NODE_ENV === "production") {
+    config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+    config.optimization.minimizer[0].options.terserOptions.compress.pure_funcs = [
+      "console.log",
+    ];
+  }
+}
+```
+
+
+
+
+
+
+
 <Vssue/>
