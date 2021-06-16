@@ -352,7 +352,40 @@ configureWebpack: (config) => {
 }
 ```
 
+## hook
 
+开发中用到定时器时我们一般这样
+```js
+mounted() {
+  // 创建一个定时器
+    this.timer = setInterval(() => {
+      // ......
+    }, 500);
+  },
+  // 销毁这个定时器。
+beforeDestroy() {
+  if (this.timer) {
+  clearInterval(this.timer);
+  this.timer = null;
+  }
+}
+```
+
+借助 hook，方便维护
+
+```js
+mounted() {
+    let timer = setInterval(() => {
+      // ......
+    }, 500);
+    this.$once("hook:beforeDestroy", function() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    });
+  }
+```
 
 
 
