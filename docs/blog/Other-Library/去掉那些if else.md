@@ -114,3 +114,28 @@ if (options.includes(value)) {
   // ...
 }
 ```
+
+
+## 函数条件调用
+
+```js
+function getInfo(){
+  console.log('user1')
+}
+
+function getInfo2(){
+  console.log('user2')
+}
+
+let status=1
+if (status===1){
+  getInfo()
+} else {
+  getINfo2()
+}
+
+(status===1?getInfo:getINfo2)()
+```
+
+
+
