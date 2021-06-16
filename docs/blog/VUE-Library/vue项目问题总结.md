@@ -387,6 +387,30 @@ mounted() {
   }
 ```
 
+## hook 监听第三方组件生命周期
+
+如你要在第三方组件 CustomSelect 渲染时监听其 updated 钩子，可以通过@hook:updated来实现
+
+```vue
+<template>
+  <!--通过@hook:updated监听组件的updated生命钩子函数-->
+  <!--组件的所有生命周期钩子都可以通过@hook:钩子函数名 来监听触发-->
+  <custom-select @hook:updated="doSomething" />
+</template>
+<script>
+import CustomSelect from "../components/custom-select";
+export default {
+  components: {
+    CustomSelect
+  },
+  methods: {
+    doSomething() {
+      console.log("custom-select组件的updated钩子函数被触发");
+    }
+  }
+};
+</script>
+```
 
 
 
