@@ -411,7 +411,13 @@ export default {
 };
 </script>
 ```
+## vue+elementUI在输入框中按回车键会刷新页面
 
+当一个 form 元素中只有一个输入框时，在该输入框中按下回车应提交该表单。如果希望阻止这一默认行为，可以在 <el-form> 标签上添加 @submit.native.prevent。
+
+```js
+<el-form  @submit.native.prevent></el-form>
+```
 
 
 
