@@ -140,6 +140,7 @@ module.exports = {
                         ['Javascript-Library/常见数组方法', '常见数组方法'],
                         ['Javascript-Library/常见对象方法', '常见对象方法'],
                         ['Javascript-Library/字符串技巧', '字符串技巧'],
+                        ['Javascript-Library/for of 和 for in 及forEach', 'for of 和 for in 及forEach'],
                         ['Javascript-Library/reduce 的妙用', 'reduce 的妙用'],
                         ['Javascript-Library/我都知道的JS', '我都知道的JS'],
                         ['Javascript-Library/Javascript 面试题', 'Javascript 面试题'],
