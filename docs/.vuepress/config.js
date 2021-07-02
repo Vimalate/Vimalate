@@ -183,6 +183,7 @@ module.exports = {
                         ['Other-Library/js函数工具库', 'js函数工具库'],
                         ['Other-Library/去掉那些if else', '去掉那些if else'],
                         ['Other-Library/axios.all和axios.spread', 'axios.all和axios.spread'],
+                        ['Other-Library/Oauth2.0', 'Oauth2.0'],
                     ]
                 },
                 {
