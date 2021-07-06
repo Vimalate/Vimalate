@@ -419,6 +419,50 @@ export default {
 <el-form  @submit.native.prevent></el-form>
 ```
 
+## el-dialog关闭后重置数据
+
+```js
+//重置表单，formRef为表单的ref值，excludeFields为要排除重新初始化值得属性
+Vue.prototype.$reset = function (formRef, ...excludeFields) {
+  this.$refs[formRef].resetFields();
+  let obj1 = this.$data;
+  let obj2 = this.$options.data.call(this);
+  if (!excludeFields || excludeFields.length === 0) {
+    excludeFields = ["ruleValidate"];
+  }
+  for (let attrName in obj1) {
+    if (excludeFields && excludeFields.includes(attrName)) {
+      continue;
+    }
+    obj1[attrName] = obj2[attrName];
+  }
+};
+```
+
+el-dialog的close事件总调用
+
+```vue
+<template>
+  <el-dialog v-el-drag-dialog :close-on-click-modal="false" :visible.sync="dialogVisible" :title="model.id === 0 ? '新增车辆' : '编辑车辆'" class="car-edit" width="450px" top="5vh" @close="$reset('form')">
+    <el-form ref="form" :model="model" :rules="ruleValidate" class="formFillWidth" label-width="50px">
+      <el-form-item label="车牌" prop="carCard">
+        <el-input v-model="model.carCard" placeholder="请输入" />
+      </el-form-item>
+      <el-form-item label="司机" prop="driver">
+        <el-input v-model="model.driver" placeholder="请输入" />
+      </el-form-item>
+      <el-form-item label="备注" prop="remark">
+        <el-input v-model="model.remark" placeholder="请输入" />
+      </el-form-item>
+    </el-form>
+    <span slot="footer">
+      <el-button @click="dialogVisible = false">取消</el-button>
+      <el-button :loading="submitLoading" type="primary" @click="handleSubmit">保存</el-button>
+    </span>
+  </el-dialog>
+</template>
+```
+
 
 
 <Vssue/>
