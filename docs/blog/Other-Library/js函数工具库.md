@@ -166,3 +166,55 @@ const getType2=function(data) {
   Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
 }
 ```
+
+## 下载文件
+
+```js
+/**
+ * 下载文件
+ * @param {String} api 接口
+ * @param {Object} params 请求参数
+ * 
+ * @param {String} fileName 文件名
+ */
+const downloadFile = function (api, params, fileName, type = 'get') {
+  axios({
+    method: type,
+    url: api,
+    responseType: 'blob', //接收返回的类型 
+    params: params
+  }).then((res) => {
+    let str = res.headers['content-disposition']
+    if (!res || !str) {
+      return
+    }
+    let suffix = ''
+    // 截取文件名和文件类型
+    if (str.lastIndexOf('.')) {
+      fileName ? '' : fileName = decodeURI(str.substring(str.indexOf('=') + 1, str.lastIndexOf('.')))
+      suffix = str.substring(str.lastIndexOf('.'), str.length)
+    }
+    //  如果支持微软的文件下载方式(ie10+浏览器)
+    if (window.navigator.msSaveBlob) {
+      try {
+        const blobObject = new Blob([res.data]);
+        window.navigator.msSaveBlob(blobObject, fileName + suffix);
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      //  其他浏览器
+      let url = window.URL.createObjectURL(res.data)
+      let link = document.createElement('a')
+      link.style.display = 'none'
+      link.href = url
+      link.setAttribute('download', fileName + suffix)
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }).catch((err) => {
+    console.log(err.message);
+  })
+}
+```
