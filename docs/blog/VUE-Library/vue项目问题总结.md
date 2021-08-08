@@ -465,4 +465,12 @@ el-dialog的close事件总调用
 
 
 
+## 作用域插槽
+
+![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD.png)
+
+## 自定义指令
+
+![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4.png)
+
 <Vssue/>

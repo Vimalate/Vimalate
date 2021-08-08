@@ -160,7 +160,7 @@ module.exports = {
                         ['VUE-Library/router-view 的 key 属性', 'router-view 的 key 属性'],
                         ['VUE-Library/evnetbus-事件总线', 'evnetbus-事件总线'],
                         ['VUE-Library/vue中的$attrs和$listeners', 'vue中的$attrs和$listeners'],
-                        ['VUE-Library/vue 随计', 'vue 随计'],
+                        ['VUE-Library/vue 随记', 'vue 随记'],
                     ]
                 },
                 {
