@@ -463,6 +463,13 @@ el-dialog的close事件总调用
 </template>
 ```
 
+[vue使用el-dialog关闭后重置数据的最佳方法](https://blog.csdn.net/weixin_33701617/article/details/91372421)、[vue element-ui Dialog对话框关闭后重新打开数据不清空](https://blog.csdn.net/weixin_43801907/article/details/105275528?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link)、[resetFields()重置表单不生效的问题](https://segmentfault.com/a/1190000022516459)
+
+**原因**
+
+[github issues讨论原因](https://github.com/ElemeFE/element/issues/1871)、[issues3217](https://github.com/ElemeFE/element/issues/3217)
+
+
 ## el-input 过滤特殊字符或身份证脱敏
 
 **v-model拆分为:value和@input**
