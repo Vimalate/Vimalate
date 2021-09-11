@@ -64,4 +64,51 @@ CSS
 }
 ```
 calc()CSS函数将具有一个最小值14px，并在些基础上添加2vw的值，有了这些，字体大小值就不会变得太小。
+
+
+## 波纹动画
+
+```html
+<div class="outter"></div>
+<div class="inner"></div>
+```
+
+```css
+// 波纹动画
+.outter {
+    animation-name: bubble;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;	
+}
+ 
+.inner,.outter{
+position: absolute;
+top:20%;left:50%;
+opacity: .7;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: #d436cc;
+transform: translate(-50%,-50%);
+}
+ 
+.inner {opacity: 1;}
+ 
+@keyframes bubble {
+ 0% {
+  transform:translate(-50%,-50%) scale(1);
+  opacity:.3
+ }
+ 25% {
+  opacity:.3;
+  transform:translate(-50%,-50%) scale(1.8)
+ }
+ 100%,50% {
+  opacity:0;
+  transform:translate(-50%,-50%) scale(2)
+ }
+}
+```
+
 <Vssue/>

@@ -463,7 +463,25 @@ el-dialog的close事件总调用
 </template>
 ```
 
+## el-input 过滤特殊字符或身份证脱敏
 
+**v-model拆分为:value和@input**
+
+```html
+<el-input :value="input" @input='e => input = idCardValid (e)' placeholder="请输入内容"></el-input>
+```
+
+```js
+  methods:{
+    idCardValid(val){
+      const idCard= val.replace(/^(\d{6})\d+(\d{4})$/, "$1******$2")
+      console.log(idCard)
+      return idCard
+    } 
+},
+```
+
+[vue+element项目中过滤输入框特殊字符小结](https://www.bianchengquan.com/article/80088.html)
 
 ## 作用域插槽
 
