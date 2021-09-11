@@ -491,6 +491,9 @@ el-dialog的close事件总调用
 
 ```v-slot="{item}"``` 为```v-slot="slotProps``` （slotProps为形参，可自己定义） 中解构出子级插槽传递的值
 
+
+>在vue2.6及已上版本，slot 和slot-scope已经开始废弃， 有了新的替代: v-slot，v-slot只能用在template 上，和组件标签上
+
 ## 动态插槽名
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E5%8A%A8%E6%80%81%E7%B1%BB%E5%90%8D%E6%8F%92%E6%A7%BD.png)
