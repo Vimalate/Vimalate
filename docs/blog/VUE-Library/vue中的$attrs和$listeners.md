@@ -8,5 +8,9 @@
 
 $attrs 和 $listeners 在创建高级别的组件时非常有用。
 
+### 禁用attribute继承在根节点
+
+![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E7%A6%81%E7%94%A8Attribute%E7%BB%A7%E6%89%BF.png)
+
 [详情](https://segmentfault.com/a/1190000022708579)
 
