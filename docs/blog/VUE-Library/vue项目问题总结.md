@@ -489,7 +489,9 @@ el-dialog的close事件总调用
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD.png)
 
-### 动态插槽名
+```v-slot="{item}"``` 为```v-slot="slotProps``` （slotProps为形参，可自己定义） 中解构出子级插槽传递的值
+
+## 动态插槽名
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E5%8A%A8%E6%80%81%E7%B1%BB%E5%90%8D%E6%8F%92%E6%A7%BD.png)
 
