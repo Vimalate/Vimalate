@@ -515,4 +515,8 @@ el-dialog的close事件总调用
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/dataSet%E4%BC%A0%E5%80%BC.png)
 
+## setup使用store
+
+![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/20210921181900.png)
+
 <Vssue/>
