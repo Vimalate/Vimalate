@@ -210,7 +210,8 @@ module.exports = {
                     children: [
                         ['Other-Library/skill/skill', '前端常用技巧'],
                         ['Other-Library/skill/项目利器', '前端常用库'],
-                        ['Other-Library/skill/vscode常见操作', 'vscode常见操作'],
+                        ['Other-Library/skill/项目利器', '前端常用库'],
+                        ['Other-Library/skill/excel指定行导入', 'excel指定行导入'],
                         // ['VUE-Library/self', 'self'],
                         ['Other-Library/skill/vscode那些老板键', 'vscode那些老板键'],
                     ]
