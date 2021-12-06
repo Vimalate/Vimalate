@@ -519,4 +519,27 @@ el-dialog的close事件总调用
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/20210921181900.png)
 
+
+## el-form 自定义校验
+
+```vue
+  <sh-form :model="form" ref="form" label-width="80px">
+    <sh-form-item label="账户名称" :rules="[{required : true, validator: validatorLoginName, trigger: 'blur'}]" prop="loginName">
+      <el-input v-model="form.loginName" placeholder="账号长度6-14位"></el-input>
+    </sh-form-item>
+  </sh-form>
+
+
+// required : true 可删除
+
+  validatorLoginName(rule, value, callback) {
+    const len = this.search.loginName.length > 4 && this.form.loginName.length < 16
+    if (!len) {
+      callback(new Error('账号长度6-14位'));
+    } else {
+      callback()
+    }
+  },
+```
+
 <Vssue/>
