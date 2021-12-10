@@ -542,4 +542,33 @@ el-dialog的close事件总调用
   },
 ```
 
+## el-form 表单多个验证不通过，滚动到验证提示的位置
+
+```js
+/**
+ * element 表单多个验证不通过，滚动到验证提示的位置
+ * { String } object 验证规则
+ * 备注：
+ *     1.this.$refs.infoList.validate((_, object)=>{})   返回两个参数，第一个参数：验证是否成功，第二个参数：验证规则
+ *     2.验证的标签上添加ref属性，名字和prop值一致。例：<el-form-item :prop="'infoData.' + scope.$index + '.coalName'" :ref="'infoData.' + scope.$index + '.coalName'" ></el-form-item>
+ */
+export function scrollToView(_this, object) {
+  for (const i in object) {
+    let dom = _this.$refs[i]
+    if (dom) { // 没有配置ref的必填项
+      if (Object.prototype.toString.call(dom) !== '[object Object]') {
+        // 这里是针对遍历的情况（多个输入框），取值为数组
+        dom = dom[0]
+      }
+      // （包含动画效果）
+      dom.$el.scrollIntoView({
+        // 滚动到指定节点
+        block: 'center', // 值有start,center,end，nearest，当前显示在视图区域中间
+        behavior: 'smooth' // 值有auto、instant,smooth，缓动动画（当前是慢速的）
+      })
+    }
+    break // 因为我们只需要检测一项,所以就可以跳出循环了
+  }
+```
+
 <Vssue/>
