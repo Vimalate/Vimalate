@@ -165,4 +165,17 @@ index > -1 && list.splice(index, 1)
 
 3. c+v 即可得到控制台输出的对象
 
+## 控制台直接生成 .txt 文档
+
+```js
+file = new File(["foo"], "foo.txt", {
+  type: "text/plain",
+});
+
+let aTag = document.createElement('a')
+aTag.download = file.name;
+aTag.href = URL.createObjectURL(file)
+aTag.click()
+```
+
 <Vssue/>
