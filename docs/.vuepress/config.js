@@ -189,6 +189,7 @@ module.exports = {
                         ['Other-Library/axios.all和axios.spread', 'axios.all和axios.spread'],
                         ['Other-Library/Oauth2.0', 'Oauth2.0'],
                         ['Other-Library/原生内嵌webview', '原生内嵌webview'],
+                        ['Other-Library/excel指定行导入', 'excel指定行导入'],
                     ]
                 },
                 {
