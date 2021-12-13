@@ -218,3 +218,37 @@ const downloadFile = function (api, params, fileName, type = 'get') {
   })
 }
 ```
+## 数组元素转化为数字
+
+```js
+const array = ['12', '1', '3.1415', '-10.01'];
+array.map(Number);  // [12, 1, 3.1415, -10.01]
+```
+
+## 对象动态声明属性
+
+```js
+const dynamic = 'color';
+var item = {
+    brand: 'Ford',
+    [dynamic]: 'Blue'
+}
+console.log(item); 
+// { brand: "Ford", color: "Blue" }
+```
+
+## 缩短console.log()
+
+```js
+const c = console.log.bind(document) 
+c(996) 
+c("hello world")
+
+```
+
+## 检查对象是否为空
+
+```js
+Object.keys({}).length  // 0
+Object.keys({key: 1}).length  // 1
+```
