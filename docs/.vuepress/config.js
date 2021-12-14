@@ -162,6 +162,7 @@ module.exports = {
                         ['VUE-Library/vue中的$attrs和$listeners', 'vue中的$attrs和$listeners'],
                         ['VUE-Library/常用mixin', '常用mixin'],
                         ['VUE-Library/$ref和$el区别', '$ref和$el区别'],
+                        ['VUE-Library/Element-ui 全局默认属性配置', 'Element-ui 全局默认属性配置'],
                         ['VUE-Library/vue 随记', 'vue 随记'],
                     ]
                 },
