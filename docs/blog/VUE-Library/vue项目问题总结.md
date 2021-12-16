@@ -574,10 +574,10 @@ export function scrollToView(_this, object) {
 ## vue路由跳转打开新窗口
 
 ```js
-const openNewwindow=(url) => {
-      let routeData = this.$router.resolve({path: url})
-      window.open(routeData.href, '_blank')
-    }
+const openNewUrl=(url) => {
+  let routeData = this.$router.resolve({path: url})
+  window.open(routeData.href, '_blank')
+  }
 ```
 
 <Vssue/>

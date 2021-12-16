@@ -191,6 +191,7 @@ module.exports = {
                         ['Other-Library/Oauth2.0', 'Oauth2.0'],
                         ['Other-Library/原生内嵌webview', '原生内嵌webview'],
                         ['Other-Library/excel指定行导入', 'excel指定行导入'],
+                        ['Other-Library/print 打印', 'print 打印'],
                     ]
                 },
                 {
