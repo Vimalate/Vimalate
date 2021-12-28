@@ -529,7 +529,6 @@ el-dialog的close事件总调用
     </sh-form-item>
   </sh-form>
 
-
 // required : true 可删除
 
   validatorLoginName(rule, value, callback) {
@@ -541,6 +540,10 @@ el-dialog的close事件总调用
     }
   },
 ```
+
+## el-select 下拉框样式修改
+
+使用样式穿透修改下拉框样式，你会发现打死都不生效，那是因为下拉框是默认挂载在 body 下面。解决办法：设置 ```:popper-append-to-body="false"```,然后再用样式穿透
 
 ## el-form 表单多个验证不通过，滚动到验证提示的位置
 
@@ -578,6 +581,17 @@ const openNewUrl=(url) => {
   let routeData = this.$router.resolve({path: url})
   window.open(routeData.href, '_blank')
   }
+```
+
+## chrome表单自动填充导致input文本框背景失效
+
+```css
+// 自动填充样式覆盖
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-out 0.5s;
+}
 ```
 
 <Vssue/>
