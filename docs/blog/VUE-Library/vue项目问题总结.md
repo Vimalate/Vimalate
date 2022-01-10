@@ -589,7 +589,7 @@ const openNewUrl=(url) => {
 // 自动填充样式覆盖
 input:-internal-autofill-previewed,
 input:-internal-autofill-selected {
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: #fff; 
   transition: background-color 5000s ease-out 0.5s;
 }
 ```
