@@ -252,3 +252,18 @@ c("hello world")
 Object.keys({}).length  // 0
 Object.keys({key: 1}).length  // 1
 ```
+
+## 校验数据类型
+
+```js
+/**
+ * 校验数据类型
+ * @param {any} any 数据
+ * @return {String} 类型
+ */
+export const typeOf = function(obj) {
+  return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+}
+```
+
+[Object.prototype.toString.call(obj)](https://www.cnblogs.com/SallyShan/p/11530619.html)
