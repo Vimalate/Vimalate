@@ -594,4 +594,13 @@ input:-internal-autofill-selected {
 }
 ```
 
+## dialog 里重置表单
+
+```js
+  this.$refs['form'].resetFields()
+  this.form = this.$options.data(this).form
+```
+
+[Vue中的this.$options.data()的this指向问题](https://blog.csdn.net/hunt_er/article/details/110119482)
+
 <Vssue/>
