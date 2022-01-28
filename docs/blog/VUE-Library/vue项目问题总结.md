@@ -239,11 +239,11 @@ div {
 但是这样的话不会出现滚动条,设置
 ```css
 div {
-top: 0;
-    bottom:0;
-    position:fixed;
-    overflow-y:scroll;
-    overflow-x:hidden;
+  top: 0;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 ```
 
