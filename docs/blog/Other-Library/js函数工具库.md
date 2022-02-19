@@ -129,6 +129,24 @@ const cleanObject = (object: any) => {
 }
 ```
 
+## 监测数据类型
+
+```js
+const getType = function(obj) {
+    let type = typeof obj
+    if (type !== 'object') {
+        return type
+    }
+    return Object.prototype.toString.call(obj).replace(/^\[object (\S+)\]$/, '$1').toLowerCase()
+}
+```
+
+```js
+const getType2=function(data) {
+  Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
+}
+```
+
 ## 访问多层级对象属性
 ```js
 const checkNested = (obj) => {
@@ -149,23 +167,7 @@ var test = {level1:{level2:{level3:'level3'}} };
 checkNested(test, 'level1', 'level2', 'level3'); // true
 checkNested(test, 'level1', 'level2', 'foo'); // false
 ```
-## 监测数据类型
 
-```js
-const getType = function(obj) {
-    let type = typeof obj
-    if (type !== 'object') {
-        return type
-    }
-    return Object.prototype.toString.call(obj).replace(/^\[object (\S+)\]$/, '$1').toLowerCase()
-}
-```
-
-```js
-const getType2=function(data) {
-  Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
-}
-```
 
 ## 下载文件
 
