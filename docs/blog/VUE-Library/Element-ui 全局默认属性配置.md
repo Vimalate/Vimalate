@@ -44,3 +44,60 @@ ElementUI.DatePicker.props.endPlaceholder = { type: String, default: '结束日�
 ```
 
 [ElementUI 全局设置组件的原生属性](https://blog.csdn.net/cuisini1/article/details/117413023?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.highlightwordscore&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.highlightwordscore)
+
+
+## Select 选择器
+
+当选项过多时，使用下拉菜单展示并选择内容。
+
+### 基本用法
+
+适用广泛的基础单选
+
+::: demo
+```vue
+<template>
+  <el-select v-model="value" placeholder="请选择">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }],
+        value: ''
+      }
+    }
+  }
+</script>
+```
+
+:::
+
+
+
+
+## 12
+
+
+::: demo
+```vue
+<div style="width:35px">
+<EllipsisTooltip text="111111111111111111"></EllipsisTooltip>
+</div>
+```
+
+:::

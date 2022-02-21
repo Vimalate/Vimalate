@@ -35,6 +35,7 @@ module.exports = {
         buttonText: "刷新",
       },
     },
+    "demo-container":true,
     "@vuepress/back-to-top": true,
     "@vuepress/active-header-links": {
       sidebarLinkSelector: ".sidebar-link",
@@ -249,6 +250,7 @@ module.exports = {
             ["Other-Library/原生内嵌webview", "原生内嵌webview"],
             ["Other-Library/excel指定行导入", "excel指定行导入"],
             ["Other-Library/print 打印", "print 打印"],
+            ["Other-Library/使用VuePress搭建Element的组件库文档", "使用VuePress搭建Element的组件库文档"],
           ],
         },
         {
