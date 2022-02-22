@@ -15,7 +15,7 @@ npm install element-ui
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
  
-export default ({ Vue, options, router }) => {
+export default ({ Vue}) => {
   Vue.use(Element);
 };
 ```
@@ -25,6 +25,9 @@ export default ({ Vue, options, router }) => {
 ```sh
 npm i vuepress-plugin-demo-container --save-dev
 ```
+
+虽然 VuePress 支持在 markdown 里直接写 vue 代码,但是我们可能需要写两份同样的代码，一份示例，一份展示，而使用此插件可以很好地做到不光有示例，还有展示示例代码
+
 语法及使用文档[点此查看](https://docs.chenjianhui.site/vuepress-plugin-demo-container/zh/started.html#%E4%BD%BF%E7%94%A8)
 
 
@@ -32,7 +35,7 @@ npm i vuepress-plugin-demo-container --save-dev
 
 创建目录"docs/.vuepress/components"
 
-components 文件夹下新建 EllipsisTooltip.vue
+components 文件夹下新建 EllipsisTooltip.vue，这里我以二次封装 el-tooltip 的组件为例
 
 ```vue
 <template>
@@ -77,6 +80,8 @@ export default {
 </style>
 ```
 
+因为Vuepress可以自动识别components里面的组件并注册，所以我们的自定义组件写完后，就可以直接在md文档按照组件名字使用
+
 ## 引用自定义组件并编写组件案例
 
 ### 使用
@@ -98,4 +103,8 @@ export default {
 </div>
 ```
 :::
+
+这样，你就大功告成啦
+
+![](https://gitee.com/lj107571/imgformd/raw/master/20220222155941.png)
 

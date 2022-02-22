@@ -84,20 +84,6 @@ ElementUI.DatePicker.props.endPlaceholder = { type: String, default: '结束日�
   }
 </script>
 ```
-
 :::
 
 
-
-
-## 12
-
-
-::: demo
-```vue
-<div style="width:35px">
-<EllipsisTooltip text="111111111111111111"></EllipsisTooltip>
-</div>
-```
-
-:::
