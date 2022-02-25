@@ -17,3 +17,13 @@
   <img src="high_flower" style="width: auto;" />
 </picture>
 ```
+
+
+## 校验一个元素是否在可视区域内
+
+- IntersectionObserver
+
+重点看这里监听目标元素与其祖先或视窗交叉状态的手段，其实就是观察一个元素是否在视窗可见。
+
+[谈谈IntersectionObserver懒加载](https://www.jianshu.com/p/84a86e41eb2b)
+
