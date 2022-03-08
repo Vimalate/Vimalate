@@ -77,4 +77,101 @@ rtical-align属性值的解释是不一样的。比方说vertical-align的默认
 的display值却是不一样的，有的是inline，有的是inline-block。
 ```
 
+## 打字效果
+
+```html
+<div class="wrapper">
+<div class="typing-demo">
+  有趣且实用的 CSS 小技巧
+</div>
+```
+
+```css
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-demo {
+  // width: 23ch;
+  width: 300px;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+```
+
+[有趣且实用的 CSS 小技巧](https://juejin.cn/post/7070315089168957477)
+
+
+## 自定义光标
+
+```html
+<div class="wrapper">
+  <div class="tile">
+    Default
+  </div>
+  
+  <div class="tile tile-image-cursor">
+    Image
+  </div>
+  
+  <div class="tile tile-emoji-cursor">
+    Emoji
+  </div>
+</div>
+```
+
+```css
+.wrapper {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #4776e6;
+  background: linear-gradient(to right, #4776e6, #8e54e9);
+  padding: 0 10px;
+}
+
+.tile {
+    width: 200px;
+    height: 200px;display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #de5448;
+    margin-right: 10px;color: #fff;
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+.tile-image-cursor {
+  background-color: #1da1f2;
+  cursor: url(https://picsum.photos/20/20), auto;
+}
+
+.tile-emoji-cursor {
+  background-color: #4267b2;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>"), auto;
+}
+```
+
+
+
 <Vssue/>
