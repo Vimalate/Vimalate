@@ -339,5 +339,59 @@ html 同 3
     padding-top:20vw;
     background:red;
 }
+```
+
+## CSS中flex布局最后一行左对齐
+
+让after 伪元素占剩余空间
+
+```html
+<div class="container">
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+  <div class="list"></div>
+</div>
+```
+
+```css
+body {
+  height: 1000px;
+}
+.container {
+  float: left;
+  border: 1px solid #000;
+  display: flex;
+  width: 290px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  resize: both;
+}
+.list {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 10px;
+  background-color: rgb(148, 148, 131);
+  margin-right: 10px;
+}
+.list:nth-child(4n) {
+  margin-right: 0px;
+}
+.container::after {
+  content: '';
+  display: block;
+  flex: 1 1 auto;
+}
+```
+
+
+
 
 <Vssue/>
