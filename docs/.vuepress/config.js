@@ -217,6 +217,7 @@ module.exports = {
           collapsable: true,
           children: [
             ["Other-Library/进阶图谱", "前端基础知识图谱"],
+            ["Other-Library/面试总结", "面试总结"],
             [
               "Other-Library/那些年，我们忘了的正则 ×",
               "那些年，我们忘了的正则 ×",
