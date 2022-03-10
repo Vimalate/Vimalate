@@ -616,6 +616,21 @@ chainWebpack: (config) => {
 ![](https://gitee.com/lj107571/imgformd/raw/master/20220225145649.png)
 
 
+## qiankun框架中微应用之间如何跳转
+
+1.  通过history.pushState()方式进行跳转
+
+```js
+<button onClick={() => {
+    window.history.pushState({
+       user: {......}
+     }, '', '/app1')}
+}>跳转</button>
+ ```
+2.  将主应用的路由实例传递给子应用，子应用使用主应用实例进行跳转
+
+
+
 
 
 
