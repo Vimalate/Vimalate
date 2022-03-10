@@ -603,4 +603,12 @@ input:-internal-autofill-selected {
 
 [Vue中的this.$options.data()的this指向问题](https://blog.csdn.net/hunt_er/article/details/110119482)
 
+
+## history路由模式，需要如何配置ngnix，才能正常访问？
+
+通过nginx配置加入try_files，history 模式同样会有一个问题，就是当页面刷新时，如果没有合适的配置，会出现404错误，针对这种请看，需要额外在nginx配置，对于找不到url的，将首页html返回
+
+![](https://gitee.com/lj107571/imgformd/raw/master/20220310141406.png)
+
+
 <Vssue/>
