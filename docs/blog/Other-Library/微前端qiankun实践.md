@@ -526,19 +526,19 @@ try_files $uri $uri/ /index.html;
 
 在源码里面的`vuePdfNoSss.vue`里面把
 
-```
+```js
 var PdfjsWorker = require('worker-loader!pdfjs-dist/es5/build/pdf.worker.js');		
 ```
 
 改为
 
-```
+```js
 var PdfjsWorker = require('pdfjs-dist/es5/build/pdf.worker.js');
 ```
 
 在vue.config.js的module.export中添加
 
-```
+```js
 
 chainWebpack: (config) => {
     config.module
@@ -553,6 +553,10 @@ chainWebpack: (config) => {
 }
 ```
 
+引用方式改为
+```js
+import pdf from './pdf/vuePdfNoSss'
+```
 
 
 ### 6.3 子应用打开会改变主应用项目title
