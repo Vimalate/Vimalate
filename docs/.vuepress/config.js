@@ -181,6 +181,8 @@ module.exports = {
             ["Javascript-Library/字符串技巧", "字符串技巧"],
             ["Javascript-Library/解构赋值", "解构赋值"],
             ["Javascript-Library/reduce 的妙用", "reduce 的妙用"],
+            ["Javascript-Library/for of 和 for in 及forEach", "for of 和 for in 及forEach"],
+            ["Javascript-Library/js跳出循环的方法区别break,continue,return", "js跳出循环的方法区别break,continue,return"],
             ["Javascript-Library/我都知道的JS", "我都知道的JS"],
             ["Javascript-Library/Javascript 面试题", "Javascript 面试题"],
             ["Javascript-Library/空值合并运算符", "空值合并运算符"],

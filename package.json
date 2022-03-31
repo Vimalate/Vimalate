@@ -15,17 +15,17 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "@vuepress/plugin-active-header-links": "^1.8.2",
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-pwa": "^1.8.2",
-    "vuepress": "^1.8.2",
+    "@vuepress/plugin-active-header-links": "^1.9.7",
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "@vuepress/plugin-pwa": "^1.9.7",
+    "vuepress": "^1.9.7",
     "vuepress-plugin-cursor-effects": "^1.1.2",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "dependencies": {
     "@vssue/api-github-v3": "^1.4.7",
     "@vssue/api-github-v4": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "element-ui": "^2.15.6",
     "vuepress-plugin-demo-container": "^0.2.0"
   }

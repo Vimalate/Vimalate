@@ -413,10 +413,13 @@ export default {
 ```
 ## vue+elementUI在输入框中按回车键会刷新页面
 
-当一个 form 元素中只有一个输入框时，在该输入框中按下回车应提交该表单。如果希望阻止这一默认行为，可以在 <el-form> 标签上添加 @submit.native.prevent。
+当一个 form 元素中只有一个输入框时，在该输入框中按下回车应提交该表单。如果希望阻止这一默认行为，可以在 ```<el-form>``` 标签上添加 @submit.native.prevent。
 
-```js
-<el-form  @submit.native.prevent></el-form>
+```vue
+<templat>
+<el-form   @submit.native.prevent >< /el-form >
+</templat>
+
 ```
 
 ## el-dialog关闭后重置数据
@@ -545,6 +548,40 @@ el-dialog的close事件总调用
 
 使用样式穿透修改下拉框样式，你会发现打死都不生效，那是因为下拉框是默认挂载在 body 下面。解决办法：设置 ```:popper-append-to-body="false"```,然后再用样式穿透
 
+## element-ui select组件change事件传递多个参数的方法
+
+1. 方法一
+
+```js
+@change="onChange($event,customParam)"
+```
+
+2. 方法二
+
+```js
+@change="((val)=>{changeEvent(val,args)})"  
+```
+
+
+
+**其他组件的的默认事件同样的方法传递**
+
+```vue
+<el-dropdown trigger="click" @command="((val)=>{handleCommand(val,scope.row)})">
+  <span class="el-dropdown-link">
+    <i class="el-icon-more el-icon--right"></i>
+  </span>
+    <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="volumes">共享卷</el-dropdown-item>
+        <el-dropdown-item command="container">容器</el-dropdown-item>
+        <el-dropdown-item command="log">日志</el-dropdown-item>
+        <el-dropdown-item command="shell">执行</el-dropdown-item>
+        <el-dropdown-item command="delete">删除</el-dropdown-item>
+    </el-dropdown-menu>
+</el-dropdown>
+```
+
+
 ## el-form 表单多个验证不通过，滚动到验证提示的位置
 
 ```js
@@ -609,6 +646,12 @@ input:-internal-autofill-selected {
 通过nginx配置加入try_files，history 模式同样会有一个问题，就是当页面刷新时，如果没有合适的配置，会出现404错误，针对这种请看，需要额外在nginx配置，对于找不到url的，将首页html返回
 
 ![](https://gitee.com/lj107571/imgformd/raw/master/20220310141406.png)
+
+## 同一组件上存在多个table进行tabs和v-if/v-show切换时，多表格的数据会相互混淆，串在一起，引发bug
+
+为每个table指定对应且唯一的key属性。
+
+
 
 
 <Vssue/>
