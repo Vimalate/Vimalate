@@ -581,6 +581,21 @@ el-dialog的close事件总调用
 </el-dropdown>
 ```
 
+## el-input type=number 去除聚焦时的上下箭头
+
+解决
+
+```js
+<el-input class="clear-number-input" type="number"></el-input>
+
+<style scoped>
+.clear-number-input ::v-deep input[type="number"]::-webkit-outer-spin-button,
+.clear-number-input ::v-deep input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+</style>
+```
+
 
 ## el-form 表单多个验证不通过，滚动到验证提示的位置
 
