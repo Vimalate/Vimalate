@@ -112,3 +112,5 @@ Vue.component('svg-icon',SvgIcon) // 全局注册
   style="width: 2em; height: 2em;vertical-align:middle"
 ></svg-icon>
 ```
+
+[svg图标封装组件 ](https://tatekii.github.io/2022/02/24/svg%E5%9B%BE%E6%A0%87%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6/)、[vue-element-admin使用svg图标](https://blog.csdn.net/qq2276031/article/details/107639303)
