@@ -333,6 +333,10 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    }
    
    ```
+
+
+**这里需要注意的是如果使用的是``` base: window.__POWERED_BY_QIANKUN__ ? '/zhgd' : '/',  // 抛出路由加前缀```抛出路由加前缀,那么在父应用中获取路由时如```/zhgd/group```拿到的是/group**
+
    
 4. 新建`src/router/module/other.js`把要嵌入主应用的页面重新抛出
 
