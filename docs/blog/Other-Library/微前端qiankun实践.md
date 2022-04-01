@@ -553,6 +553,18 @@ chainWebpack: (config) => {
 }
 ```
 
+package.json里添加
+
+```js
+"dependencies": {
+  ...
+  "pdfjs-dist": "2.7.570",
+  "vue-resize-sensor": "^2.0.0",
+  "worker-loader": "^2.0.0"
+}
+```
+
+
 引用方式改为
 ```js
 import pdf from './pdf/vuePdfNoSss'
