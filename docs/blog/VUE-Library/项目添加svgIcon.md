@@ -40,7 +40,7 @@ module.exports = {
 
 3. src下新建icons文件夹放svg文件
 
-4. 编写svgIcon 组件,components下新建````SvgIcon.vue```
+4. 编写svgIcon 组件,components下新建```SvgIcon.vue```
 
 ```vue
 <template>
@@ -108,7 +108,7 @@ Vue.component('svg-icon',SvgIcon) // 全局注册
 
 ```vue
 <svg-icon
-  :icon-class="cardData.platform"
+  icon-class="ch"
   style="width: 2em; height: 2em;vertical-align:middle"
 ></svg-icon>
 ```
