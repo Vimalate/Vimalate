@@ -666,7 +666,50 @@ input:-internal-autofill-selected {
 
 为每个table指定对应且唯一的key属性。
 
+## vue element 多个 Form 表单同时验证
 
-
+```vue
+<template>
+<el-form   ref="form1"></el-form>
+<el-form   ref="form2"></el-form>
+<el-form   ref="form3"></el-form>
+<el-form   ref="form4"></el-form>
+</template>
+<script>
+export default{
+    data(){
+        resultArr:[],//接受验证返回结果数组
+        formArr:['form1",'form2",'form3",'form4"],//存放表单ref数组
+    }，
+    methods:{
+        //封装验证函数
+        checkForm(formName){
+            let _self=this;
+            _self.resultArr = []
+            let result = new Promise(function(resolve, reject) {
+            _self.$refs[formName].validate((valid) => {
+                if (valid) {
+                    resolve();
+                } else { reject() }
+                })
+            })
+            _self.resultArr.push(result) //push 得到promise的结果
+        },
+        submit(){
+            let _self=this;
+            _self.formArr.forEach(item => { //根据表单的ref校验
+                _self.checkForm(item)
+            })
+           //resultArr数组的值必须是promise对象才能使用Promise.all，在checkForm做了这一步
+            Promise.all(_self.resultArr).then(function() { //都通过了
+              alert('所有表单验证通过')
+            }).catch(function() {
+                console.log("err");
+            });
+        }
+    }
+}
+</script>
+```
 
 <Vssue/>
