@@ -104,7 +104,7 @@ requireAll(req)
 Vue.component('svg-icon',SvgIcon) // 全局注册
 ```
 
-6. 使用
+1. 使用
 
 ```vue
 <svg-icon

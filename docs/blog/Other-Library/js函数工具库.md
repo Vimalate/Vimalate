@@ -89,17 +89,23 @@ foreachAndSearchDeptParentNode (list,Id) {
 
 ## 模糊搜索
 ```js
- //模糊搜索
-fuzzyQuery(list, keyWord) {
+/**
+* 使用test方法实现模糊查询
+* @param  {Array}  list     原数组
+* @param  {String} keyWord  查询的关键词
+* @param  {String} attribute  数组需要检索属性
+* @return {Array}           查询的结果
+*/
+const fuzzyQuery = (list, keyWord, attribute = 'name') => {
   var reg = new RegExp(keyWord);
   var arr = [];
   for (var i = 0; i < list.length; i++) {
-    if (reg.test(list[i].name)) {
+    if (reg.test(list[i][attribute])) {
       arr.push(list[i]);
     }
   }
   return arr;
-},
+}
 ```
 
 ## 根据 object 每个 key 上值的数据类型，赋对应的初始值
