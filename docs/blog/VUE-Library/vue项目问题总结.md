@@ -513,6 +513,8 @@ el-dialog的close事件总调用
 
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4.png)
 
+[Vue3自定义指令-10个常见的实用指令](https://www.vue-js.com/topic/60c05c6496b2cb0032c38f47)
+
 ## dataset 传值
 ![](https://gitee.com/lj107571/image-for-picgo/raw/master/img/dataset.png)
 
