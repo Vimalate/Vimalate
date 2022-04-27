@@ -171,7 +171,26 @@ rtical-align属性值的解释是不一样的。比方说vertical-align的默认
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>"), auto;
 }
 ```
+## 扩大按钮可点击区域
 
+使用伪元素(伪元素相对于父元素定位向四周延展，可以设置为任意尺寸甚至脱离原本按钮位置)
+
+```css
+.btn {
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+}
+```
 
 
 <Vssue/>
