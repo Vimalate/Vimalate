@@ -256,6 +256,7 @@ module.exports = {
             ["Other-Library/print 打印", "print 打印"],
             ["Other-Library/使用VuePress搭建Element的组件库文档", "使用VuePress搭建Element的组件库文档"],
             ["Other-Library/微前端qiankun实践", "微前端qiankun实践"],
+            ["Other-Library/使用signature_pad实现数字签名", "使用signature_pad实现数字签名"],
           ],
         },
         {

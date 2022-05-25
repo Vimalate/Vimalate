@@ -714,4 +714,33 @@ export default{
 </script>
 ```
 
+## 调用Axios出现"Cannot read property 'protocol' of undefined"的可能原因
+
+### 一、写法错误
+
+大部分都是因为这样写Vue.use(axios)导致的，改成Vue.prototype.$ajax = axios就行了
+
+### 二、URL错误
+
+请求的url没有在对象中定义
+
+## vue跳转相同路径报错
+
+在vue的router的js中添加下面代码，ew VueRouter 前
+
+```js
+const originalPush = VueRouter.prototype.push
+const originalReplace = VueRouter.prototype.replace
+// push
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
+// replace
+VueRouter.prototype.replace = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalReplace.call(this, location, onResolve, onReject)
+  return originalReplace.call(this, location).catch(err => err)
+}
+```
+
 <Vssue/>
