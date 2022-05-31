@@ -743,4 +743,39 @@ VueRouter.prototype.replace = function push(location, onResolve, onReject) {
 }
 ```
 
+
+## 二次封装作用域插槽
+
+子组件
+
+```vue
+<template>
+<LiquorTree class="sh-tree" v-if="items.length" :data="items" :options="options" :filter='search' ref="tree" v-model="treeModel">
+<!-- 作用域插槽 -->
+  <template slot-scope="{node}">
+    <span v-if="!$scopedSlots.default">{{node.text}}</span>
+    <slot v-else :node="node"></slot>
+  </template>
+</LiquorTree>
+</template>
+
+使用
+
+```vue
+<template>
+  <sh-tree class="tree" ref="tree" checkbox :api='api' :props="{children:'children',text: 'text'}" v-model="shows" @handleSubmit='handleSubmit'>
+    <template slot-scope="{node}">
+      <span class="tree-text">
+        <template v-if="!node.hasChildren()">
+          <van-icon name="user-o" size="18" class="icon" />
+            {{ node.text }}
+        </template>
+        <template v-else>
+          {{ node.text }}
+        </template>
+      </span>
+    </template>
+  </sh-tree>
+</template>
+```
 <Vssue/>
