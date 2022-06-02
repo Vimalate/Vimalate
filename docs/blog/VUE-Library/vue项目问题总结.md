@@ -778,4 +778,15 @@ VueRouter.prototype.replace = function push(location, onResolve, onReject) {
   </sh-tree>
 </template>
 ```
+
+## vue中使用a标签下载本地静态资源文件
+
+- 1、public目录下存放要下载的静态资源
+- 2、a 标签下载
+
+```html
+ <a href="/demo.rar" download="demo.rar">点击下载</a>
+```
+
+
 <Vssue/>
