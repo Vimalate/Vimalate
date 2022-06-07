@@ -788,5 +788,20 @@ VueRouter.prototype.replace = function push(location, onResolve, onReject) {
  <a href="/demo.rar" download="demo.rar">点击下载</a>
 ```
 
+## 检测元素外部(或内部)的单击
+
+```js
+window.addEventListener('mousedown', e => {
+  // 获取被点击的元素
+  const clickedEl = e.target;
+  
+  if (el.contains(clickedEl)) {
+   //在 "el "里面点击了
+  } else {
+   //在 "el "外点击了
+  }
+});
+```
+
 
 <Vssue/>
