@@ -809,4 +809,21 @@ const { href } = this.$router.resolve({ path: "/resetPwd", query: { key: key } }
 // iframe 控制父页面跳转
 window.parent.window.location.href = href
 ```
+
+## Vue中的method赋值为高阶函数
+
+```js
+<script>
+  import { debounce } from "lodash";
+
+  export default {
+    methods: {
+      search: debounce(async function (keyword) {
+        // ... 请求逻辑
+      }, 500),
+    },
+  };
+</script>
+```
+
 <Vssue/>
