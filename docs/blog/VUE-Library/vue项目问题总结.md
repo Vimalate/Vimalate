@@ -802,6 +802,11 @@ window.addEventListener('mousedown', e => {
   }
 });
 ```
+## iframe框架内页面控制父框架页面跳转到某地址
 
-
+```js
+const { href } = this.$router.resolve({ path: "/resetPwd", query: { key: key } });
+// iframe 控制父页面跳转
+window.parent.window.location.href = href
+```
 <Vssue/>
