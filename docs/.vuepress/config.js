@@ -197,6 +197,8 @@ module.exports = {
             ["VUE-Library/vue 整理面试题", "vue 整理面试题"],
             ["VUE-Library/vue项目问题总结", "vue项目问题总结"],
             ["VUE-Library/项目添加svgIcon", "项目添加svgIcon"],
+            ["VUE-Library/Vue的provide、inject", "Vue的provide、inject"],
+            ["VUE-Library/修改Vue打包后文件的接口地址配置", "修改Vue打包后文件的接口地址配置"],
             ["VUE-Library/vue项目路由权限配置", "vue项目路由权限配置"],
             ["VUE-Library/自定义指令", "自定义指令"],
             ["VUE-Library/router-view 的 key 属性", "router-view 的 key 属性"],
