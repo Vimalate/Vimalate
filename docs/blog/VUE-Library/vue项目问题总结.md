@@ -826,6 +826,124 @@ window.parent.window.location.href = href
 </script>
 ```
 
+## Vue项目中，对于index.html中BASE_URL的配置
 
+[参考](https://blog.csdn.net/wanghuan1020/article/details/108536334?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-108536334-blog-122855522.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-108536334-blog-122855522.pc_relevant_aa&utm_relevant_index=1)
+
+## 给 slot 插槽绑定事件
+
+- 1、作用域插槽 slot-scope 传方法
+
+```vue
+<!-- 伪代码:下拉框组件 -->
+ 
+<template>
+    <slot change-display="changeDisplay"></slot>
+    <div v-show="mVisiable">*下拉框代码省略*<div>
+<template>
+ 
+<script>
+export default {
+    data(){
+        return {
+            mVisiable: false
+        }
+    }
+ 
+    methods:{
+        changeDisplay(){
+            this.mVisiable = !this.mVisiable
+        }
+    }
+}
+</script>
+```
+
+使用：
+
+```vue
+<!--使用下拉弹窗组件-->
+<dropdown v-model="value" :list="list">
+  <button slot-scope="{changeDisplay}" 
+    @click="changeDisplay">{{value}}</button>
+</dropdown>
+```
+
+- 2、vnode 中对应的页面元素
+
+```vue
+<!-- 伪代码:下拉框组件 -->
+<template>
+    <slot></slot>
+    <div v-show="mVisiable">*下拉框代码省略*<div>
+<template>
+ 
+<script>
+export default {
+    data(){
+        return {
+            mVisiable: false
+            reference: undefined
+        }
+    }
+ 
+    methods:{
+        changeDisplay(){
+            this.mVisiable = !this.mVisiable
+        }
+    }
+ 
+    mounted() {
+        if (this.$slots.default) {
+          this.reference = this.$slots.default[0].elm
+        }
+        if (this.reference) {
+          this.reference.addEventListener('click', this.changeVisiable, false)
+          // hook
+          this.$once('hook:beforeDestroy', () => {
+          this.reference.removeEventListener('click', this.changeVisiable)
+      })
+        }
+    }
+}
+</script>
+```
+
+## 父组件监听子组件生命周期
+
+原本：
+
+ ```vue
+//父组件
+<rl-child
+  :value="40"
+  @childMounted="childMountedHandle"
+/>
+method () {
+  childMountedHandle() {
+  // do something...
+  }
+},
+
+// 子组件
+mounted () {
+  this.$emit('childMounted')
+},
+```
+
+hooks：
+
+```vue
+//父组件
+<rl-child
+  :value="40"
+  @hook:mounted="childMountedHandle"
+/>
+method () {
+  childMountedHandle() {
+  // do something...
+  }
+},
+```
 
 <Vssue/>
