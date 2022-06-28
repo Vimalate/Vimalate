@@ -274,4 +274,36 @@ export const typeOf = function(obj) {
 }
 ```
 
+## 金额格式化
+
+
+```js
+const formatMoney = (money) => {
+  return money.replace(new RegExp(`(?!^)(?=(\\d{3})+${money.includes('.') ? '\\.' : '$'})`, 'g'), ',')  
+}
+
+formatMoney('123456789') // '123,456,789'
+formatMoney('123456789.123') // '123,456,789.123'
+formatMoney('123') // '123'
+```
+
+## 解析链接参数
+
+```js
+// url <https://qianlongo.github.io/vue-demos/dist/index.html?name=fatfish&age=100#/home>
+const getQueryByName = (name) => {
+  const queryNameRegex = new RegExp(`[?&]${name}=([^&]*)(&|$)`)
+  const queryNameMatch = window.location.search.match(queryNameRegex)
+  // Generally, it will be decoded by decodeURIComponent
+  return queryNameMatch ? decodeURIComponent(queryNameMatch[1]) : ''
+}
+
+const name = getQueryByName('name')
+const age = getQueryByName('age')
+
+console.log(name, age) // fatfish, 100
+```
+
+
+
 [Object.prototype.toString.call(obj)](https://www.cnblogs.com/SallyShan/p/11530619.html)
