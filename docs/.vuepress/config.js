@@ -362,6 +362,76 @@ module.exports = {
             ],
           ],
         },
+        {
+          title: "使用webpack定制前端开发环境",
+          collapsable: false,
+          children: [
+            [
+              "使用webpack定制前端开发环境/webpack 的概念和基础使用",
+              "webpack 的概念和基础使用",
+            ],
+            [
+              "使用webpack定制前端开发环境/webpack 如何解析代码模块路径",
+              "webpack 如何解析代码模块路径",
+            ],
+            [
+              "使用webpack定制前端开发环境/创建自己的 loader",
+              "创建自己的 loader",
+            ],
+            [
+              "使用webpack定制前端开发环境/创建自己的 plugin",
+              "创建自己的 plugin",
+            ],
+            [
+              "使用webpack定制前端开发环境/搭建基本的前端开发环境",
+              "搭建基本的前端开发环境",
+            ],
+            [
+              "使用webpack定制前端开发环境/更好地使用 webpack-dev-server",
+              "更好地使用 webpack-dev-server",
+            ],
+            [
+              "使用webpack定制前端开发环境/开发和生产环境的构建配置差异",
+              "开发和生产环境的构建配置差异",
+            ],
+            [
+              "使用webpack定制前端开发环境/配置 loader",
+              "配置 loader",
+            ],
+            [
+              "使用webpack定制前端开发环境/使用 plugin",
+              "使用 plugin",
+            ],
+            [
+              "使用webpack定制前端开发环境/探究 webpack 内部工作流程",
+              "探究 webpack 内部工作流程",
+            ],
+            [
+              "使用webpack定制前端开发环境/提升 webpack 的构建速度",
+              "提升 webpack 的构建速度",
+            ],
+            [
+              "使用webpack定制前端开发环境/用 HMR 提高开发效率",
+              "用 HMR 提高开发效率",
+            ],
+            [
+              "使用webpack定制前端开发环境/优化前端资源加载 1 - 图片加载优化和代码压缩",
+              "优化前端资源加载 1 - 图片加载优化和代码压缩",
+            ],
+            [
+              "使用webpack定制前端开发环境/优化前端资源加载 2 - 分离代码文件",
+              "优化前端资源加载 2 - 分离代码文件",
+            ],
+            [
+              "使用webpack定制前端开发环境/优化前端资源加载 3 - 进一步控制 JS 大小",
+              "优化前端资源加载 3 - 进一步控制 JS 大小",
+            ],
+            [
+              "使用webpack定制前端开发环境/总结",
+              "总结",
+            ],
+          ],
+        },
       ],
       "/LeetCode-Library/": [
         {
