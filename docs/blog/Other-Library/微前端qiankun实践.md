@@ -1,9 +1,4 @@
----
-sidebar: auto
-actionLink: /web/qiankun
----
-
-# 微前端框架-乾坤（qiankun）
+# 微前端框架-qiankun
 
 ## 1、简介
 
@@ -18,17 +13,15 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
 
 ## 2、代码下载
 
-- 主应用下载： [framework-qiankun-v2.0.0-SNAPSHOT.rar](/static/framework-qiankun-v2.0.0-SNAPSHOT.rar)
-
   <!--注：基础框架包已调整为子应用-->
 
-下载代码包直接运行即可看效果，主应用内嵌`建协云个人端`、`建协云企业端`、`子应用`部分页面。
+下载代码包直接运行即可看效果，主应用内嵌`子应用个人端`、`子应用企业端`、`子应用`部分页面。
 
 下载应用用于开发时请删掉 `src/layout/Index.vue`里面的如下代码
 
 ![](https://gitee.com/lj107571/imgformd/raw/master/image-20210926154203063.png)
 
-## 3、中台基础框架转为微前端
+## 3、基础框架转为微前端
 
 ### 3.1 主应用
 
@@ -56,16 +49,16 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    
    registerMicroApps([
      {
-       name: 'JXYQY', 
-       entry: process.env.VUE_APP_JXYQY_WEB,
-       container: '#qiankun_jxyqy',
-       activeRule: '/jxyqy',
+       name: 'QY', 
+       entry: process.env.VUE_APP_QY_WEB,
+       container: '#qiankun_QY',
+       activeRule: '/QY',
      },
      {
-       name: 'JXY', 
-       entry: process.env.VUE_APP_JXY_WEB,
-       container: '#qiankun_jxy',
-       activeRule: '/jxy',
+       name: 'sub', 
+       entry: process.env.VUE_APP_sub_WEB,
+       container: '#qiankun_sub',
+       activeRule: '/sub',
        props: {
          bus,
          systemCode: store.state.systemCode
@@ -76,12 +69,12 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    export default start
    ```
 
-5. 新建`src/views/admin/jxy/Index.vue`文件，用于匹配建协云个人端
+5. 新建`src/views/admin/sub/Index.vue`文件，用于匹配子应用
 
    ```
    <template>
-     <div class="jxy">
-       <div id="qiankun_jxy" v-show="!id"></div>
+     <div class="sub">
+       <div id="qiankun_sub" v-show="!id"></div>
      </div>
    </template>
    
@@ -112,11 +105,11 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    </script>
    ```
 
-6. 新建`src/views/admin/jxyqy/Index.vue`文件，用于匹配建协云企业端
+6. 新建`src/views/admin/QY/Index.vue`文件，用于匹配企业端
 
    ```
    <template>
-     <div id="qiankun_jxyqy"></div>
+     <div id="qiankun_QY"></div>
    </template>
    
    <script>
@@ -162,14 +155,14 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
            component: SANHUI.Error405
          },
          {
-           path: '/jxy/*',
-           meta: { title: '建协云', isMenu: false},
-           component: () => import('@/views/admin/jxy/Index')
+           path: '/sub/*',
+           meta: { title: '子应用', isMenu: false},
+           component: () => import('@/views/admin/sub/Index')
          },
          {
-           path: '/jxyqy/*',
-           meta: { title: '建协云企业端', isMenu: false},
-           component: () => import('@/views/admin/jxyqy/Index')
+           path: '/QY/*',
+           meta: { title: '子应用企业端', isMenu: false},
+           component: () => import('@/views/admin/QY/Index')
          }
        ]
      },
@@ -181,7 +174,7 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    ]
    ```
 
-7. 配置getAccessToken，应用嵌入重新拿token
+8. 配置getAccessToken，应用嵌入重新拿token
 
    在`src/layout/Index.vue`中加入getAccessToken方法，代码如下：
 
@@ -276,7 +269,7 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    export default vm
    ```
 
-   添加：（<!--注意：/app为业务系统自定义路由前缀，如建协云为 /jxy-->）
+   添加：（<!--注意：/app为业务系统自定义路由前缀，如子应用为 /sub-->）
 
    ```
    // 微前端 - 子应用配置
@@ -288,11 +281,11 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    }
    
    
-     //下面的 /jxy  与主应用  registerMicroApps 中的  activeRule 字段对应
+     //下面的 /sub  与主应用  registerMicroApps 中的  activeRule 字段对应
    function render(props = {}) {
      const { container } = props;
      router = new VueRouter({
-       base: window.__POWERED_BY_QIANKUN__ ? '/jxy' : '/',  // 抛出路由加前缀
+       base: window.__POWERED_BY_QIANKUN__ ? '/sub' : '/',  // 抛出路由加前缀
        mode: 'history',
        routes,
      });
@@ -388,11 +381,11 @@ framework-qiankun  是一个基于qiankun + sanhui 的微前端实现库，旨�
    
   ![](https://gitee.com/lj107571/imgformd/raw/master/image-20211122102715924.png)
 
-### 3.3 建协云菜单
+### 3.3 子应用菜单
 
-- 个人端：全部以`/jxy/other/...` 开头，例如： 代办事项：`/jxy/other/backlogList`
+- 个人端：全部以`/sub/other/...` 开头，例如： 代办事项：`/sub/other/backlogList`
 
-- 企业端：全部以`/jxyqy/other/...`开头，例如： 菜单管理：`/jxy/other/selfMenu`
+- 企业端：全部以`/QY/other/...`开头，例如： 菜单管理：`/sub/other/selfMenu`
 
   路由后缀与 [iframe嵌入/4-1-嵌入组织中心、待办](/access/web/#_4-1-嵌入组织中心、待办)保持一致
 
@@ -476,7 +469,7 @@ try_files $uri $uri/ /index.html;
 
 如：代办 （<!--代办配的systemCode要和系统的sysemtCode一致时才会触发微前端，不然则以浏览器标签页的形式打开代办-->）
 
-- 在建协云中
+- 在子应用中
 
   ```
   // 点击代办-触发事件总线
@@ -506,7 +499,7 @@ try_files $uri $uri/ /index.html;
     beforeDestroy () { // 销毁监听
       this.$bus.$off('qiankun-backlog')
     }
-  // 建协云
+  // 子应用
     beforeDestroy () { // 销毁监听
       this.$bus.$off('qiankun-backlog-loadList')
     }
