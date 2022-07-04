@@ -135,6 +135,14 @@ git merge develop
 最后再执行```git push``` 即可。
 
 
+## 举例 将 dev 开发线 合并到 master
+
+- 1 确定你在dev线，将dev代码改动全部提交
+- 2 切换master，确定是最新代码，不确定就pull下，选择合并分支，见上图
+- 3 在下拉的提示框中选择dev线，然后选择提交所有代码
+- 4 切回到dev 继续开发
+
+重点 merge命令的本质是从别的分支，将自身没有的提交记录拉去过来（粗略的说而已）。
 
 
-参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)
+参考：[git 教程](https://juejin.im/post/5c67e70bf265da2de33f127c)、[使用Git进行多人协作开发](https://juejin.im/post/5ecb6b41f265da770d3dae6e)、[廖雪峰：多人协作](https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320)、[vscode 本地分支合并远程分支，远程分支合并到本地分支](https://blog.csdn.net/qq_41732963/article/details/119942560)
