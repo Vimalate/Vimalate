@@ -643,7 +643,7 @@ import pdf from './pdf/vuePdfNoSss'
 2.  将主应用的路由实例传递给子应用，子应用使用主应用实例进行跳转
 
 
-
+参考：[微前端方案实践及总结](https://juejin.cn/post/6844904185910018062#heading-12)
 
 
 
