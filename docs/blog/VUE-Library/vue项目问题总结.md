@@ -442,7 +442,7 @@ Vue.prototype.$reset = function (formRef, ...excludeFields) {
 };
 ```
 
-el-dialog的close事件总调用
+el-dialog的close事件中调用
 
 ```vue
 <template>
@@ -915,12 +915,12 @@ export default {
 
  ```vue
 //父组件
-<rl-child
-  :value="40"
-  @childMounted="childMountedHandle"
+<child
+  :value="value"
+  @childMounted="onChildMounted"
 />
 method () {
-  childMountedHandle() {
+  onChildMounted() {
   // do something...
   }
 },
@@ -945,5 +945,10 @@ method () {
   }
 },
 ```
+## uniapp 删除 main.js 的 App.mpType = 'app' 后运行 H5 报错 Cannot read property 'meta' of undefined
+
+补齐main.js 的 App.mpType = 'app' 即可。
+
+[参考](https://blog.csdn.net/weixin_55953988/article/details/122621453)
 
 <Vssue/>
