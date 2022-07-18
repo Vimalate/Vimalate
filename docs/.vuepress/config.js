@@ -187,6 +187,7 @@ module.exports = {
             ["Javascript-Library/Javascript 面试题", "Javascript 面试题"],
             ["Javascript-Library/空值合并运算符", "空值合并运算符"],
             ["Javascript-Library/常见字符串方法", "常见字符串方法"],
+            ["Javascript-Library/Typescript学习指南", "Typescript学习指南"],
           ],
         },
         {
