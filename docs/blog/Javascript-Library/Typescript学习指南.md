@@ -399,13 +399,218 @@ let strLength: number = (str as string).length;
 ### 确定赋值断言
 
 
-## 类型守卫
+```ts
+let value:number
+console.log(value); // Variable 'value' is used before being assigned.
+```
 
-## 联合类型和类型别名
+我们定义了变量, 没有赋值就使用，则会报错
+
+通过 let x!: number; 确定赋值断言，TypeScript 编译器就会知道该属性会被明确地赋值。
+
+```ts
+let value!:number
+console.log(value); // undefined 编译正确
+```
+
+## 联合类型
+
+联合类型用```|```分隔，表示取值可以为多种类型中的一种
+
+```ts
+let status:string|number
+status='to be or not to be'
+status=1
+```
+
+## 类型别名
+
+类型别名用来给一个类型起个新名字。它只是起了一个新名字，并没有创建新类型。类型别名常用于联合类型。
+
+```ts
+type count = number | number[];
+function hello(value: count) {}
+```
+
 
 ## 交叉类型
 
+交叉类型就是跟联合类型相反，用```&```操作符表示，交叉类型就是两个类型必须存在
+
+```ts
+interface IpersonA{
+  name: string,
+  age: number
+}
+interface IpersonB {
+  name: string,
+  gender: string
+}
+
+let person: IpersonA & IpersonB = { 
+    name: "师爷",
+    age: 18,
+    gender: "男"
+};
+```
+person 即是 IpersonA 类型，又是 IpersonB 类型
+
+>注意：交叉类型取的多个类型的并集，但是如果key相同但是类型不同，则该key为never类型
+
+```ts
+interface IpersonA {
+    name: string
+}
+
+interface IpersonB {
+    name: number
+}
+
+function testAndFn(params: IpersonA & IpersonB) {
+    console.log(params)
+}
+
+testAndFn({name: "黄老爷"}) // error TS2322: Type 'string' is not assignable to type 'never'.
+```
+
+
+
+
+## 类型守卫
+
+
+**类型保护是可执行运行时检查的一种表达式，用于确保该类型在一定的范围内**。 换句话说，类型保护可以保证一个字符串是一个字符串，尽管它的值也可以是一个数值。类型保护与特性检测并不是完全不同，其主要思想是尝试检测属性、方法或原型，以确定如何处理值。
+
+换句话说：**类型守卫是运行时检查，确保一个值在所要类型的范围内**
+
+目前主要有四种的方式来实现类型保护：
+
+- 1、in 关键字
+
+```ts
+interface InObj1 {
+    a: number,
+    x: string
+}
+interface InObj2 {
+    a: number,
+    y: string
+}
+function isIn(arg: InObj1 | InObj2) {
+    // x 在 arg 打印 x
+    if ('x' in arg) console.log('x')
+    // y 在 arg 打印 y
+    if ('y' in arg) console.log('y')
+}
+isIn({a:1, x:'xxx'});
+isIn({a:1, y:'yyy'});
+```
+
+- 2、typeof 关键字
+
+```ts
+function isTypeof( val: string | number) {
+  if (typeof val === "number") return 'number'
+  if (typeof val === "string") return 'string'
+  return '啥也不是'
+}
+```
+
+>typeof 只支持：typeof 'x' === 'typeName' 和 typeof 'x' !== 'typeName'，x 必须是  'number', 'string', 'boolean', 'symbol'。
+
+- 3、instanceof
+
+```ts
+function creatDate(date: Date | string){
+    console.log(date)
+    if(date instanceof Date){
+        date.getDate()
+    }else {
+        return new Date(date)
+    }
+}
+```
+
+- 4、自定义类型保护的类型谓词
+
+```ts
+function isNumber(num: any): num is number {
+    return typeof num === 'number';
+}
+function isString(str: any): str is string{
+    return typeof str=== 'string';
+}
+```
+
 ## 接口
+
+我们使用接口来定义对象的类型。接口是对象的状态(属性)和行为(方法)的抽象(描述)
+
+简单理解就是：**为我们的代码提供一种约定**
+
+我们使用关键字interface来声明接口
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+let tom: Person = {
+    name: 'Tom',
+    age: 25
+};
+```
+
+我们定义了一个接口 Person，接着定义了一个变量 tom，它的类型是 Person。这样，我们就约束了 tom 的形状必须和接口 Person 一致。
+
+接口一般首字母大写。(当然挺多人也习惯 I 大写字母开头，用来表示这是一个接口)
+
+### 设置接口可选|只读
+
+```ts
+interface Person {
+  readonly name: string;
+  age?: number;
+}
+```
+
+- 可选属性，我们最常见的使用情况是，不确定这个参数是否会传，或者存在。
+
+- 只读属性用于限制只能在对象刚刚创建的时候修改其值。此外 TypeScript 还提供了 ReadonlyArray<T> 类型，它与 Array<T> 相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改。
+
+### 索引签名
+
+有时候我们希望一个接口中除了包含必选和可选属性之外，还允许有其他的任意属性，这时我们可以使用 **索引签名** 的形式来满足上述要求。
+
+>需要注意的是，一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集
+
+```ts
+interface Person {
+  name: string;
+  age?: number;
+  [prop: string]: any; //  propName字段必须是 string类型 or number类型。 值是any类型，也就是任意的
+}
+
+const p1 = { name: "张麻子" };
+const p2 = { name: "树哥", age: 28 };
+const p3 = { name: "汤师爷", sex: 1 }
+```
+我们规定 以 string 类型的值来索引，索引到的是一个 any 类型的值
+
+
+### 接口与类型别名的区别
+
+实际上，在大多数的情况下使用接口类型和类型别名的效果等价，但是在某些特定的场景下这两者还是存在很大区别。
+
+>TypeScript 的核心原则之一是对值所具有的结构进行类型检查。 而接口的作用就是为这些类型命名和为你的代码或第三方代码定义数据模型。
+
+>type(类型别名)会给一个类型起个新名字。 type 有时和 interface 很像，但是可以作用于原始值（基本类型），联合类型，元组以及其它任何你需要手写的类型。起别名不会新建一个类型 - 它创建了一个新 名字来引用那个类型。给基本类型起别名通常没什么用，尽管可以做为文档的一种形式使用。
+
+
+**Objects / Functions**
+
+接口和类型别名都可以用来描述对象的形状或函数签名
+
 
 ## 泛型
 
