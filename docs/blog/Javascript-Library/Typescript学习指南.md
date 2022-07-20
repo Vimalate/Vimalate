@@ -604,14 +604,100 @@ const p3 = { name: "汤师爷", sex: 1 }
 
 >TypeScript 的核心原则之一是对值所具有的结构进行类型检查。 而接口的作用就是为这些类型命名和为你的代码或第三方代码定义数据模型。
 
->type(类型别名)会给一个类型起个新名字。 type 有时和 interface 很像，但是可以作用于原始值（基本类型），联合类型，元组以及其它任何你需要手写的类型。起别名不会新建一个类型 - 它创建了一个新 名字来引用那个类型。给基本类型起别名通常没什么用，尽管可以做为文档的一种形式使用。
+>type(类型别名)会给一个类型起个新名字。 type 有时和 interface 很像，但是可以作用于原始值（基本类型），联合类型，元组以及其它任何你需要手写的类型。起别名不会新建一个类型 - 它创建了一个新名字来引用那个类型。给基本类型起别名通常没什么用，尽管可以做为文档的一种形式使用。
 
 
-**Objects / Functions**
 
-接口和类型别名都可以用来描述对象的形状或函数签名
 
+**接口和类型别名都可以用来描述对象或函数的类型，只是语法不同**
+
+```ts
+type MyTYpe = {
+  name: string;
+  say(): void;
+}
+
+interface MyInterface {
+  name: string;
+  say(): void;
+}
+```
+
+
+**都允许扩展**
+
+- interface 用 ```extends``` 来实现扩展
+
+
+```ts
+interface MyInterface {
+  name: string;
+  say(): void;
+}
+
+interface MyInterface2 extends MyInterface {
+  sex: string;
+}
+
+let person:MyInterface2 = {
+  name:'树哥',
+  sex:'男',
+  say(): void {
+    console.log("hello 啊，树哥！");
+  }
+}
+```
+- type 使用 ```&``` 实现扩展
+
+```ts
+type MyType = {
+  name:string;
+  say(): void;
+}
+type MyType2 = MyType & {
+  sex:string;
+}
+let value: MyType2 = {
+  name:'树哥',
+  sex:'男',
+  say(): void {
+    console.log("hello 啊，树哥！");
+  }
+}
+```
+
+### 不同点
+
+- type可以声明基本数据类型别名/联合类型/元组等，而interface不行
+
+```ts
+// 基本类型别名
+type UserName = string;
+type UserName = string | number;
+// 联合类型
+type Animal = Pig | Dog | Cat;
+type List = [string, boolean, number];
+```
+
+- interface能够合并声明，而type不行
+
+```ts
+interface Person {
+  name: string
+}
+interface Person {
+  age: number
+}
+// 此时Dog同时具有name和age属性
+```
 
 ## 泛型
 
+泛型是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
 
+举个例子，比如我们现在有个这样的需求，我们要实现一个这样的函数，函数的参数可以是任何值，返回值就是将参数原样返回，并且其只能接受一个参数，你会怎么做？
+
+
+
+
+## 装饰器
