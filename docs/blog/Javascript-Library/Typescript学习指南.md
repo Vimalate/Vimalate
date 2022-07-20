@@ -1,5 +1,9 @@
 ## 前言
 
+2022年了。我才开始学 typescript ，晚吗？
+
+其实早在刚学习前端时，就
+
 
 ## 安装环境
 
@@ -688,7 +692,7 @@ interface Person {
 interface Person {
   age: number
 }
-// 此时Dog同时具有name和age属性
+// 此时Person同时具有name和age属性
 ```
 
 ## 泛型
@@ -697,6 +701,8 @@ interface Person {
 
 举个例子，比如我们现在有个这样的需求，我们要实现一个这样的函数，函数的参数可以是任何值，返回值就是将参数原样返回，并且其只能接受一个参数，你会怎么做？
 
+
+[轻松拿下 TS 泛型](https://juejin.cn/post/7064351631072526350)
 
 
 
