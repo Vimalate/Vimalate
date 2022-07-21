@@ -688,7 +688,7 @@ interface Person {
 interface Person {
   age: number
 }
-// 此时Dog同时具有name和age属性
+// 此时Person同时具有name和age属性
 ```
 
 ## 泛型
