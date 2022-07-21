@@ -628,6 +628,7 @@ interface MyInterface {
 ```
 
 
+
 **都允许扩展**
 
 - interface 用 ```extends``` 来实现扩展
@@ -699,10 +700,165 @@ interface Person {
 
 泛型是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
 
-举个例子，比如我们现在有个这样的需求，我们要实现一个这样的函数，函数的参数可以是任何值，返回值就是将参数原样返回，并且其只能接受一个参数，你会怎么做？
+举个例子，比如我们现在有个这样的需求，我们要实现一个这样的函数，函数的参数可以是任何值，返回值就是将参数原样返回，并且参数的类型是 string，函数返回类型就为 string？
+
+你很容易写下：
+
+```ts
+function getValue(arg:string):string  {
+  return arg;
+}
+```
+现在需求有变，需要返回一个 number 类型的值，你会说，联合类型就完事了：
+
+```ts
+function getValue(arg:string | number):string | number  {
+  return arg;
+}
+```
+
+但是这样又有一个问题，就是如果我们需要返回一个 boolean 类型，string 数组甚至任意类型呢，难道有多少个就写多少个联合类型？
+
+是的，我们直接用 any 就行了！
+
+```ts
+function getValue(arg:any):any  {
+  return arg;
+}
+```
+
+尽管 any 大法好，很多时候 any 也确实能够解决不少问题，但是这样也不符合我们的需求了，传入和返回都是 any 类型，**传入和返回并没有统一**
 
 
-[轻松拿下 TS 泛型](https://juejin.cn/post/7064351631072526350)
+作为一个骚有最求的程序员，我们还能不能有其他解决办法呢？
+
+这个时候就要祭出我们的泛型了
+
+### 基本使用
+
+泛型是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性
+
+
+上面的需求，我们如果用泛型来解决的话：
+  
+```ts
+function getValue<T>(arg:T):T  {
+  return arg;
+}
+```
+
+泛型的语法是尖括号 ```<>``` 里面写类型参数，一般用 ```T``` 来表示第一个类型变量名称，其实它可以用任何有效名称来代替,比如我们用```NIUBI```也是编译正常的
+
+
+>泛型就像一个占位符一个变量，在使用的时候我们可以将定义好的类型像参数一样传入，原封不动的输出
+
+
+**使用**
+
+我们有两种方式来使用：
+- 1. 定义要使用的类型，比如：
+  
+```ts
+getValue<string>('树哥'); // 定义 T 为 string 类型
+```
+
+- 2. 利用 typescript 的类型推断，比如：
+  
+```ts
+getValue('树哥') // 自动推导类型为 string
+```
+
+### 多个参数
+
+其实并不是只能定义一个类型变量，我们可以引入希望定义的任何数量的类型变量。比如我们引入一个新的类型变量 U
+
+```ts
+function getValue<T, U>(arg:[T,U]):[T,U] {
+  return arg;
+}
+
+// 使用
+const str = getValue(['树哥', 18]);
+```
+
+![](./img/fanxing1.png)
+
+typescript 给我们自动推断出输入、返回的类型
+
+
+### 泛型约束
+
+在函数内部使用泛型变量的时候，由于事先不知道它是哪种类型，所以不能随意的操作它的属性或方法：
+
+  
+```ts
+function getLength<T>(arg:T):T  {
+  console.log(arg.length); // 报错，不能调用 length 属性
+}
+```
+
+因为泛型 T 不一定包含属性 length，那么我想 getLength 这个函数只允许传入包含 length 属性的变量，该怎么做呢
+
+这时，我们可以使用```extends```关键字来对泛型进行约束
+
+```ts
+interface Lengthwise {
+  length: number;
+}
+
+function getLength<T extends Lengthwise>(arg:T):T  {
+  console.log(arg.length); 
+  return arg;
+}
+```
+
+使用：
+
+```ts
+const str = getLength('树哥')
+const arr = getLength([1,2,3])
+const obj = getLength({ length: 5 })
+```
+
+>这里可以看出，不管你是 str，arr 还是obj，只要具有 length 属性，都可以
+
+具体参考[轻松拿下 TS 泛型](https://juejin.cn/post/7064351631072526350)
+
+### 泛型接口
+
+在定义接口的时候指定泛型
+
+```ts
+interface KeyValue<T,U> {
+  key: T;
+  value: U;
+}
+
+const person1:KeyValue<string,number> = {
+  key: '树哥',
+  value: 18
+}
+const person2:KeyValue<number,string> = {
+  key: 20,
+  value: '张麻子'
+}
+```
+
+### 泛型类
+
+```ts
+class Test<T> {
+  value: T;
+  add: (x: T, y: T) => T;
+}
+
+let myTest = new Test<number>();
+myTest.value = 0;
+myTest.add = function (x, y) {
+  return x + y;
+};
+```
+
 
 
 
