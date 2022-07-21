@@ -859,7 +859,130 @@ myTest.add = function (x, y) {
 };
 ```
 
+### 泛型类型别名
 
+```ts
+type Cart<T> = { list: T[] } | T[];
+let c1: Cart<string> = { list: ["1"] };
+let c2: Cart<number> = [1];
+```
 
+### 泛型参数的默认类型
+
+我们可以为泛型中的类型参数指定默认类型。当使用泛型时没有在代码中直接指定类型参数，从实际值参数中也无法推测出时，这个默认类型就会起作用。有点 js 里函数默认参数的意思。
+
+```ts
+function createArray<T = string>(length: number, value: T): Array<T> {
+  let result: T[] = [];
+  for (let i = 0; i < length; i++) {
+    result[i] = value;
+  }
+  return result;
+}
+```
+
+### 泛型工具类型
+
+- typeof 
+
+关键词除了做类型保护，还可以从实现推出类型，
+
+```ts
+//先定义变量，再定义类型
+let p1 = {
+  name: "树哥",
+  age: 18,
+  gender: "male",
+};
+type People = typeof p1;
+function getName(p: People): string {
+  return p.name;
+}
+getName(p1);
+```
+
+- keyof
+
+可以用来获取一个对象接口中的所有 key 值
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  gender: "male" | "female";
+}
+
+type PersonKey = keyof Person; //type PersonKey = 'name'|'age'|'gender';
+
+function getValueByKey(p: Person, key: PersonKey) {
+  return p[key];
+}
+let val = getValueByKey({ name: "树哥", age: 18, gender: "male" }, "name");
+console.log(val); // 树哥
+```
+
+- in
+
+用来遍历枚举类型：
+
+```ts
+type Keys = "a" | "b" | "c"
+
+type Obj =  {
+  [p in Keys]: any
+} // -> { a: any, b: any, c: any }
+```
+
+- infer
+
+在条件类型语句中，可以用 infer 声明一个类型变量并且对它进行使用。
+
+```ts
+type ReturnType<T> = T extends (
+  ...args: any[]
+) => infer R ? R : any;
+```
+
+infer R 就是声明一个变量来承载传入函数签名的返回值类型，简单说就是用它取到函数返回值的类型方便之后使用。
+
+- extends
+
+有时候我们定义的泛型不想过于灵活或者说想继承某些类等，可以通过 extends 关键字添加泛型约束。
+
+```ts
+interface Lengthwise {
+  length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length);
+  return arg;
+}
+```
+
+现在这个泛型函数被定义了约束，因此它不再是适用于任意类型：
+
+```ts
+loggingIdentity(3);  // Error, number doesn't have a .length property
+```
+
+当我们传入合法的类型的值，即包含 length 属性的值时：
+
+```ts
+loggingIdentity({length: 10, name: '张麻子'}); // 编译正确
+```
+
+- 索引访问操作符
+
+使用 ```[]``` 操作符可以进行索引访问：
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+type x = Person["name"]; // x is string
+```
 
 ## 装饰器
