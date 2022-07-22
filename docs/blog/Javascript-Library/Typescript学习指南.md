@@ -2,7 +2,7 @@
 
 2022年了，我才开始学 typescript ，晚吗？
 
-其实早在刚学习前端时，就有大致了解过 typescript ,但后面工作中基本 vue2 开发为主，所以真正能够接触到 typescript 的机会其实并不多。
+其实早在初学前端时，就有大致了解过 typescript ,但后面工作中基本 vue2 开发为主，所以真正能够接触到 typescript 的机会其实并不多。
 
 尽管本懒狗
 
@@ -99,9 +99,61 @@ const count: number = 10;
 
 枚举类型用于定义数值集合，使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。，如周一到周日，方位上下左右等
 
-```typescript
-  enum Color {Red, Green, Blue}
-  const c: Color = Color.Red;
+- 普通枚举
+
+初始值默认为 0 其余的成员会会按顺序自动增长 可以理解为数组下标
+  
+```ts
+enum Color {
+  RED,
+  PINK,
+  BLUE,
+}
+
+const red: Color = Color.RED;
+console.log(red); // 0
+```
+- 设置初始值
+
+```ts
+enum Color {
+  RED = 2,
+  PINK,
+  BLUE,
+}
+const pink: Color = Color.PINK;
+console.log(pink); // 2
+```
+
+- 字符串枚举
+
+```ts
+enum Color {
+  RED = "红色",
+  PINK = "粉色",
+  BLUE = "蓝色",
+}
+
+const pink: Color = Color.PINK;
+console.log(pink); // 粉色
+```
+- 常量枚举
+
+使用 const 关键字修饰的枚举，常量枚举与普通枚举的区别是，整个枚举会在编译阶段被删除 我们可以看下编译之后的效果
+
+```ts
+const enum Color {
+  RED,
+  PINK,
+  BLUE,
+}
+
+const color: Color[] = [Color.RED, Color.PINK, Color.BLUE];
+console.log(color); //[0, 1, 2]
+
+//编译之后的js如下：
+var color = [0 /* RED */, 1 /* PINK */, 2 /* BLUE */];
+// 可以看到我们的枚举并没有被编译成js代码 只是把color这个数组变量编译出来了
 ```
 
 ### Array 类型
@@ -1154,4 +1206,14 @@ class C {
 type D = InstanceType<typeof C>;  // C
 ```
 
-## 装饰器
+## 往期回顾
+
+[vue 项目开发，我遇到了这些问题](https://juejin.cn/post/7119018849353072677)
+[关于首屏优化，我做了哪些](https://juejin.cn/post/7117515006714839047)
+
+
+## 参考
+
+[一份不可多得的 TS 学习指南](https://juejin.cn/post/6872111128135073806)
+[TS中文文档](https://www.tslang.cn/docs/handbook/basic-types.html)
+[2021 typescript史上最强学习入门文章](https://juejin.cn/post/7018805943710253086)
