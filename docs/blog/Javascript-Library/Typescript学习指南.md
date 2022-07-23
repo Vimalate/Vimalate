@@ -4,21 +4,49 @@
 
 其实早在初学前端时，就有大致了解过 typescript ,但后面工作中基本 vue2 开发为主，所以真正能够接触到 typescript 的机会其实并不多。
 
-尽管本懒狗
+尽管在某些间歇性踌躇满志的时刻，我也会上X站搜索 ```typescript最新教程```，但都很难坚持过10节视频，又或者刷掘金的时候看到相关文章，我也会麻溜的点赞收藏一条龙，可是到现在也只是在我的收藏夹里吃灰。
 
+~~可能不是我太懒，只是这个世界诱惑太多，毕竟刷剧刷短视频它不香吗，学习，学个屁！~~
+
+最近刷掘金看着大伙的年中总结，不是跳槽涨薪了，就是完成了多少 flag，吓得我立马从床上一个激灵蹦起。低头看着自己日渐肥硕的肚子，仔细想想，这过去的大半年，除了完成日常的工作，我基本回家就开始躺平。
+
+再这么下去可不行，躺平的日子舒服但多少感到有点乏味，还是得给自己整点事情干。
+
+那就从现在开始，就把我那学了又相当于没学的 typescript ，重新整起来吧
+
+## 什么是 TypeScript
+
+TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。
+
+>简而言之，TypeScript是JavaScript的超集，具有可选的类型并可以编译为纯JavaScript。从技术上讲TypeScript就是具有静态类型的 JavaScript 。
+
+## TypeScript优缺点
+
+### 优点
+
+- 增强代码的可维护性，尤其在大型项目的时候效果显著
+- 友好地在编辑器里提示错误，编译阶段就能检查类型发现大部分错误
+- 支持最新的JavaScript新特特性
+- 周边生态繁荣，vue3已全面支持 typescript
+
+### 缺点
+
+- 需要一定的学习成本
+- 和一些插件库的兼容并不是特别完美，如以前在 vue2 项目里使用 typescript就并不是那么顺畅
+- 增加前期开发的成本，毕竟你需要写更多的代码（但是便于后期的维护）
 
 ## 安装环境
 
 ### 安装typescript
 
-首先，我们可以新建一个空文件夹，用来学习 ts，例如我文件夹下新建了个 ```helloworld.ts```
+首先，我们可以新建一个空文件夹，用来学习 ts，例如我在文件夹下新建了个 ```helloworld.ts```
 
 
 ```shell
 npm install -g  typescript // 全局安装 ts
 ```
 
-不记得自己是否已经安装typescript，可以使用以下命令来验证是否已经安装：
+不记得自己是否已经安装过 typescript 的，可以使用以下命令来验证：
 
 ```shell
 tsc -v 
@@ -28,6 +56,16 @@ tsc -v
 ```shell
 Version 4.6.3
 ```
+
+生成 tsconfig.json 配置文件
+
+```shell
+tsc --init
+```
+
+执行命令后我们就可以看到一个 tsconfig.json 文件，里面有一些配置信息，我们暂时可以先不用管
+
+```shell
 
 在我们```helloworld.ts```文件中,随便写点什么
 
@@ -44,7 +82,7 @@ var s = "彼时彼刻，恰如此时此刻";
 console.log(s);
 ```
 
-通过tsc命令，我们的typescript代码被转换成了熟悉的js代码
+通过tsc命令，发现我们的typescript代码被转换成了熟悉的js代码
 
 再执行
 
@@ -56,7 +94,7 @@ node helloworld.js
 
 ## 安装 ts-node
 
-那么通过我们上面的一统操作，我们知道了运行tsc命令就可以编译生成一个文件，但是如果每次改动我们都要手动去执行编译，然后再通过 node命令才能查看运行结果岂不是太麻烦了。
+那么通过我们上面的一通操作，我们知道了运行tsc命令就可以编译生成一个js文件，但是如果每次改动我们都要手动去执行编译，然后再通过 node命令才能查看运行结果岂不是太麻烦了。
 
 而 ts-node 正是来解决这个问题的
 
@@ -74,7 +112,7 @@ ts-node helloworld.ts
 
 后续我们的示例都可以通过这个命令来进行验证
 
-接下来我们正式进入到 typescript 的学习之旅
+接下来我们就可以正式进入到 typescript 的学习之旅
 
 ## TypeScript 基础类型
 
@@ -92,7 +130,7 @@ const count: number = 10;
 ### String 类型
   
 ```typescript
-  let name: string = "haunglaoye";
+  let name: string = "树哥";
 ```
 
 ### Enum 类型
@@ -526,10 +564,7 @@ testAndFn({name: "黄老爷"}) // error TS2322: Type 'string' is not assignable 
 ```
 
 
-
-
 ## 类型守卫
-
 
 **类型保护是可执行运行时检查的一种表达式，用于确保该类型在一定的范围内**。 换句话说，类型保护可以保证一个字符串是一个字符串，尽管它的值也可以是一个数值。类型保护与特性检测并不是完全不同，其主要思想是尝试检测属性、方法或原型，以确定如何处理值。
 
@@ -674,7 +709,6 @@ interface MyInterface {
   say(): void;
 }
 ```
-
 
 
 **都允许扩展**
@@ -1186,7 +1220,7 @@ const test: ReturnType<Func> = "1";
 
 11. Parameters
 
-用于获得函数的参数类型组成的元组类型。
+用于获得函数的参数类型所组成的元组类型。
 
   
 ```ts
@@ -1206,14 +1240,90 @@ class C {
 type D = InstanceType<typeof C>;  // C
 ```
 
+## tsconfig.json
+
+在文章开头环境安装部分，记得我们有生成一个 tsconfig.json 文件，那么这个文件究竟有什么用呢
+
+tsconfig.json 是 TypeScript 项目的配置文件。
+
+tsconfig.json 包含 TypeScript 编译的相关配置，通过更改编译配置项，我们可以让 TypeScript 编译出 ES6、ES5、node 的代码。
+
+### 重要字段
+
+- files - 设置要编译的文件的名称；
+- include - 设置需要进行编译的文件，支持路径模式匹配；
+- exclude - 设置无需进行编译的文件，支持路径模式匹配；
+- compilerOptions - 设置与编译流程相关的选项。
+
+### compilerOptions 选项
+
+```json
+{
+  "compilerOptions": {
+
+    /* 基本选项 */
+    "target": "es5",                       // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "module": "commonjs",                  // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "lib": [],                             // 指定要包含在编译中的库文件
+    "allowJs": true,                       // 允许编译 javascript 文件
+    "checkJs": true,                       // 报告 javascript 文件中的错误
+    "jsx": "preserve",                     // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "declaration": true,                   // 生成相应的 '.d.ts' 文件
+    "sourceMap": true,                     // 生成相应的 '.map' 文件
+    "outFile": "./",                       // 将输出文件合并为一个文件
+    "outDir": "./",                        // 指定输出目录
+    "rootDir": "./",                       // 用来控制输出目录结构 --outDir.
+    "removeComments": true,                // 删除编译后的所有的注释
+    "noEmit": true,                        // 不生成输出文件
+    "importHelpers": true,                 // 从 tslib 导入辅助工具函数
+    "isolatedModules": true,               // 将每个文件做为单独的模块 （与 'ts.transpileModule' 类似）.
+
+    /* 严格的类型检查选项 */
+    "strict": true,                        // 启用所有严格类型检查选项
+    "noImplicitAny": true,                 // 在表达式和声明上有隐含的 any类型时报错
+    "strictNullChecks": true,              // 启用严格的 null 检查
+    "noImplicitThis": true,                // 当 this 表达式值为 any 类型的时候，生成一个错误
+    "alwaysStrict": true,                  // 以严格模式检查每个模块，并在每个文件里加入 'use strict'
+
+    /* 额外的检查 */
+    "noUnusedLocals": true,                // 有未使用的变量时，抛出错误
+    "noUnusedParameters": true,            // 有未使用的参数时，抛出错误
+    "noImplicitReturns": true,             // 并不是所有函数里的代码都有返回值时，抛出错误
+    "noFallthroughCasesInSwitch": true,    // 报告 switch 语句的 fallthrough 错误。（即，不允许 switch 的 case 语句贯穿）
+
+    /* 模块解析选项 */
+    "moduleResolution": "node",            // 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
+    "baseUrl": "./",                       // 用于解析非相对模块名称的基目录
+    "paths": {},                           // 模块名到基于 baseUrl 的路径映射的列表
+    "rootDirs": [],                        // 根文件夹列表，其组合内容表示项目运行时的结构内容
+    "typeRoots": [],                       // 包含类型声明的文件列表
+    "types": [],                           // 需要包含的类型声明文件名列表
+    "allowSyntheticDefaultImports": true,  // 允许从没有设置默认导出的模块中默认导入。
+
+    /* Source Map Options */
+    "sourceRoot": "./",                    // 指定调试器应该找到 TypeScript 文件而不是源文件的位置
+    "mapRoot": "./",                       // 指定调试器应该找到映射文件而不是生成文件的位置
+    "inlineSourceMap": true,               // 生成单个 soucemaps 文件，而不是将 sourcemaps 生成不同的文件
+    "inlineSources": true,                 // 将代码与 sourcemaps 生成到一个文件中，要求同时设置了 --inlineSourceMap 或 --sourceMap 属性
+
+    /* 其他选项 */
+    "experimentalDecorators": true,        // 启用装饰器
+    "emitDecoratorMetadata": true          // 为装饰器提供元数据的支持
+  }
+}
+```
+
 ## 往期回顾
 
 [vue 项目开发，我遇到了这些问题](https://juejin.cn/post/7119018849353072677)
+  <br>
 [关于首屏优化，我做了哪些](https://juejin.cn/post/7117515006714839047)
 
 
 ## 参考
 
 [一份不可多得的 TS 学习指南](https://juejin.cn/post/6872111128135073806)
+  <br>
 [TS中文文档](https://www.tslang.cn/docs/handbook/basic-types.html)
+  <br>
 [2021 typescript史上最强学习入门文章](https://juejin.cn/post/7018805943710253086)
