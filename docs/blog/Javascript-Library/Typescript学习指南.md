@@ -8,11 +8,11 @@
 
 ~~可能不是我太懒，只是这个世界诱惑太多，毕竟刷剧刷短视频它不香吗，学习，学个屁！~~
 
-最近刷掘金看着大伙的年中总结，不是跳槽涨薪了，就是完成了多少 flag，吓得我立马从床上一个激灵蹦起。低头看着自己日渐肥硕的肚子，仔细想想，这过去的大半年，除了完成日常的工作，我基本回家就开始躺平。
+最近刷掘金看着大伙的年中总结，不是跳槽涨薪了，就是完成了多少 flag。吓得我从床上一个激灵蹦起，低头看着自己日渐肥硕的肚子，仔细想想，这过去的大半年，除了完成日常的工作，我基本回家就开始躺平。
 
-再这么下去可不行，躺平的日子舒服但多少感到有点乏味，还是得给自己整点事情干。
+再这么下去可不行，躺平的日子舒坦归舒坦但多少感到有点乏味，还是得给自己整点事情干。
 
-那就从现在开始，就把我那学了又相当于没学的 typescript ，重新整起来吧
+拍拍自己的大肚皮，那就从现在开始，就把我那学了又相当于没学的 typescript ，重新整起来吧
 
 ## 什么是 TypeScript
 
@@ -63,9 +63,8 @@ Version 4.6.3
 tsc --init
 ```
 
-执行命令后我们就可以看到一个 tsconfig.json 文件，里面有一些配置信息，我们暂时可以先不用管
+执行命令后我们就可以看到生成了一个 tsconfig.json 文件，里面有一些配置信息，我们暂时可以先不用管
 
-```shell
 
 在我们```helloworld.ts```文件中,随便写点什么
 
@@ -75,7 +74,7 @@ const s:string = "彼时彼刻，恰如此时此刻";
 console.log(s);
 ```
 
-控制台执行 ```tsc helloworld.ts``` 命令，目录下会生成了一个同名的 helloworld.js 文件，代码如下
+控制台执行 ```tsc helloworld.ts``` 命令，目录下生成了一个同名的 helloworld.js 文件，代码如下
 
 ```js
 var s = "彼时彼刻，恰如此时此刻";
@@ -84,7 +83,7 @@ console.log(s);
 
 通过tsc命令，发现我们的typescript代码被转换成了熟悉的js代码
 
-再执行
+我们接着执行
 
 ```shell
 node helloworld.js
@@ -104,6 +103,8 @@ npm i -g ts-node // 全局安装ts-node
 
 有了这个插件，我们就可以直接运行.ts文件了
 
+我们试一下
+
 ```shell
 ts-node helloworld.ts
 ```
@@ -112,7 +113,7 @@ ts-node helloworld.ts
 
 后续我们的示例都可以通过这个命令来进行验证
 
-接下来我们就可以正式进入到 typescript 的学习之旅
+接下来我们就可以正式进入到 typescript 的学习之旅了
 
 ## TypeScript 基础类型
 
@@ -1316,14 +1317,14 @@ tsconfig.json 包含 TypeScript 编译的相关配置，通过更改编译配置
 ## 往期回顾
 
 [vue 项目开发，我遇到了这些问题](https://juejin.cn/post/7119018849353072677)
-  <br>
+<br>
 [关于首屏优化，我做了哪些](https://juejin.cn/post/7117515006714839047)
 
 
 ## 参考
 
 [一份不可多得的 TS 学习指南](https://juejin.cn/post/6872111128135073806)
-  <br>
+<br>
 [TS中文文档](https://www.tslang.cn/docs/handbook/basic-types.html)
-  <br>
+<br>
 [2021 typescript史上最强学习入门文章](https://juejin.cn/post/7018805943710253086)
