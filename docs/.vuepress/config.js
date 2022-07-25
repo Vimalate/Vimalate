@@ -211,6 +211,7 @@ module.exports = {
             ],
             ["VUE-Library/常用mixin", "常用mixin"],
             ["VUE-Library/$ref和$el区别", "$ref和$el区别"],
+            ["VUE-Library/Vue使用技巧", "Vue使用技巧"],
             [
               "VUE-Library/Element-ui 全局默认属性配置",
               "Element-ui 全局默认属性配置",
