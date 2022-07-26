@@ -201,6 +201,7 @@ module.exports = {
             ["VUE-Library/Vue的provide、inject", "Vue的provide、inject"],
             ["VUE-Library/修改Vue打包后文件的接口地址配置", "修改Vue打包后文件的接口地址配置"],
             ["VUE-Library/Vue项目打包优化实践", "Vue项目打包优化实践"],
+            ["VUE-Library/Vue项目启动时间太慢？", "Vue项目启动时间太慢？"],
             ["VUE-Library/vue项目路由权限配置", "vue项目路由权限配置"],
             ["VUE-Library/自定义指令", "自定义指令"],
             ["VUE-Library/router-view 的 key 属性", "router-view 的 key 属性"],
