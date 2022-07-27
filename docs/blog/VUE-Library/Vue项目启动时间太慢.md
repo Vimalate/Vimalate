@@ -50,6 +50,6 @@ module.exports = {
 ```
 对比
 
-![](./img/对比.png)
+![](img/对比1.png)
 
 [参考](https://hellowordjava.blog.csdn.net/article/details/119881095?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-119881095-blog-117809500.pc_relevant_sortByStrongTime&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-119881095-blog-117809500.pc_relevant_sortByStrongTime&utm_relevant_index=1)、[我是如何把vue项目启动时间从70s优化到7秒的](https://juejin.cn/post/6979879230297341989)
