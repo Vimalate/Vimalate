@@ -949,6 +949,18 @@ method () {
 
 补齐main.js 的 App.mpType = 'app' 即可。
 
+## WangEditor 设置图片百分比
+
+```js
+// 找到 30% 的位置，添加
+{
+  $elem: r.default("<span>70%</span>"),
+    onClick: function(t, e) {
+    return e.attr("width", "70%"), e.removeAttr("height"), !0;
+    },
+},
+```
+
 [参考](https://blog.csdn.net/weixin_55953988/article/details/122621453)
 
 <Vssue/>
