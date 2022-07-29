@@ -199,6 +199,7 @@ module.exports = {
             ["VUE-Library/vue项目问题总结", "vue项目问题总结"],
             ["VUE-Library/项目添加svgIcon", "项目添加svgIcon"],
             ["VUE-Library/Vue的provide、inject", "Vue的provide、inject"],
+            ["VUE-Library/axios封装", "axios封装"],
             ["VUE-Library/修改Vue打包后文件的接口地址配置", "修改Vue打包后文件的接口地址配置"],
             ["VUE-Library/Vue项目打包优化实践", "Vue项目打包优化实践"],
             ["VUE-Library/Vue项目启动时间太慢", "Vue项目启动时间太慢"],
@@ -213,6 +214,7 @@ module.exports = {
             ["VUE-Library/常用mixin", "常用mixin"],
             ["VUE-Library/$ref和$el区别", "$ref和$el区别"],
             ["VUE-Library/Vue使用技巧", "Vue使用技巧"],
+            ["VUE-Library/当我们二次封装时我们在封装什么", "当我们二次封装时我们在封装什么"],
             [
               "VUE-Library/Element-ui 全局默认属性配置",
               "Element-ui 全局默认属性配置",
@@ -293,7 +295,6 @@ module.exports = {
           collapsable: false,
           children: [
             ["Other-Library/skill/skill", "前端常用技巧"],
-            ["Other-Library/skill/项目利器", "前端常用库"],
             ["Other-Library/skill/项目利器", "前端常用库"],
             ["Other-Library/skill/excel指定行导入", "excel指定行导入"],
             // ['VUE-Library/self', 'self'],
