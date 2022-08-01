@@ -240,7 +240,8 @@ let b:undefined=undefined;
 但是 undefined 可以给 void 赋值
 
 ```ts
-let c:void=undefined
+let c:void=undefined // 编译正确
+let d:void=null // 编译错误
 ```
 
 [typescript中的void和null/undefined](http://www.qiutianaimeili.com/html/page/2020/11/2035pzeixpqyhh.html)
