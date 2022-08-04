@@ -38,24 +38,29 @@ module.exports = {
 然后再次启动项目，就可以看到项目运行时间分析了：
 ![](./img/speed.png)
 
+## 1、使用自带的cache配置
+
 既然我们已经知道了项目耗时，那么首先想到的是能否利用缓存来提高构建速度。
 
-很巧的是，webpack 正好提供了缓存机制，我们可以在 vue.config.js 中配置缓存机制：
+很巧的是，webpack 正好提供了缓存机制
 
+![](./img/cache.png)
 
-## 2、使用自带的cache配置
+我们可以在 vue.config.js 中配置缓存机制：
+
 
 ```js
   chainWebpack: (config) => {
   config.cache(true)
 }
 ```
-对比
+
+配置后我们进行重启，对比
 
 ![](img/对比1.png)
 
 
-## 1、使用 hard-source-webpack-plugin
+## 2、使用 hard-source-webpack-plugin
 
 ```shell
 cnpm install hard-source-webpack-plugin --save
