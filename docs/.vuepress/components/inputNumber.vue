@@ -20,10 +20,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.sh-input-number {
-  ::v-deep .el-input__inner {
-    text-align: left;
-  }
+<style lang="css" scoped>
+.sh-input-number .el-input__inner {
+  text-align: left;
 }
 </style>

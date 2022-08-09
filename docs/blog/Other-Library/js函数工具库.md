@@ -306,4 +306,17 @@ console.log(name, age) // fatfish, 100
 
 
 
+## 当你想从对象中删除一个属性时，请使用解构赋值和扩展运算符
+```js
+// 删除属性
+function deleteA(obj){
+  delete obj.A
+  return obj;
+}
+
+// 使用解构赋值
+const deleteA = ({A, ...rest} = {}) => rest;
+```
+
+
 [Object.prototype.toString.call(obj)](https://www.cnblogs.com/SallyShan/p/11530619.html)
