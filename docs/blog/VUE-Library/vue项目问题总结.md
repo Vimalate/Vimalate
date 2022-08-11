@@ -973,6 +973,12 @@ method () {
 }
 ```
 
+##  notice 在 dropdown再次打开不滚动、text文字消失的问题
+
+在 open 方法里 先 v-if 设置为 false，再 $nextTick 设置为 true，这样就可以解决问题了。
+
+```js
+
 
 [参考](https://blog.csdn.net/weixin_55953988/article/details/122621453)
 
