@@ -911,7 +911,7 @@ const obj = getLength({ length: 5 })
 
 在定义接口的时候指定泛型
 
-```ts
+```ts    
 interface KeyValue<T,U> {
   key: T;
   value: U;
