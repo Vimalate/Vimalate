@@ -229,7 +229,22 @@ var color = [0 /* RED */, 1 /* PINK */, 2 /* BLUE */];
   str = undefined; // 编译正确
 ```
 
-如果你在tsconfig.json指定了"strictNullChecks":true ，即开启严格模式后， null 和 undefined 只能赋值给 void 和它们各自的类型。
+如果你在tsconfig.json指定了"strictNullChecks":true ，即开启严格模式后， ~~null 和 undefined 只能赋值给 void 和它们各自的类型。~~
+
+严格模式下，null 和 undefined 不能给其他类型赋值，只能给它们自己的类型赋值
+
+```ts
+let a:null=null;
+let b:undefined=undefined;
+```
+但是 undefined 可以给 void 赋值
+
+```ts
+let c:void=undefined // 编译正确
+let d:void=null // 编译错误
+```
+
+[typescript中的void和null/undefined](http://www.qiutianaimeili.com/html/page/2020/11/2035pzeixpqyhh.html)
 
 ```typescript
 // 启用 --strictNullChecks

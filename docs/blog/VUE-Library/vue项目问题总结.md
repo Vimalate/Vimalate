@@ -961,6 +961,29 @@ method () {
 },
 ```
 
+## DropdownMenu 组件在NavBar 组件中使用时 点击页面闪烁
+
+- 1、DropdownItem 设置 get-container="body"
+- 2、这个现象是由于 NavBar 的按钮有一个「点击透明」的反馈效果，你把 DropdownMenu 放在 Right 按钮内部的时候，也受到了这个样式影响：
+
+```css
+/* 做样式覆盖 */
+.van-nav-bar__right:active {
+    opacity: .7; // .7 -> 1
+}
+```
+
+##  notice 在 dropdown再次打开不滚动、text文字消失的问题
+
+在 open 方法里 先 v-if 设置为 false，再 $nextTick 设置为 true，这样就可以解决问题了。
+
+```js
+
+
 [参考](https://blog.csdn.net/weixin_55953988/article/details/122621453)
+
+## 低代码
+
+[nocode](https://github.com/kelseyhightower/nocode)
 
 <Vssue/>

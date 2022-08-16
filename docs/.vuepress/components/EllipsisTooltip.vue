@@ -1,5 +1,5 @@
 <template>
-  <el-tooltip :effect="dark" :content="text" :disabled="disableTip" :placement="placement">
+  <el-tooltip :effect="effect" :content="text" :disabled="disableTip" :placement="placement">
     <div class="ellipsis" @mouseover="onMouseOver">
       <span ref="ellipsis" :style="{color:color}" class="text">{{text}}</span>
     </div>
