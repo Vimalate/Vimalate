@@ -1,11 +1,13 @@
-# 使用VuePress搭建Element的组件库文档
+# 使用VuePress搭建属于自己的组件库文档
 
-## 安装element
+日常开发中，我们使用 element-ui、vant-ui、Ant Design 等组件库，都因为其具备完善的文档，使得我们参照文档开发起来能够得心应手，那么如果我们想搭建自己的组件库文档该怎么做呢？
 
+今天我们就利用 VuePress 来搭建个属于自己的组件库文档
+
+## 安装element-ui
 ```sh
 npm install element-ui
 ```
-
 
 
 ## 修改 enhanceApp.js
@@ -80,7 +82,7 @@ export default {
 </style>
 ```
 
-因为Vuepress可以自动识别components里面的组件并注册，所以我们的自定义组件写完后，就可以直接在md文档按照组件名字使用
+因为Vuepress可以自动识别components里面的组件并注册，所以我们的自定义组件写完后，就可以在md文档按照组件名字直接使用
 
 ## 引用自定义组件并编写组件案例
 
