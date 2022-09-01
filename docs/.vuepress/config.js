@@ -249,6 +249,10 @@ module.exports = {
               "Other-Library/登录鉴权方式",
               "登录鉴权方式",
             ],
+            [
+              "Other-Library/axios token失效取消后续请求",
+              "axios token失效取消后续请求",
+            ],
             ["Other-Library/markdown", "那些必须知道的markdown语法"],
             ["Other-Library/移动端适配", "移动端适配"],
             ["Other-Library/移动端常见兼容问题", "移动端常见兼容问题"],
@@ -311,6 +315,7 @@ module.exports = {
             ["juejin/vue项目常见问题总结", "vue项目常见问题总结"],
             ["juejin/Typescript学习指南", "Typescript学习指南"],
             ["juejin/关于首屏优化，我做了哪些", "关于首屏优化，我做了哪些"],
+            ["juejin/vue3+setup+ts", "vue3+setup+ts"],
           ],
         },
         {
