@@ -603,6 +603,22 @@ export default {
     </template>
   </custom-tree>
 </template>
+```
+
+## vue-pdf不显示电子签章
+
+- 1、找到node_modules包里的pdfjs-dist/es5/build/pdf.worker.js文件，找到下列代码注释掉即可
+
+```js
+_this3.setFlags(_util.AnnotationFlag.HIDDEN);   
+```
+
+- 2、安装 patch-package (npm install patch-package --save-dev)
+- 3、package.json 文件中的 scripts 中加入"postinstall": "patch-package"
+- 4、执行 npx patch-package pdfjs-dist
+
+[vue-pdf不显示电子签章](https://blog.csdn.net/LingSnow1019/article/details/122448014)
+
 
 
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
