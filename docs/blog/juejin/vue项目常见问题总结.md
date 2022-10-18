@@ -619,6 +619,28 @@ _this3.setFlags(_util.AnnotationFlag.HIDDEN);
 
 [vue-pdf不显示电子签章](https://blog.csdn.net/LingSnow1019/article/details/122448014)
 
+## pdfjs-dist 安装后启动报错
 
+插件中使用了 es11 的语法 ?. 然而当项目启动，插件中的代码没有经过编译，导致项目不能启动。解决方案是在项目中配置webpack 针对于这个插件进行编译。
+
+修改项目根目录下 vue.config.js ，如果没有就创建一个，在文件中增加如下代码：
+
+```js
+// vue.config.js
+module.exports = {
+  // ...
+  chainWebpack: config => {
+     // ...
+     config.module.rule('pdfjs-dist').test({
+      test: /\.js$/,
+      include: path.join(__dirname, 'node_modules/pdfjs-dist')
+    }).use('babel-loader').loader('babel-loader').options({
+      presets: ['@babel/preset-env'],
+      plugins: ['@babel/plugin-proposal-optional-chaining']
+    })
+  }
+}
+```
+[Vue3实现各种附件预览](https://juejin.cn/post/6995856687106261000)
 
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
