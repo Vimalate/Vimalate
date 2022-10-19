@@ -187,7 +187,6 @@ module.exports = {
             ["Javascript-Library/Javascript 面试题", "Javascript 面试题"],
             ["Javascript-Library/空值合并运算符", "空值合并运算符"],
             ["Javascript-Library/常见字符串方法", "常见字符串方法"],
-            ["Javascript-Library/Typescript学习指南", "Typescript学习指南"],
           ],
         },
         {
@@ -201,7 +200,6 @@ module.exports = {
             ["VUE-Library/Vue的provide、inject", "Vue的provide、inject"],
             ["VUE-Library/axios封装", "axios封装"],
             ["VUE-Library/修改Vue打包后文件的接口地址配置", "修改Vue打包后文件的接口地址配置"],
-            ["VUE-Library/Vue项目打包优化实践", "Vue项目打包优化实践"],
             ["VUE-Library/Vue项目启动时间太慢", "Vue项目启动时间太慢"],
             ["VUE-Library/vue项目路由权限配置", "vue项目路由权限配置"],
             ["VUE-Library/自定义指令", "自定义指令"],
@@ -214,7 +212,6 @@ module.exports = {
             ["VUE-Library/常用mixin", "常用mixin"],
             ["VUE-Library/$ref和$el区别", "$ref和$el区别"],
             ["VUE-Library/Vue使用技巧", "Vue使用技巧"],
-            ["VUE-Library/当我们二次封装时我们在封装什么", "当我们二次封装时我们在封装什么"],
             [
               "VUE-Library/Element-ui 全局默认属性配置",
               "Element-ui 全局默认属性配置",
@@ -252,6 +249,10 @@ module.exports = {
               "Other-Library/登录鉴权方式",
               "登录鉴权方式",
             ],
+            [
+              "Other-Library/axios token失效取消后续请求",
+              "axios token失效取消后续请求",
+            ],
             ["Other-Library/markdown", "那些必须知道的markdown语法"],
             ["Other-Library/移动端适配", "移动端适配"],
             ["Other-Library/移动端常见兼容问题", "移动端常见兼容问题"],
@@ -266,7 +267,6 @@ module.exports = {
             ["Other-Library/原生内嵌webview", "原生内嵌webview"],
             ["Other-Library/excel指定行导入", "excel指定行导入"],
             ["Other-Library/print 打印", "print 打印"],
-            ["Other-Library/使用VuePress搭建Element的组件库文档", "使用VuePress搭建Element的组件库文档"],
             // ["Other-Library/微前端qiankun实践", "微前端qiankun实践"],
             ["Other-Library/使用signature_pad实现数字签名", "使用signature_pad实现数字签名"],
           ],
@@ -303,6 +303,19 @@ module.exports = {
             ["Other-Library/skill/excel指定行导入", "excel指定行导入"],
             // ['VUE-Library/self', 'self'],
             ["Other-Library/skill/vscode那些老板键", "vscode那些老板键"],
+          ],
+        },
+        {
+          title: "juejin",
+          collapsable: false,
+          children: [
+            ["juejin/20个js工具函数助力高效开发", "20个js工具函数助力高效开发"], 
+            ["juejin/使用VuePress搭建Element的组件库文档", "使用VuePress搭建Element的组件库文档"],
+            ["juejin/当我们二次封装时我们在封装什么", "当我们二次封装时我们在封装什么"],
+            ["juejin/vue项目常见问题总结", "vue项目常见问题总结"],
+            ["juejin/Typescript学习指南", "Typescript学习指南"],
+            ["juejin/关于首屏优化，我做了哪些", "关于首屏优化，我做了哪些"],
+            ["juejin/vue3+setup+ts", "vue3+setup+ts"],
           ],
         },
         {
