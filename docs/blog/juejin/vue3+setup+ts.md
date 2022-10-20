@@ -10,6 +10,8 @@ npm init vue@latest
 
 >安装 Volar 后，注意禁用 vetur
 
+好的，准备工作已经完成，下面我们开始进入到 vue3 setup 的正式学习
+
 ## ref 和 reactive
 
 - ref: 用来给基本数据类型绑定响应式数据，访问时需要通过 .value 的形式， tamplate 会自动解析,不需要 .value
@@ -41,28 +43,7 @@ const userInfo = reactive<Person>({
 </script>
 ```
 
-## 计算属性与监听器
 
-### 计算属性
-
-```vue
-<template>
-  <div>
-    <p>{{title}}</p>
-    <h4>{{userInfo}}</h4>
-    <h1>{{add}}</h1>
-  </div>
-</template>
-
-<script setup lang="ts">
-import { ref, reactive,computed } from "vue";
-const count = ref(0)
-
-// 推导得到的类型：ComputedRef<number>
-const add = computed(() => count.value +1)
-
-</script>
-```
 
 ## toRef、toRefs、toRaw
 
@@ -198,7 +179,229 @@ const change = () => {
 
 数据能变化，视图不变化(失去响应式)
 
+## computed
+
+```vue
+<template>
+  <div>
+    <p>{{title}}</p>
+    <h4>{{userInfo}}</h4>
+    <h1>{{add}}</h1>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive,computed } from "vue";
+const count = ref(0)
+
+// 推导得到的类型：ComputedRef<number>
+const add = computed(() => count.value +1)
+
+</script>
+```
+
 ## watch
+
+vue3 watch 的作用和 Vue2 中的 watch 作用是一样的，他们都是用来监听响应式状态发生变化的，当响应式状态发生变化时，就会触发一个回调函数。
+
+```vue
+watch(data,()=>{},{})
+```
+- 参数一，监听的数据
+- 参数二，数据改变时触发的回调函数（newVal,oldVal）
+- 参数三，options配置项，为一个对象
+
+- 1、监听ref定义的一个响应式数据
+
+```vue
+<script setup lang="ts">
+import { ref, watch } from "vue";
+
+const str = ref('彼时彼刻')
+
+//3s后改变str的值
+setTimeout(() => { str.value = '恰如此时此刻' }, 3000)
+
+watch(str, (newV, oldV) => {
+  console.log(newV, oldV) //恰如此时此刻 彼时彼刻
+})
+
+</script>
+```
+
+- 2、监听多个ref 
+
+**这时候写法变为数组的形式**
+
+```vue
+<script setup lang="ts">
+import { ref, watch } from "vue";
+
+let name = ref('树哥')
+let age = ref(18)
+
+//3s后改变值
+setTimeout(() => {
+  name.value = '我叫树哥'
+  age.value = 19
+}, 3000)
+
+watch([name, age], (newV, oldV) => {
+  console.log(newV, oldV) // ['我叫树哥', 19]  ['树哥', 18]
+})
+
+</script>
+```
+
+- 3、监听Reactive定义的响应式对象
+
+```vue
+<script setup lang="ts">
+import { reactive, watch } from "vue";
+
+let info = reactive({
+  name: '树哥',
+  age: 18
+})
+
+//3s后改变值
+setTimeout(() => {
+  info.age = 19
+}, 3000)
+
+watch(info, (newV, oldV) => {
+  console.log(newV, oldV) 
+})
+
+</script>
+```
+
+当 watch 监听的是一个响应式对象时，会隐式地创建一个深层侦听器，即该响应式对象里面的任何属性发生变化，都会触发监听函数中的回调函数。**即当 watch 监听的是一个响应式对象时，默认开启 deep：true**
+
+- 4、监听reactive 定义响应式对象的单一属性
+
+错误写法：
+
+```vue
+<script setup lang="ts">
+import { reactive, watch } from "vue";
+
+let info = reactive({
+  name: '树哥',
+  age: 18
+})
+
+//3s后改变值
+setTimeout(() => {
+  info.age = 19
+}, 3000)
+
+
+watch(info.age, (newV, oldV) => {
+  console.log(newV, oldV) 
+})
+
+</script>
+```
+
+可以看到控制台出现警告
+
+```
+[Vue warn]: Invalid watch source:  18 A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+  at <Index> 
+  at <App>
+```
+
+如果我们非要监听响应式对象中的某个属性，我们可以使用 getter 函数的形式,**即将watch第一个参数修改成一个回调函数的形式**
+
+正确写法：
+
+```vue
+// 其他不变
+watch(()=>info.age, (newV, oldV) => {
+  console.log(newV, oldV) // 19 18
+})
+```
+
+- 5、监听reactive定义的 引用数据
+
+```vue
+<script setup lang="ts">
+import { reactive, watch } from "vue";
+
+let info = reactive({
+  name: '张麻子',
+  age: 18,
+  obj: {
+    str: '彼时彼刻，恰如此时此刻'
+  }
+})
+
+//3s后改变s值
+setTimeout(() => {
+  info.obj.str = 'to be or not to be'
+}, 3000)
+
+// 需要自己开启 deep:true深度监听,不然不发触发 watch 的回调函数
+watch(() => info.obj, (newV, oldV) => {
+  console.log(newV, oldV)
+}, {
+  deep: true
+})
+
+</script>
+```
+
+## WatchEffect 
+
+会立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。（有点像计算属性）
+
+如果用到 a 就只会监听 a, 就是用到几个监听几个 而且是非惰性,会默认调用一次
+
+
+```vue
+<script setup lang="ts">
+import { ref, watchEffect } from "vue";
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() => {
+  num.value++
+}, 3000)
+
+watchEffect(() => {
+  console.log('num 值改变：', num.value)
+})
+
+</script>
+```
+
+可以在控制台上看到，第一次进入页面时，打印出```num 值改变：0```,三秒后，再次打印```num 值改变：1```
+
+- 停止监听
+  
+当 watchEffect 在组件的 setup() 函数或生命周期钩子被调用时，侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。
+
+但是我们采用异步的方式创建了一个监听器，这个时候监听器没有与当前组件绑定，所以即使组件销毁了，监听器依然存在。
+
+这个时候我们可以显式调用停止监听
+
+```vue
+<script setup lang="ts">
+import { watchEffect } from 'vue'
+// 它会自动停止
+watchEffect(() => {})
+// ...这个则不会！
+setTimeout(() => {
+  watchEffect(() => {})
+}, 100)
+</script>
+```
+
+
+[终于彻底搞懂 Watch、WatchEffect 了，原来功能如此强大！](https://juejin.cn/post/7134832274364694536)
+
 
 
 
