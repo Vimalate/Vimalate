@@ -396,9 +396,76 @@ watchEffect(() => {})
 setTimeout(() => {
   watchEffect(() => {})
 }, 100)
+
+const stop = watchEffect(() => {
+  /* ... */
+})
+
+// 显式调用
+stop()
 </script>
 ```
 
+- 清除副作用（onInvalidate）
+
+watchEffect 的第一个参数——effect函数——可以接收一个参数：叫onInvalidate，也是一个函数，用于清除 effect 产生的副作用
+
+就是在触发监听之前会调用一个函数可以处理你的逻辑，例如防抖
+
+```vue
+import { ref, watchEffect } from "vue";
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() => {
+  num.value++
+}, 3000)
+
+watchEffect((onInvalidate) => {
+  console.log(num.value)
+  onInvalidate(() => {
+    console.log('执行');
+  });
+})
+```
+
+控制台依次输出：0 => 执行 => 1
+
+- 配置选项
+
+watchEffect的第二个参数，用来定义副作用刷新时机，可以作为一个调试器来使用
+
+flush （更新时机）：
+
+- 1、pre：组件更新前执行
+- 2、sync：强制效果始终同步触发
+- 3、post：组件更新后执行
+
+```vue
+<script setup lang="ts">
+import { ref, watchEffect } from "vue";
+
+let num = ref(0)
+
+//3s后改变值
+setTimeout(() => {
+  num.value++
+}, 3000)
+
+watchEffect((onInvalidate) => {
+  console.log(num.value)
+  onInvalidate(() => {
+    console.log('执行');
+  });
+}, {
+  flush: "post", //此时这个函数会在组件更新之后去执行
+  onTrigger(e) { //作为一个调试工具，可在开发中方便调试
+    console.log('触发', e);
+  },
+})
+</script>
+```
 
 [终于彻底搞懂 Watch、WatchEffect 了，原来功能如此强大！](https://juejin.cn/post/7134832274364694536)
 
