@@ -469,8 +469,132 @@ watchEffect((onInvalidate) => {
 
 [终于彻底搞懂 Watch、WatchEffect 了，原来功能如此强大！](https://juejin.cn/post/7134832274364694536)
 
+## 生命周期
+
+和 vue2 相比的话，基本上就是将 Vue2 中的beforeDestroy名称变更成beforeUnmount; destroyed 表更为 unmounted；然后用setup代替了两个钩子函数 beforeCreate 和 created；新增了两个开发环境用于调试的钩子
+
+![](./img/smzq.jpg)
 
 
+## 父子组件传参
+
+- defineProps
+
+父组件传参
+
+```vue
+<template>
+  <Children :msg="msg" :list="list"></Children>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive } from 'vue'
+import Children from './Children.vue'
+
+const msg = ref('hello 啊，树哥')
+const list = reactive<number[]>([1, 2, 3])
+</script>
+```
+
+子组件接受值
+
+defineProps 来接收父组件传递的值， **defineProps是无须引入的直接使用即可**
+
+```vue
+<template>
+  <div>
+    <p>msg：{{msg}}</p>
+    <p>list：{{list}}</p>
+  </div>
+</template>
+
+<script setup lang="ts">
+defineProps<{
+  msg: string,
+  list: number[]
+}>()
+</script>
+```
+
+使用 withDefaults 定义默认值
+
+```vue
+<template>
+  <div>
+    <p>msg：{{msg}}</p>
+    <p>list：{{list}}</p>
+  </div>
+</template>
+
+<script setup lang="ts">
+type Props = {
+  msg?: string,
+  list?: number[]
+}
+
+// withDefaults 的第二个参数便是默认参数设置，会被编译为运行时 props 的 default 选项
+withDefaults(defineProps<Props>(), {
+  msg: '张麻子',
+  list: () => [4, 5, 6]
+})
+</script>
+```
+
+子组件向父组件抛出事件
+
+- defineEmits
+
+子组件派发事件
+
+```vue
+<template>
+  <div>
+    <p>msg：{{msg}}</p>
+    <p>list：{{list}}</p>
+    <button @click="onChangeMsg">改变msg</button>
+  </div>
+</template>
+
+<script setup lang="ts">
+type Props = {
+  msg?: string,
+  list?: number[]
+}
+
+// withDefaults 的第二个参数便是默认参数设置，会被编译为运行时 props 的 default 选项
+withDefaults(defineProps<Props>(), {
+  msg: '张麻子',
+  list: () => [4, 5, 6]
+})
+
+const emits = defineEmits(['changeMsg'])
+const onChangeMsg = () => {
+emits('changeMsg','黄四郎')
+}
+</script>
+```
+
+子组件绑定了一个click 事件 然后通过defineEmits 注册了一个自定义事件,点击按钮的时候，触发 emit 调用我们注册的事件，传递参数
+
+父组件接收
+
+```vue
+<template>
+  <Children :msg="msg" :list="list" @changeMsg="changeMsg"></Children>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive } from 'vue'
+import Children from './Children.vue'
+
+const msg = ref('hello 啊，树哥')
+const list = reactive<number[]>([1, 2, 3])
+
+const changeMsg = (v: string) => {
+  msg.value = v
+}
+</script>
+```
 
 >注意：defineProps 、defineEmits 、 defineExpose 和 withDefaults 这四个宏函数只能在 ```<script setup>``` 中使用。他们不需要导入，会随着``` <script setup> ```的处理过程中一起被编译。
 
