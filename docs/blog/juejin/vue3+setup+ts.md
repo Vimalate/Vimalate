@@ -596,7 +596,128 @@ const changeMsg = (v: string) => {
 </script>
 ```
 
+- 获取子组件的实例和内部属性
+
+在 script-setup 模式下，所有数据只是默认 return 给 template 使用，不会暴露到组件外，所以父组件是无法直接通过挂载 ref 变量获取子组件的数据。
+
+如果要调用子组件的数据，需要先在子组件显示的暴露出来，才能够正确的拿到，这个操作，就是由 defineExpose 来完成。
+
+子组件
+
+```vue
+<template>
+  <p>{{name}}</p>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const name = ref('张麻子')
+const changeName = () => {
+  name.value = '县长'
+}
+// 将方法、变量暴露给父组件使用，父组件才可通过 ref API拿到子组件暴露的数据
+defineExpose({
+  name,
+  changeName
+})
+</script>
+```
+
+父组件
+
+```vue
+<template>
+  <div>
+    <child ref='childRef' />
+    <button @click="getName">获取子组件中的数据</button>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import child from './Child.vue'
+
+// 子组件ref（TypeScript语法）
+const childRef = ref<InstanceType<typeof child>>()
+
+const getName = () => {
+  // 获取子组件name
+  console.log(childRef.value!.name)
+  // 执行子组件方法
+  childRef.value?.changeName()
+  // 获取修改后的name
+  console.log(childRef.value!.name)
+}
+</script>
+```
+
+
 >注意：defineProps 、defineEmits 、 defineExpose 和 withDefaults 这四个宏函数只能在 ```<script setup>``` 中使用。他们不需要导入，会随着``` <script setup> ```的处理过程中一起被编译。
+
+
+## 插槽
+
+在 Vue2 的中一般中具名插槽和作用域插槽分别使用slot和slot-scope来实现，如：
+
+父组件
+
+```vue
+<template>
+  <div>
+    <p style="color:red">父组件</p>
+    <Child ref='childRef'>
+      <template slot="content" slot-scope="{ msg }">
+        <div>{{ msg }}</div>
+      </template>
+    </Child>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import Child from './Child.vue'
+</script>
+```
+
+子组件
+
+```vue
+<template>
+  <div>child</div>
+  <slot name="content" msg="hello 啊，树哥!"></slot>
+</template>
+```
+
+在 Vue3 中将slot和slot-scope进行了合并统一使用，使用 v-slot， ```v-slot:slotName``` 简写 ```#slotName```
+
+父组件
+
+```vue
+<template>
+  <div>
+    <p style="color:red">父组件</p>
+    <Child>
+      <template  v-slot:content="{ msg }">
+        <div>{{ msg }}</div>
+      </template>
+    </Child>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import Child from './Child.vue'
+</script>
+
+<!-- 简写 -->
+<Child>
+  <template #content="{ msg }">
+    <div>{{ msg }}</div>
+      </template>
+</Child>
+```
+
+>实际上,v-slot 在 Vue2 中也可以使用，但必须是 Vue2.6+ 的版本。
+
 
 [Vue3使用TypeScript的正确姿势](https://blog.csdn.net/lgno2/article/details/109446711)
 
