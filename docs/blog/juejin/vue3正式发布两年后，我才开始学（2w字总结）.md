@@ -1,3 +1,22 @@
+---
+theme: orange
+highlight: a11y-dark
+---
+
+>vue3 于 2020 年 09 月 18 日，正式发布，2022 年 2 月 7 日 vue3 成为新的默认版本
+
+距离 vue3 正式发布已经过去两年有余, 成为默认版本也过去大半年了，以前还能说是对新技术、新特性的观望，到现在面试都直问 vue3 源码了。
+
+我想，不管什么原因，是时候学习 vue3 了
+
+所以这次我也顺便把学习的过程记录下来，算个总结，也有利于日后梳理。
+
+## 前置介绍
+
+在 vue3.2 中，我们只需在script标签中添加setup。就可以做到，组件只需引入不用注册，属性和方法也不用 return 才能于 template 中使用，也不用写setup函数，也不用写export default ，甚至是自定义指令也可以在我们的template中自动获得。
+
+本次我们的学习也是在 setup 语法糖下进行。
+
 ## 环境搭建
 
 ```sh
@@ -20,7 +39,7 @@ npm init vue@latest
 >ref其实也是内部调用来reactive实现的
 
 
-```vue
+```
 <template>
   <div>
     <p>{{title}}</p>
@@ -51,7 +70,7 @@ const userInfo = reactive<Person>({
 
 toRef 如果原始对象是非响应式的,数据会变,但不会更新视图
 
-```vue
+```
 <template>
   <div>
      <button @click="change">按钮</button>
@@ -76,11 +95,11 @@ const change = () => {
 </script>
 ```
 
-![](./img/toRef.png)
+![toRef.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3318d3d2f895427f99bd10444f3c5af3~tplv-k3u1fbpfcp-watermark.image?)
 
 可以看到，点击按钮，当原始对象是非响应式时，使用toRef 的数据改变，但是试图并没有更新
 
-```vue
+```
 <template>
   <div>
     <button @click="change">按钮</button>
@@ -105,7 +124,7 @@ const change = () => {
 </script>
 ```
 
-![](./img/toRef1.png)
+![toRef1.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9d0bbbe7f1545e18c615cfc4164ea9d~tplv-k3u1fbpfcp-watermark.image?)
 
 当我们把 obj 用 reactive 包裹，再使用 toRef，点击按钮时，可以看到视图和数据都变了
 
@@ -116,7 +135,7 @@ const change = () => {
 
 toRefs相当于对对象内每个属性调用toRef，toRefs返回的对象内的属性使用时需要加.value,主要是方便我们解构使用
 
-```vue
+```
 <template>
   <div>
     <button @click="change">按钮</button>
@@ -150,7 +169,7 @@ const change = () => {
 
 将响应式对象修改为普通对象
 
-```vue
+```
 <template>
   <div>
     <button @click="change">按钮</button>
@@ -175,13 +194,14 @@ const change = () => {
 </script>
 ```
 
-![](./img/toRaw.png)
+
+![toRaw.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92749f19830c49cf98f3b4f5adc691de~tplv-k3u1fbpfcp-watermark.image?)
 
 数据能变化，视图不变化(失去响应式)
 
 ## computed
 
-```vue
+```
 <template>
   <div>
     <p>{{title}}</p>
@@ -204,7 +224,7 @@ const add = computed(() => count.value +1)
 
 vue3 watch 的作用和 Vue2 中的 watch 作用是一样的，他们都是用来监听响应式状态发生变化的，当响应式状态发生变化时，就会触发一个回调函数。
 
-```vue
+```
 watch(data,()=>{},{})
 ```
 - 参数一，监听的数据
@@ -213,7 +233,7 @@ watch(data,()=>{},{})
 
 - 1、监听ref定义的一个响应式数据
 
-```vue
+```
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
@@ -233,7 +253,7 @@ watch(str, (newV, oldV) => {
 
 **这时候写法变为数组的形式**
 
-```vue
+```
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
@@ -255,7 +275,7 @@ watch([name, age], (newV, oldV) => {
 
 - 3、监听Reactive定义的响应式对象
 
-```vue
+```
 <script setup lang="ts">
 import { reactive, watch } from "vue";
 
@@ -282,7 +302,7 @@ watch(info, (newV, oldV) => {
 
 错误写法：
 
-```vue
+```
 <script setup lang="ts">
 import { reactive, watch } from "vue";
 
@@ -316,7 +336,7 @@ watch(info.age, (newV, oldV) => {
 
 正确写法：
 
-```vue
+```
 // 其他不变
 watch(()=>info.age, (newV, oldV) => {
   console.log(newV, oldV) // 19 18
@@ -325,7 +345,7 @@ watch(()=>info.age, (newV, oldV) => {
 
 - 5、监听reactive定义的 引用数据
 
-```vue
+```
 <script setup lang="ts">
 import { reactive, watch } from "vue";
 
@@ -359,7 +379,7 @@ watch(() => info.obj, (newV, oldV) => {
 如果用到 a 就只会监听 a, 就是用到几个监听几个 而且是非惰性,会默认调用一次
 
 
-```vue
+```
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 
@@ -387,7 +407,7 @@ watchEffect(() => {
 
 这个时候我们可以显式调用停止监听
 
-```vue
+```
 <script setup lang="ts">
 import { watchEffect } from 'vue'
 // 它会自动停止
@@ -412,7 +432,7 @@ watchEffect 的第一个参数——effect函数——可以接收一个参数�
 
 就是在触发监听之前会调用一个函数可以处理你的逻辑，例如防抖
 
-```vue
+```
 import { ref, watchEffect } from "vue";
 
 let num = ref(0)
@@ -442,7 +462,7 @@ flush （更新时机）：
 - 2、sync：强制效果始终同步触发
 - 3、post：组件更新后执行
 
-```vue
+```
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 
@@ -467,14 +487,13 @@ watchEffect((onInvalidate) => {
 </script>
 ```
 
-[终于彻底搞懂 Watch、WatchEffect 了，原来功能如此强大！](https://juejin.cn/post/7134832274364694536)
 
 ## 生命周期
 
 和 vue2 相比的话，基本上就是将 Vue2 中的beforeDestroy名称变更成beforeUnmount; destroyed 表更为 unmounted；然后用setup代替了两个钩子函数 beforeCreate 和 created；新增了两个开发环境用于调试的钩子
 
-![](./img/smzq.jpg)
 
+![smzq.jpg](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d0471468f464abbaa0ecc656fb21591~tplv-k3u1fbpfcp-watermark.image?)
 
 ## 父子组件传参
 
@@ -482,7 +501,7 @@ watchEffect((onInvalidate) => {
 
 父组件传参
 
-```vue
+```
 <template>
   <Children :msg="msg" :list="list"></Children>
 </template>
@@ -502,7 +521,7 @@ const list = reactive<number[]>([1, 2, 3])
 
 defineProps 来接收父组件传递的值， **defineProps是无须引入的直接使用即可**
 
-```vue
+```
 <template>
   <div>
     <p>msg：{{msg}}</p>
@@ -520,7 +539,7 @@ defineProps<{
 
 使用 withDefaults 定义默认值
 
-```vue
+```
 <template>
   <div>
     <p>msg：{{msg}}</p>
@@ -548,7 +567,7 @@ withDefaults(defineProps<Props>(), {
 
 子组件派发事件
 
-```vue
+```
 <template>
   <div>
     <p>msg：{{msg}}</p>
@@ -579,7 +598,7 @@ emits('changeMsg','黄四郎')
 
 父组件接收
 
-```vue
+```
 <template>
   <Children :msg="msg" :list="list" @changeMsg="changeMsg"></Children>
 </template>
@@ -605,7 +624,7 @@ const changeMsg = (v: string) => {
 
 子组件
 
-```vue
+```
 <template>
   <p>{{name}}</p>
 </template>
@@ -627,7 +646,7 @@ defineExpose({
 
 父组件
 
-```vue
+```
 <template>
   <div>
     <child ref='childRef' />
@@ -663,7 +682,7 @@ const getName = () => {
 
 父组件
 
-```vue
+```
 <template>
   <div>
     <p style="color:red">父组件</p>
@@ -682,7 +701,7 @@ import Child from './Child.vue'
 
 子组件
 
-```vue
+```
 <template>
   <div>child</div>
   <slot name="content" msg="hello 啊，树哥!"></slot>
@@ -693,7 +712,7 @@ import Child from './Child.vue'
 
 父组件
 
-```vue
+```
 <template>
   <div>
     <p style="color:red">父组件</p>
@@ -723,7 +742,7 @@ import Child from './Child.vue'
 
 通过 defineAsyncComponent 异步加载
 
-```vue
+```
 <template>
   <Children :msg="msg" :list="list" @changeMsg="changeMsg"></Children>
 </template>
@@ -748,7 +767,7 @@ Suspense 使用：
 - 2、```<template v-slot:default></template>``` 插槽包裹异步组件
 - 3、```<template v-slot:fallback></template>``` 插槽包裹渲染异步组件渲染之前的内容
 
-```vue
+```
 <template>
   <Suspense>
     <template #default>
@@ -777,7 +796,7 @@ Teleport 是一种能够将我们的模板渲染至指定DOM节点，不受父�
 使用：
 通过to 属性插入到指定元素位置，如 body，html，自定义className等等。
 
-```vue
+```
 <template>
   <!-- 插入至 body -->
   <Teleport to="body">
@@ -791,8 +810,7 @@ import Children from './Children.vue'
 </script>
 ```
 
-![](./img/Teleport.png)
-
+![Teleport.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b45c3137623a4f8ca1a41f65e490a61a~tplv-k3u1fbpfcp-watermark.image?)
 
 ## keep-alive 缓存组件
 
@@ -809,7 +827,7 @@ provide 可以在祖先组件中指定我们想要提供给后代组件的数据
 
 父组件
 
-```vue
+```
 <template>
   <Children></Children>
 </template>
@@ -826,7 +844,7 @@ provide('msg', msg)
 
 子组件
 
-```vue
+```
 <template>
   <div>
     <p>msg：{{msg}}</p>
@@ -858,7 +876,7 @@ v-model 在vue3可以说是破坏式更新，改动还是不少的
 - v-bind 的 .sync 修饰符和组件的 model 选项已移除
 
 子组件
-```vue
+```
 <template>
   <div>
     <p>{{msg}}，{{modelValue}}</p>
@@ -885,7 +903,7 @@ const onChangeMsg = () => {
 
 父组件
 
-```vue
+```
 <template>
   // v-model:modelValue简写为v-model
   // 绑定多个v-model
@@ -915,7 +933,7 @@ const name = ref('树哥')
 
 实现一个自定义拖拽指令
 
-```vue
+```
 <template>
   <div v-move class="box">
     <div class="header"></div>
@@ -1010,7 +1028,7 @@ export default useWindowResize;
 
 使用：
 
-```vue
+```
 <template>
   <h3>屏幕尺寸</h3>
   <div>宽度：{{ width }}</div>
@@ -1025,7 +1043,7 @@ const { width, height } = useWindowResize();
 
 ## style v-bind CSS变量注入
 
-```vue
+```
 <template>
   <span> style v-bind CSS变量注入</span>  
 </template>
@@ -1045,8 +1063,11 @@ const { width, height } = useWindowResize();
 ## 参考
 
 [Vue3使用TypeScript的正确姿势](https://blog.csdn.net/lgno2/article/details/109446711)
+ <br>
 [超极速的Vue3上手指北🔥](https://juejin.cn/post/7122760155707473956)
+ <br>
 [Vue3.0 新特性以及使用经验总结](https://juejin.cn/post/6940454764421316644#heading-26)
+ <br>
 [自定义指令directive](https://xiaoman.blog.csdn.net/article/details/123228132?spm=1001.2014.3001.5502)
 
 ## 往期回顾
@@ -1058,6 +1079,3 @@ const { width, height } = useWindowResize();
 [vue 项目开发，我遇到了这些问题](https://juejin.cn/post/7119018849353072677)
 <br>
 [关于首屏优化，我做了哪些](https://juejin.cn/post/7117515006714839047)
-
-
-[dynamic-theme-demos](https://github.com/GitOfZGT/dynamic-theme-demos)
