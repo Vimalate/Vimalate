@@ -643,4 +643,11 @@ module.exports = {
 ```
 [Vue3实现各种附件预览](https://juejin.cn/post/6995856687106261000)
 
+
+## error delete ·CR· (prettier/prettier)
+
+```
+npm run lint --fix
+```
+
 参考：[十分钟，让你学会Vue的这些巧妙冷技巧](https://juejin.cn/post/7103066172530098206)
