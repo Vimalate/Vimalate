@@ -269,6 +269,7 @@ module.exports = {
             ["Other-Library/print 打印", "print 打印"],
             // ["Other-Library/微前端qiankun实践", "微前端qiankun实践"],
             ["Other-Library/使用signature_pad实现数字签名", "使用signature_pad实现数字签名"],
+            ["Other-Library/图片上传压缩", "图片上传压缩"],
           ],
         },
         {
