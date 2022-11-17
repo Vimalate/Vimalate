@@ -137,5 +137,18 @@ if (status===1){
 (status===1?getInfo:getINfo2)()
 ```
 
+## 复杂的逻辑
 
+```js
+function calculate(action, num1, num2) {
+  const actions = {
+    add: (a, b) => a + b,
+    subtract: (a, b) => a - b,
+    multiply: (a, b) => a * b,
+    divide: (a, b) => a / b,
+  };
+​
+  return actions[action]?.(num1, num2) ?? "Calculation is not recognised";
+}
+```
 
