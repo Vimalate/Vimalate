@@ -428,6 +428,8 @@ resetFields() {
 
 ## vue element 多个 Form 表单同时验证
 
+- 1.
+
 ```vue
 <template>
 <el-form   ref="form1"></el-form>
@@ -466,7 +468,35 @@ export default{
 }
 </script>
 ```
+ - 2.
 
+```js
+submitForm() {
+      let list = [];
+      list.push(
+        this.checkForm("formData"),
+        this.checkForm("formData2"),
+        this.checkForm("formData3"),
+        this.checkForm("formData4")
+      );
+      Promise.all(list)
+        .then(() => {
+          console.log("通过检测");
+        })
+        .catch(() => {
+          console.log("未通过");
+        });
+    },
+    checkForm(formName) {
+      return new Promise((resolve, reject) => {
+        this.$refs[formName].validate(valid => {
+          if (valid) {
+            resolve();
+          } else reject();
+        });
+      });
+    }
+```
 
 ## Vue中的method赋值为高阶函数
 
