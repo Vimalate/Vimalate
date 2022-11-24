@@ -1,5 +1,8 @@
 ## nginx下载
 
+**正向代理，客户端不想让服务器知道客户端的ip，所以让代理服务器去访问，再返回给客户端。
+反向代理，服务器不想客户端知道是哪个服务器响应的，所以让代理服务器去分配，让空闲的服务器去响应。**
+
 [下载地址](http://nginx.org/en/download.html)
 
 Stable version 稳定版
@@ -11,6 +14,30 @@ Stable version 稳定版
 cmd 命令启动```start nginx```
 
 - nginx -t  检查配合是否正确
+- nginx -s quit/nginx -s stop 关闭
+- nginx -s reload 重新加载nginx配置
+
+## location 的匹配规则
+
+共四种方式
+
+```js
+location[ = | ~ | ~* | ^~ ] url {
+
+}
+```
+
+- = ：精确匹配，用于不含正则表达式的url前，要求字符串与url严格匹配，完全相等时，才能停止向下搜索并处理请求
+- ^~：用于不含正则表达式的url前，要求ngin服务器找到表示url和字符串匹配度最高的location后，立即使用此location处理请求，而不再匹配
+- ~ ：最佳匹配，用于表示url包含正则表达式，并且区分大小写。
+- ~*：与~一样，只是不区分大小写
+
+>如果 url 包含正则表达式，则不需要 ~ 作为开头表示
+>nginx的匹配具有优先顺序，一旦匹配上就会立马退出，不再进行向下匹配
+
+
+[作为一名前端，该如何理解Nginx？](https://juejin.cn/post/7082655545491980301#heading-0)、
+[写给前端新人的nginx教程](https://juejin.cn/post/7052952117425733663#heading-6)
 
 ```
 #user  nobody;
