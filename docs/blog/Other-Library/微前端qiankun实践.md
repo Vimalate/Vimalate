@@ -642,6 +642,20 @@ import pdf from './pdf/vuePdfNoSss'
  ```
 2.  将主应用的路由实例传递给子应用，子应用使用主应用实例进行跳转
 
+**封装成方法**
+
+```js
+const qiankunJump = (url, mainRouter, name = '', params = null) => {
+  if (mainRouter) {
+    // 应用页在子应用-使用主应用路由实例跳转
+    mainRouter.push(url)
+    return
+  }
+  // 未传递主应用路由实例，传统方式跳转
+  window.history.pushState(params, name, url)
+}
+```
+
 
 参考：[微前端方案实践及总结](https://juejin.cn/post/6844904185910018062#heading-12)
 
