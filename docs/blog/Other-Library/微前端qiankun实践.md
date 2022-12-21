@@ -629,7 +629,7 @@ import pdf from './pdf/vuePdfNoSss'
 ![](https://gitee.com/lj107571/imgformd/raw/master/20220225145649.png)
 
 
-## qiankun框架中微应用之间如何跳转
+## qiankun框架中微应用之间如何跳转qiankun框架中微应用之间如何跳转
 
 1.  通过history.pushState()方式进行跳转
 
@@ -645,14 +645,22 @@ import pdf from './pdf/vuePdfNoSss'
 **封装成方法**
 
 ```js
-const qiankunJump = (url, mainRouter, name = '', params = null) => {
+const qiankunJump = (url, mainRouter, params) => {
   if (mainRouter) {
-    // 应用页在子应用-使用主应用路由实例跳转
-    mainRouter.push(url)
+    // 使用主应用路由实例跳转
+    mainRouter.push({ path: url, query: params })
     return
   }
   // 未传递主应用路由实例，传统方式跳转
-  window.history.pushState(params, name, url)
+  let searchParams = '?'
+  let targetUrl = url
+  if (typeOf(params) === 'object' && Object.keys(params).length) {
+    Object.keys(params).forEach(item => {
+      searchParams += `item=${params[item]}&`
+    })
+    targetUrl = targetUrl + searchParams.slice(0, searchParams.length - 1)
+  }
+  window.history.pushState(null, '', targetUrl)
 }
 ```
 
