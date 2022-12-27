@@ -232,6 +232,7 @@ module.exports = {
             ],
             ["Other-Library/算法初探", "算法初探"],
             ["Other-Library/设计模式", "设计模式"],
+            ["Other-Library/模板方法模式，父类封装流程，子类具体实现", "模板方法模式，父类封装流程，子类具体实现"],
             ["Other-Library/那些面试的手写", "那些面试的手写"],
             ["Other-Library/利器推荐", "利器推荐"],
             [
